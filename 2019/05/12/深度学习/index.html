@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="深层学习（也称为深层结构学习或分层学习）是基于人工神经网络的一系列机器学习方法的一部分。学习可以有监督、半监督或无监督。 深度学习体系结构，如深度神经网络、深度信念网络、循环神经网络和卷积神经网络，已应用于计算机视觉、语音识别、自然语言处理、音频识别、社会网络过滤、机器翻译、生物信息学、药物设计、医学信息管理等领域。年龄分析、材料检查和棋盘游戏程序，它们产生的结果与人类专家相当，在某些情况下优于人">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深度学习">
+<meta property="og:url" content="http://wangchengfei.info/2019/05/12/深度学习/index.html">
+<meta property="og:site_name" content="王成飞博客">
+<meta property="og:description" content="深层学习（也称为深层结构学习或分层学习）是基于人工神经网络的一系列机器学习方法的一部分。学习可以有监督、半监督或无监督。 深度学习体系结构，如深度神经网络、深度信念网络、循环神经网络和卷积神经网络，已应用于计算机视觉、语音识别、自然语言处理、音频识别、社会网络过滤、机器翻译、生物信息学、药物设计、医学信息管理等领域。年龄分析、材料检查和棋盘游戏程序，它们产生的结果与人类专家相当，在某些情况下优于人">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-14T04:13:45.833Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深度学习">
+<meta name="twitter:description" content="深层学习（也称为深层结构学习或分层学习）是基于人工神经网络的一系列机器学习方法的一部分。学习可以有监督、半监督或无监督。 深度学习体系结构，如深度神经网络、深度信念网络、循环神经网络和卷积神经网络，已应用于计算机视觉、语音识别、自然语言处理、音频识别、社会网络过滤、机器翻译、生物信息学、药物设计、医学信息管理等领域。年龄分析、材料检查和棋盘游戏程序，它们产生的结果与人类专家相当，在某些情况下优于人">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="王成飞博客" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://wangchengfei.info/2019/05/12/深度学习/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>深度学习 | 王成飞博客</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?77735b5a26e8f4057c64badd972d97be";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王成飞博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一切皆值得思考</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archives"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2019/05/12/深度学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王成飞">
+      <meta itemprop="description" content="实践后去沉淀，用探索的思维迎接未知领域和挑战。">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王成飞博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">深度学习
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-12 13:45:34" itemprop="dateCreated datePublished" datetime="2019-05-12T13:45:34+08:00">2019-05-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-14 12:13:45" itemprop="dateModified" datetime="2019-05-14T12:13:45+08:00">2019-05-14</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>深层学习（也称为深层结构学习或分层学习）是基于人工神经网络的一系列机器学习方法的一部分。学习可以有监督、半监督或无监督。</p>
+<p>深度学习体系结构，如深度神经网络、深度信念网络、循环神经网络和卷积神经网络，已应用于计算机视觉、语音识别、自然语言处理、音频识别、社会网络过滤、机器翻译、生物信息学、药物设计、医学信息管理等领域。年龄分析、材料检查和棋盘游戏程序，它们产生的结果与人类专家相当，在某些情况下优于人类专家。</p>
+<p>神经网络受到生物系统中信息处理和分布式通信节点的启发。神经网络与生物大脑有不同之处。具体来说，神经网络往往是静态的和象征性的，而大多数生物的生物大脑是动态的（可塑的）和模拟的。</p>
+<h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><p>深度学习是一类机器学习算法，它使用多层从原始输入中逐步提取更高层次的特征。例如，在图像处理中，较低的层可以识别边缘，而较高的层可以识别人类有意义的项目，如数字/字母或脸。</p>
+<h3 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h3><p>大多数现代的深度学习模型都是基于人工神经网络，特别是卷积神经网络（CNN），尽管它们也可以包括命题公式或深层生成模型中分层组织的潜在变量，如深层信仰网络中的节点和深层玻尔兹曼机器。</p>
+<p>在深度学习中，每个层次都学习将其输入数据转换为稍微抽象和复合的表示形式。在图像识别应用程序中，原始输入可以是像素矩阵；第一表示层可以提取像素并编码边缘；第二层可以组成和编码边缘的排列；第三层可以编码鼻子和眼睛；第四层可以识别图像包含面。重要的是，一个深入的学习过程可以学习哪些特性可以以最佳方式放置在哪个级别上。（当然，这并不能完全消除手动调优的需要；例如，不同数量的层和层大小可以提供不同程度的抽象。）[1][12]</p>
+<p>“深度学习”中的“深度”是指数据转换所通过的层数。更准确地说，深度学习系统有一个实质性的分配路径（CAP）深度。cap是从输入到输出的转换链。caps描述了输入和输出之间潜在的因果关系。对于前馈神经网络，caps的深度是网络的深度，是隐藏层的数量加上一个（因为输出层也是参数化的）。对于一个信号可能多次通过一个层传播的循环神经网络，cap可能是无限的。没有一个普遍同意的深度阈值将浅学习与深学习区分开来，但大多数研究者同意深学习涉及cap&gt;2。深度2的上限已经被证明是一个通用的近似值，在这个意义上，它可以模拟任何函数。更多的层不会增加网络的函数近似值能力。深度模型（cap&gt;2）能够提取比浅模型更好的特性，因此，额外的层有助于学习特性。</p>
+<p>对于有监督的学习任务，深度学习方法通过将数据转换为类似于主要组件的紧凑的中间表示，从而避免了特征工程，并派生出消除表示中冗余的分层结构。</p>
+<p>深度学习算法可以应用于无监督的学习任务。这是一个重要的好处，因为未标记的数据比标记的数据更丰富。可以无监督地训练的深层结构的例子有神经历史压缩器（neural history compressors）和深层信仰网络（deep belief network-DBN）。</p>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>深部神经网络一般用普遍逼近定理或概率推理来解释。</p>
+<p>经典的通用近似定理涉及具有有限尺寸的单个隐藏层的前馈神经网络近似连续函数的能力。1989年，George Cybenko发布了第一个证明sigmoid激活函数的证据，并被概括为前馈多层结构。1991年，库尔特·霍尼克。</p>
+<p>深神经网络的普遍逼近定理涉及有界宽度的网络的容量，但允许深度增长。Lu等人证明，如果具有relu激活的深层神经网络的宽度严格大于输入维数，则该网络可以近似任何Lebesgue可积函数；如果宽度小于或等于输入维数，则深层神经网络不是一个通用的近似器。</p>
+<p>概率解释源于机器学习领域。它的特点是推理以及训练和测试的优化概念，分别与拟合和泛化有关。更具体地说，概率解释将激活非线性视为一个累积分布函数。概率解释导致在神经网络中引入辍学作为正则化器。概率解释由Hopfield、Widrow、Narendra和Po等研究人员引入。在诸如Bisshop的调查中广受欢迎。</p>
+<h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h3><p>Deep Learning一词由Rina Dechter于1986年引入机器学习社区，并由Igor Aizenberg及其同事于2000年在布尔阈值神经元的背景下引入人工神经网络。</p>
+<p>Alexey Ivakhnenko和Lapa于1965年发布了第一个用于监督、深度、前馈、多层感知器的通用工作学习算法。1971年的一篇论文描述了一个由数据处理算法的分组方法训练的8层深度网络。</p>
+<p>其他的深度学习工作体系结构，特别是那些为计算机视觉而构建的体系结构，从1980年福岛大学（Kunihiko Fukushima）引进的Neocongent开始，1989年，Yann Lecun等人将1970年以来作为自动微分逆模式的标准反向传播算法。应用到一个深层神经网络中，以识别邮件上手写的邮政编码。算法运行时，训练需要3天时间。</p>
+<p>到1991年，这种系统被用于识别孤立的二维手写数字，而识别三维物体则是通过将二维图像与手工制作的三维物体模型相匹配来完成的。人脑不使用单一的三维物体模型，1992年他们发表了一种在杂乱的场景中进行三维物体识别的方法。因为它直接使用自然图像，克赛普龙开始了对自然3D世界的通用视觉学习。克西普是一个层叠的层，类似于新认知。但是，尽管Neocoginatron需要一个人类程序员手工合并特性，但是Creceptron在没有监督的情况下，在每一层中都学习了开放的特性数量，其中每个特性都由卷积内核表示。克赛普龙通过网络进行反向分析，从杂乱的场景中分割出每个学习到的对象。Max池，现在通常被深神经网络（如ImageNet测试）采用，首先被用于Creceptron，通过级联将位置分辨率降低（2x2）到1，以获得更好的泛化。</p>
+<p>1994年，Andr_de Carvalho与Mike Fairhurst和David Bisset共同发表了由三层自组织特征提取神经网络模块（Soft）和多层分类神经网络模块（GSN）组成的多层布尔神经网络（也称为失重神经网络）的实验结果。他们是独立训练的。特征提取模块中的每一层都提取了与前一层相关的日益复杂的特征。</p>
+<p>1995年，Brendan Frey证明，使用与Peter Dayan和Hinton共同开发的Wake-Sleep算法，可以训练（超过两天）包含六个完全连接层和数百个隐藏单元的网络。许多因素导致了速度慢，包括SEPP在1991年分析的消失梯度问题。</p>
+<p>在20世纪90年代和2000年代，由于人工神经网络（ANN）的计算成本以及对大脑如何连接其生物网络的缺乏了解，使用特定于任务的手工制作功能（如Gabor滤波器和支持向量机）的简单模型是一个流行的选择。</p>
+<p>对人工神经网络的浅层和深层学习（如重复网络）进行了多年的探索。这些方法从来没有超过基于语音生成模型的非均匀内部手工高斯混合模型/隐马尔可夫模型（GMM-HMM）技术。分析了关键难点，包括神经预测模型中丁氏梯度递减和弱时间相关结构，另外的困难是缺乏训练数据和有限的计算能力。</p>
+<p>大多数语音识别研究人员不再使用神经网络来进行生成建模。上世纪90年代末，斯坦福国际研究所的一个例外是，在美国国家安全局（NSA）和国防高级研究计划局（DARPA）的资助下，斯坦福国际研究了语音和说话人识别中的深层神经网络。Heck的说话人识别团队在1998年国家标准与技术研究所的说话人识别评估中首次在语音处理方面取得了显著的成功尽管SRI在说话人识别方面取得了深层神经网络的成功，但他们在证明类似的成功方面没有取得成功。在语音识别中。20世纪90年代末，在“原始”谱图或线性滤波器组特征的深层自动编码器体系结构中，首次成功探索了将“原始”特征提升为手工优化的原理，显示了其优于包含谱图固定转换阶段的Mel倒谱特征。语音的原始特征，波形，后来产生了很好的结果。</p>
+<p>语音识别的许多方面都被一种称为长短期记忆（lstm）的深度学习方法所取代，这是Hochreiter和Schmidhuber于1997年出版的一种复发性神经网络lstm rnns避免了消失梯度问题，可以学习“非常深的学习”任务。需要对发生在数千个磁盘上的事件进行记忆。重复之前的时间步骤，这对演讲很重要。2003年，LSTM开始在某些任务上与传统语音识别器竞争。后来，它与连接主义时间分类（CTC）结合起来，在LSTM RNN的堆栈中。2015年，据报道，谷歌的语音识别通过经过CTC培训的LSTM经历了49%的性能跃升，从而使其变得可用。通过谷歌语音搜索。</p>
+<p>深度学习是各个学科最先进的系统的一部分，特别是计算机视觉和自动语音识别（ASR）。对常用的评价集如timit（asr）和mnist（image classification）以及一系列大词汇语音识别任务的评价结果有了稳步的提高。卷积神经网络（cnns）被lstm的ctc取代为asr，但在计算机视觉方面更为成功。</p>
+<p>据Yann Lecun称，深度学习对大规模语音识别的工业应用始于20世纪初，当时CNN已经处理了大约10%到20%的美国书面检查。</p>
+<p>2009年的NIPS语音识别深度学习的动机是由于语音的深层生成模型的局限性，以及考虑到更强大的硬件和大规模数据集，深层神经网络（DNN）可能变得实用的可能性。人们认为，使用深度信念网络（DBN）生成模型的预训练DNN将克服神经网络的主要困难。然而，人们发现，当使用具有大的、上下文相关的输出层的DNN时，用大量训练数据代替预训练直接进行反向传播会产生错误。ates大大低于当时最先进的高斯混合模型（gmm）/隐马尔可夫模型（hmm），也低于更先进的基于模型的系统。这两种系统产生的识别错误的性质有着显著的不同，为如何集成深度学习提供了技术见解。通过2009-2010年前后的分析，对比了GMM（和其他生成语音模型）与DNN模型，刺激了早期工业对语音识别深度学习的投资，最终导致普及。在那个行业中有着重要的和占主导地位的用途。这项分析是在区分性dnn和生成性模型之间进行的（误差率小于1.5%）。</p>
+<p>2010年，研究人员通过采用决策树构造的基于上下文相关的HMM状态的DNN的大输出层，将深度学习从羞怯扩展到了大词汇语音识别。</p>
+<p>硬件的进步使人们重新产生了兴趣。2009年，英伟达参与了被称为“深度学习的大爆炸”，因为深度学习神经网络接受了英伟达图形处理单元（GPU）的培训。在那里，Andrew Ng确定GPU可以将深度学习系统的速度提高大约100倍。GPU非常适合于机器学习中涉及的矩阵/向量数学。GPU加速训练算法的数量级，减少了从周到几天的运行时间。专用硬件。算法优化可用于高效处理。</p>
+<h4 id="深度学习革命"><a href="#深度学习革命" class="headerlink" title="深度学习革命"></a>深度学习革命</h4><p>2012年，Dahl领导的团队利用多任务深度神经网络预测一种药物的生物分子目标，赢得了“默克分子活性挑战赛”。2014年，Hochreiter的团队利用深度学习检测营养素、家用产品和药物中环境化学品的靶向和毒性效应，并获得了“TOX21数据ch”。美国国家卫生研究院、美国食品和药物管理局和国家癌症研究所的阿伦奇。</p>
+<p>从2011年到2012年，在图像或物体识别方面感受到了显著的额外影响。虽然由反向传播培训的CNN已经存在几十年了，多年来，包括CNN在内的NNS的GPU实现，但是需要以Ciresan和同事的方式在GPU上快速实现CNN，从而在计算机视觉方面取得进展。视觉模式识别比赛中的表现。2011年，它还赢得了ICDAR中文笔迹比赛，2012年5月，它赢得了ISBI图像分割比赛。直到2011年，CNN在计算机视觉会议上没有发挥重要作用，但是2012年6月，Ciresan等人的一篇论文。在领先的cvpr展示了在GPU上最大限度地汇集CNN可以显著提高许多视觉基准记录。2012年10月，Krizhevsky等人的一个类似系统以显著优势战胜了浅机器学习方法，赢得了大规模的Imagenet竞争。2012年11月，Ciresan等人的系统还赢得了用于癌症检测的大型医学图像分析的ICPR竞赛，并在接下来的一年里，也赢得了关于同一主题的MICCAI大挑战。在2013年和2014年，使用深度学习的ImageNet任务的错误率进一步降低。</p>
+<p>一些研究人员评估说，2012年10月的Imagenet的胜利锚定了“深度学习革命”的开始，这场革命已经改变了人工智能产业。</p>
+<p>2019年3月，Yoshua Bengio、Geoffrey Hinton和Yann Lecun因概念和工程突破而获得图灵奖，这些突破使深层神经网络成为计算的重要组成部分。</p>
+<h3 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h3><h4 id="人工神经网络"><a href="#人工神经网络" class="headerlink" title="人工神经网络"></a>人工神经网络</h4><p>人工神经网络（anns）或连接主义系统是受构成动物大脑的生物神经网络启发而设计的计算系统。此类系统通过考虑示例学习（逐步提高其能力），通常不需要特定于任务的编程。例如，在图像识别中，他们可以通过分析手动标记为“cat”或“no cat”的示例图像，并使用分析结果来识别其他图像中的猫，从而学会识别包含猫的图像。他们发现在使用基于规则编程的传统计算机算法难以表达的应用程序中使用最多。</p>
+<p>人工神经网络是基于一组被称为人工神经元的连接单元（类似于生物大脑中的生物神经元）。神经元之间的每一个连接（突触）都能将一个信号传递给另一个神经元。接收（突触后）神经元可以处理信号，然后向与其相连的下游神经元发送信号。神经元可能有状态，通常用实数表示，通常在0到1之间。神经元和突触的重量也会随着学习的进行而变化，这会增加或减少它向下游发送的信号的强度。</p>
+<p>通常，神经元是分层组织的。不同的层可以对其输入执行不同类型的转换。信号从第一层（输入）传输到最后一层（输出），可能在多次遍历层之后。</p>
+<p>神经网络方法的最初目标是以与人脑相同的方式解决问题。随着时间的推移，注意力集中在匹配特定的心理能力上，导致偏离生物学，如反向传播，或反向传递信息，并调整网络以反映这些信息。</p>
+<p>神经网络已被用于各种任务，包括计算机视觉、语音识别、机器翻译、社交网络过滤、游戏板和视频游戏以及医学诊断。</p>
+<p>截至2017年，神经网络通常有几千到几百万个单元和数百万个连接。尽管这个数字比人脑中的神经元数量少几个数量级，但这些网络可以在人类以外的水平上执行许多任务（例如，识别人脸，玩“go”）。</p>
+<h4 id="深层神经网络"><a href="#深层神经网络" class="headerlink" title="深层神经网络"></a>深层神经网络</h4><p>深度神经网络（dnn）是一种在输入和输出层之间有多层的人工神经网络（ann）。无论是线性关系还是非线性关系，dnn都能找到正确的数学操作，将输入转换为输出。网络通过计算每个输出概率的层移动。例如，训练识别狗品种的dnn将遍历给定的图像，并计算图像中的狗是某个品种的概率。用户可以查看结果并选择网络应显示的概率（高于某个阈值等），然后返回建议的标签。每一个这样的数学操作都被视为一个层，而复杂的dnn有许多层，因此被称为“深层”网络。最终，网络将被训练成将图像分解为特征，识别所有样本中存在的趋势，并根据新图像的相似性对其进行分类，而无需人工输入。</p>
+<p>DNN可以模拟复杂的非线性关系。DNN体系结构生成复合模型，其中对象表示为基本体的分层组合。额外的层允许来自较低层的功能组合，可能使用比同样执行的浅网络更少的单元来建模复杂数据。</p>
+<p>DNN通常是前馈网络，其中数据从输入层流到输出层，而不返回。首先，dnn创建一个虚拟神经元的映射，并为它们之间的连接分配随机数值或“权重”。将权重和输入相乘，并返回介于0和1之间的输出。如果网络不能准确地识别特定的模式，算法将调整权重，这样算法就可以使某些参数更具影响力，直到它确定正确的数学操作来完全处理数据。</p>
+<p>深层架构包括一些基本方法的许多变体。每个体系结构都在特定的领域中取得了成功。不可能总是比较多个体系结构的性能，除非在同一个数据集上对它们进行了评估。</p>
+<p>卷积深度神经网络（CNN）用于计算机视觉。CNN也被应用于语音自动识别（ASR）的声学建模。</p>
+<p><strong>挑战</strong></p>
+<p>与人工神经网络一样，许多问题都可以由经过简单训练的dnn产生。两个常见的问题是过度拟合和计算时间。</p>
+<p>由于增加了抽象层，DNN容易过度拟合，这使得它们能够在训练数据中建模罕见的依赖关系。训练中可以应用正规化方法，如Ivakhnenko的单元修剪或重量衰减或稀疏度，以对抗过度拟合或者在训练期间从隐藏层中随机删除单元。这有助于排除罕见的依赖性。最后，可以通过裁剪和旋转等方法来增加数据，从而增加较小的训练集，以减少过度拟合的可能。</p>
+<p>DNN必须考虑许多训练参数，例如大小（层数和每层单位数）、学习率和初始权重。由于时间成本和计算资源的原因，在参数空间中搜索最优参数可能是不可行的。各种技巧，例如批处理（一次计算多个训练示例的梯度，而不是单个示例）加快计算速度。许多核心体系结构（如GPU或Intel Xeon phi）的大型处理能力在培训中产生了显著的加速，因为这些处理体系结构适用于矩阵和向量计算。</p>
+<p>或者，工程师可以寻找其他类型的神经网络，使用更简单和收敛的训练算法。小脑模型关节控制器（CMAC）就是一种神经网络。它不需要学习率或随机初始权重的CMAC。训练过程可以保证与新的一批数据一步收敛，训练算法的计算复杂度与涉及的神经元数量呈线性关系。</p>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><h4 id="自动语音识别"><a href="#自动语音识别" class="headerlink" title="自动语音识别"></a>自动语音识别</h4><p>大规模自动语音识别是深度学习的第一个也是最令人信服的成功案例。lstm-rnns可以学习“非常深入的学习”任务，这些任务涉及包含由数千个离散时间步分隔的语音事件的多秒间隔，其中一个时间步对应约10 ms。lstm-with-forget-gates在某些任务上与传统的语音识别器具有竞争性。</p>
+<p>语音识别的初步成功是建立在基于TIMIT的小规模识别任务基础上的。该数据集包含来自美国英语八种主要方言的630个说话者，每个说话者读10句话。【119】它的小尺寸使许多配置得以尝试。更重要的是，这项胆怯的任务涉及到电话序列识别，与字序列识别不同，它允许弱的电话双随机语言模型。这使得语音识别的声学建模方面的强度更容易分析。以下列出的错误率，包括这些早期结果，并以电话错误率百分比（PER）度量，自1991年以来进行了总结。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Method</th>
+<th style="text-align:center">PER (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Randomly Initialized RNN</td>
+<td style="text-align:center">26.1</td>
+</tr>
+<tr>
+<td style="text-align:center">Bayesian Triphone GMM-HMM</td>
+<td style="text-align:center">25.6</td>
+</tr>
+<tr>
+<td style="text-align:center">Hidden Trajectory (Generative) Model</td>
+<td style="text-align:center">24.8</td>
+</tr>
+<tr>
+<td style="text-align:center">Monophone Randomly Initialized DNN</td>
+<td style="text-align:center">23.4</td>
+</tr>
+<tr>
+<td style="text-align:center">Monophone DBN-DNN</td>
+<td style="text-align:center">22.4</td>
+</tr>
+<tr>
+<td style="text-align:center">Triphone GMM-HMM with BMMI Training</td>
+<td style="text-align:center">21.7</td>
+</tr>
+<tr>
+<td style="text-align:center">Monophone DBN-DNN on fbank</td>
+<td style="text-align:center">20.7</td>
+</tr>
+<tr>
+<td style="text-align:center">Convolutional DNN</td>
+<td style="text-align:center">20.0</td>
+</tr>
+<tr>
+<td style="text-align:center">Convolutional DNN w. Heterogeneous Pooling</td>
+<td style="text-align:center">18.7</td>
+</tr>
+<tr>
+<td style="text-align:center">Ensemble DNN/CNN/RNN[</td>
+<td style="text-align:center">18.3</td>
+</tr>
+<tr>
+<td style="text-align:center">Bidirectional LSTM</td>
+<td style="text-align:center">17.9</td>
+</tr>
+<tr>
+<td style="text-align:center">Hierarchical Convolutional Deep Maxout Network</td>
+<td style="text-align:center">16.5</td>
+</tr>
+</tbody>
+</table>
+<p>20世纪90年代末，DNN系统首次用于说话人识别，2009-2011年首次用于语音识别，2003-2007年首次用于语音识别，8个主要领域的进展加快了：</p>
+<ul>
+<li>放大/缩小和适应的dnn训练和解码</li>
+<li>序列识别训练</li>
+<li>深入模型的特征处理，对底层机制有深入的了解</li>
+<li>DNN及相关深部模型的适应</li>
+<li>基于DNN的多任务转移学习及相关深层模型</li>
+<li>CNN及其设计如何最大限度地利用语音领域知识</li>
+<li>RNN及其丰富的LSTM变体</li>
+<li>其他类型的深层模型包括基于张量的模型和集成深层生成/识别模型</li>
+</ul>
+<p>所有主要的商业语音识别系统（如微软Cortana、Xbox、Skype翻译器、亚马逊Alexa、Google Now、苹果Siri、百度和iFlytek语音搜索以及一系列细微差别语音产品等）都是基于深度学习的。</p>
+<h4 id="图像识别"><a href="#图像识别" class="headerlink" title="图像识别"></a>图像识别</h4><p>图像分类常用的评估集是mnist数据库数据集。mnist由手写数字组成，包括60000个训练示例和10000个测试示例。和Timit一样，它的小尺寸允许用户测试多种配置。此集合的结果的综合列表可用。</p>
+<p>基于深度学习的图像识别已经成为“超人”，产生的结果比人类竞争者更准确。这首次发生在2011年。</p>
+<p>经过深度学习训练的车辆现在可以解释360°摄像头视图。另一个例子是面部畸形新分析（FDNA），用于分析连接到大型遗传综合征数据库的人类畸形病例。</p>
+<h4 id="视觉艺术处理"><a href="#视觉艺术处理" class="headerlink" title="视觉艺术处理"></a>视觉艺术处理</h4><p>与图像识别的进展密切相关的是，深度学习技术越来越多地应用于各种视觉艺术任务。例如，dnn已经证明了自己的能力：a）识别给定绘画的风格周期；b）神经风格转换——捕捉给定艺术作品的风格，并以视觉愉悦的方式将其应用于任意照片或视频；c）基于随机视觉输入字段生成引人注目的图像。</p>
+<h4 id="自然语言处理"><a href="#自然语言处理" class="headerlink" title="自然语言处理"></a>自然语言处理</h4><p>自2000年代初以来，神经网络已被用于实现语言模型。LSTM帮助改进了机器翻译和语言建模。</p>
+<p>这个领域的其他关键技术是负抽样和嵌入字。单词嵌入，例如word2vec，可以被认为是深度学习体系结构中的一个表示层，它将原子单词转换为相对于数据集中其他单词的单词位置表示；该位置表示为矢量空间中的一个点。将单词嵌入作为RNN输入层，允许网络使用有效的组合向量语法解析句子和短语。组合向量语法可以被看作是由RNN实现的概率上下文无关语法（PCFG）。在单词嵌入之上构建的递归自动编码器可以评估句子相似性并检测改写。深层神经架构为选区分析提供最佳结果，情绪分析，信息离子检索，口语理解，机器翻译，上下文实体链接，写作风格识别，文本分类等。</p>
+<p>近年来的发展将嵌入词概括为嵌入句。</p>
+<p>谷歌翻译（GT）使用一个大的端到端长的短期内存网络。谷歌神经机器翻译（GNMT）使用一个基于实例的机器翻译方法，在该方法中，系统“从数百万个例子中学习”。google translate支持100多种语言。网络编码“句子的语义，而不是简单地记忆短语到短语的翻译”。gt使用英语作为大多数语言对之间的中间语言。</p>
+<h4 id="药物发现与毒理学"><a href="#药物发现与毒理学" class="headerlink" title="药物发现与毒理学"></a>药物发现与毒理学</h4><p>大量候选药物未能获得监管部门的批准。这些失败是由于功效不足（靶向效应）、不期望的相互作用（靶向效应）或未预料到的毒性效应所致。研究探索了利用深度学习预测生物分子靶向以及环境化学品在营养、家用产品和药物中的毒性效应。</p>
+<p>atomnet是一个基于结构的合理药物设计的深度学习系统。atomnet被用来预测新的候选生物分子，用于疾病靶点，如埃博拉病毒和多发性硬化症。</p>
+<h4 id="客户关系管理"><a href="#客户关系管理" class="headerlink" title="客户关系管理"></a>客户关系管理</h4><p>深度强化学习被用来近似可能的直接营销行动的价值，以RFM变量定义。估计值函数被证明具有客户生命周期值的自然解释。</p>
+<h4 id="推荐系统"><a href="#推荐系统" class="headerlink" title="推荐系统"></a>推荐系统</h4><p>推荐系统使用深度学习为基于内容的音乐推荐的潜在因素模型提取有意义的特征。多视图深度学习已应用于从多个领域学习用户偏好。该模型采用了混合协作和基于内容的方法，并增强了多用户的推荐。多任务。</p>
+<h4 id="生物信息学"><a href="#生物信息学" class="headerlink" title="生物信息学"></a>生物信息学</h4><p>在生物信息学中使用了一个自动编码神经网络来预测基因本体注释和基因功能关系。</p>
+<p>在医学信息学中，深度学习是根据可穿戴设备的数据和电子健康记录数据对健康并发症的预测来预测睡眠质量的。深度学习在医疗保健中也显示出功效。</p>
+<h4 id="医学图像分析"><a href="#医学图像分析" class="headerlink" title="医学图像分析"></a>医学图像分析</h4><p>深入学习在医学应用中产生了竞争性的结果，如癌细胞分类、病变检测、器官分割和图像增强。</p>
+<h4 id="移动广告"><a href="#移动广告" class="headerlink" title="移动广告"></a>移动广告</h4><p>为移动广告寻找合适的移动受众一直是一个挑战，因为在任何广告服务器创建和使用广告服务的目标细分市场之前，必须考虑并吸收许多数据点。深度学习被用来解释大型、多维度的广告数据集。在请求/服务/点击互联网广告周期中收集了许多数据点。这些信息可以构成机器学习的基础，以提高广告的选择。</p>
+<h4 id="图像恢复"><a href="#图像恢复" class="headerlink" title="图像恢复"></a>图像恢复</h4><p>深度学习已成功地应用于逆向工程，如去噪、超分辨率、着色和胶片着色。这些应用包括学习方法，例如“有效图像恢复的收缩场”。在图像数据集上训练，以及“深度图像优先”在需要恢复的图像上训练。</p>
+<h4 id="金融欺诈检测"><a href="#金融欺诈检测" class="headerlink" title="金融欺诈检测"></a>金融欺诈检测</h4><p>深入学习正成功地应用于金融欺诈检测和反洗钱。”深入的反洗钱检测系统可以发现和识别数据之间的关系和相似性，并进一步学习检测异常或对特定事件进行分类和预测”。该解决方案利用了监督学习技术（如可疑交易的分类）和无监督学习（如异常检测）。</p>
+<h4 id="军事"><a href="#军事" class="headerlink" title="军事"></a>军事</h4><p>美国国防部应用深度学习，通过观察训练机器人完成新任务。</p>
+<h3 id="人类认知与大脑发育的关系"><a href="#人类认知与大脑发育的关系" class="headerlink" title="人类认知与大脑发育的关系"></a>人类认知与大脑发育的关系</h3><p>深度学习与认知神经科学家在20世纪90年代早期提出的一类大脑发育理论（特别是新皮质发育）密切相关。这些发展理论在计算模型中被例示，使其成为深度学习系统的前身。这些发展模型具有这样的特性：大脑中各种拟议的学习动态（例如，神经生长因子波）支持组织，有点类似于深度学习模型中使用的神经网络。与新皮层一样，神经网络采用分层过滤器的层次结构，每一层都考虑来自前一层（或操作环境）的信息，然后将其输出（可能是原始输入）传递给其他层。这个过程产生了一个自组织的传感器堆栈，很好地适应了它们的工作环境。1995年的一份描述说，“……婴儿的大脑似乎在所谓的营养因子的影响下组织起来……大脑的不同区域依次连接，一层组织在另一层组织之前成熟，直到整个大脑成熟。</p>
+<p>从神经生物学的角度研究了深层学习模型的合理性。一方面，为了提高处理的真实性，已经提出了几种反向传播算法的变体。其他研究人员认为，无监督的深度学习形式，如基于层次生成模型和深度信仰网络的深度学习形式，可能更接近生物现实。在这篇文章中。特别是，生成神经网络模型与大脑皮层基于采样处理的神经生物学证据有关。</p>
+<p>虽然还没有对人脑组织和深部网络中的神经元编码进行系统的比较，但已有一些类似的报道。例如，深度学习单元进行的计算可能与实际神经元和神经群的计算相似。同样，深度学习模型开发的表示与灵长类视觉系统在单个单元和群体水平上测量的表示相似。</p>
+<h3 id="商业活动"><a href="#商业活动" class="headerlink" title="商业活动"></a>商业活动</h3><p>许多组织为特定的应用程序采用深度学习。Facebook的人工智能实验室执行一些任务，比如用上传图片中的人的名字自动标记上传的图片。</p>
+<p>谷歌的DeepMind技术开发了一个系统，能够学习如何使用像素作为数据输入来玩Atari视频游戏。2015年，他们展示了他们的alphago系统，该系统学得很好，足以打败专业的围棋玩家。</p>
+<p>2015年，Blippar演示了一个移动增强现实应用程序，它使用深度学习来实时识别对象。</p>
+<p>截至2008年，德克萨斯大学奥斯汀分校（UT）的研究人员开发了一种机器学习框架，称为“通过评估性强化（evaluative reinformation）或“驯服者”（tamer）手动培训代理，该框架为机器人或计算机程序提供了新的方法，以便通过与人类导师的互动来学习如何执行任务。</p>
+<p>最早作为Tamer开发的一种称为DeepTamer的新算法后来在2018年由美国陆军研究实验室（ARL）和UT研究人员合作推出。深度驯化器利用深度学习为机器人提供通过观察来学习新任务的能力。</p>
+<p>使用深度驯化器，机器人与人类教练学习一项任务，观看视频流或亲自观察人类执行一项任务。机器人后来在教练的指导下完成了这项任务，教练给机器人提供了“好工作”和“坏工作”等反馈。</p>
+<h3 id="批评和评论"><a href="#批评和评论" class="headerlink" title="批评和评论"></a>批评和评论</h3><p>深度学习既受到了批评，也受到了评论，在某些情况下，这是来自计算机科学以外的领域。</p>
+<h4 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h4><p>一个主要的批评是缺乏围绕某些方法的理论。在最常见的深层架构中学习是使用理解良好的梯度下降来实现的。然而，围绕其他算法的理论，例如对比发散，却不那么清晰。（例如，它会聚了吗？如果是，有多快？近似值是多少？）深度学习的方法通常被视为一个黑匣子，大多数的确认都是通过经验而不是理论进行的。</p>
+<p>其他人指出，深度学习应该被视为实现强大人工智能的一步，而不是一个全面的解决方案。尽管深度学习方法具有强大的威力，但它们仍然缺乏完全实现此目标所需的许多功能。研究心理学家加里马库斯指出：</p>
+<p>“实际上，深度学习只是构建智能机器的更大挑战的一部分。这类技术缺乏表现因果关系的方法，没有明显的逻辑推理方法，而且它们离整合抽象知识（例如关于对象是什么、对象是什么以及它们通常如何使用的信息）还有很长的路要走。像Watson这样最强大的AI系统使用像深度学习这样的技术作为非常复杂的技术集合中的一个元素，从贝叶斯推理的统计技术到演绎推理。</p>
+<p>除了强调深度学习的局限性之外，一位作者推测有可能训练机器视觉堆栈来完成区分“老主人”和业余图形的复杂任务，并假设这种敏感度可能代表了非平凡机器EMPA的雏形。同一位作者提出，这与人类学是一致的，人类学认为美学是行为现代性的一个关键要素。</p>
+<p>在进一步提到艺术敏感性可能存在于相对较低的认知层次中这一观点时，发表了一系列深层（20-30层）神经网络内部状态的图形表示，试图在本质上随机的数据中辨别训练它们的图像。证明了Sual上诉：最初的研究收到了超过1000条评论，是卫报网站上一段时间最常访问的文章的主题。</p>
+<h4 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h4><p>一些深度学习体系结构显示出问题行为，例如自信地将无法识别的图像分类为普通图像的熟悉类别。以及对正确分类的图像的微小干扰进行错误分类。Goertzel假设这些行为是由于其内部重新分类的局限性。陈述和这些限制将抑制集成到异构多组件人工通用智能（AGI）体系结构中。这些问题可以通过内部形成与图像语法相同状态的深度学习体系结构来解决对观察到的实体和事件的分解。学习从训练数据中获得语法（视觉或语言），就相当于将系统限制为常识推理，该推理根据语法产生规则对概念进行操作，是人类语言习得和人工智能（AI）的基本目标。</p>
+<h4 id="网络威胁"><a href="#网络威胁" class="headerlink" title="网络威胁"></a>网络威胁</h4><p>随着深度学习从实验室走向世界，研究和经验表明，人工神经网络容易受到黑客攻击和欺骗。通过识别这些系统用于运行的模式，攻击者可以修改对ANN的输入，从而使ANN找到人类观察者无法识别的匹配项。例如，攻击者可以对图像进行细微的更改，这样，即使图像看起来与搜索目标完全不同，人工神经网络也能找到匹配的图像。这种操作被称为“对抗性攻击”。2016年，研究人员使用一个人工神经网络以试验和错误的方式对图像进行诊断，识别另一个图像的焦点，从而生成欺骗它的图像。修改后的图像在人眼看来没有什么不同。另一组研究表明，打印出来的篡改图像成功地欺骗了图像分类系统。一个防御措施是反向图像搜索，其中一个可能的假图像被提交到Tineye这样的网站，然后可以找到它的其他实例。一种改进是只使用图像的一部分进行搜索，以识别可能从中获取该片段的图像。</p>
+<p>另一组研究表明，某些迷幻眼镜可以愚弄面部识别系统，使其认为普通人是名人，可能允许一个人模仿另一个人。在2017年，研究人员增加了标签来阻止信号，并导致了一个神经网络错误分类它们。</p>
+<p>然而，人工神经网络可以接受进一步的训练，以检测欺骗企图，可能导致攻击者和防御者进入一场类似于已经定义了恶意软件防御行业的军备竞赛。人工神经网络已经被训练来击败基于人工神经网络的反恶意软件软件，通过反复攻击恶意软件进行防御，该恶意软件被遗传算法不断修改，直到它欺骗了反恶意软件，同时保留了其攻击目标的能力。</p>
+<p>另一个研究小组证明，某些声音可以让Google Now语音命令系统打开一个特定的网址，下载恶意软件。</p>
+<p>在“数据中毒”中，假数据不断地被走私到机器学习系统的训练集中，以防止其达到精通状态。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>您的支持是我最大的动力！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="王成飞 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="王成飞 Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/09/计算机的发展/" rel="next" title="计算机的发展">
+                <i class="fa fa-chevron-left"></i> 计算机的发展
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/22/曼哈顿工程/" rel="prev" title="曼哈顿工程">
+                曼哈顿工程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4" alt="王成飞">
+            
+              <p class="site-author-name" itemprop="name">王成飞</p>
+              <div class="site-description motion-element" itemprop="description">实践后去沉淀，用探索的思维迎接未知领域和挑战。</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/jidebingchuan" title="GitHub &rarr; https://github.com/jidebingchuan" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:wcf_first@163.com" title="E-Mail &rarr; mailto:wcf_first@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#缘起"><span class="nav-number">1.</span> <span class="nav-text">缘起</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#概览"><span class="nav-number">2.</span> <span class="nav-text">概览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解释"><span class="nav-number">3.</span> <span class="nav-text">解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#历史"><span class="nav-number">4.</span> <span class="nav-text">历史</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#深度学习革命"><span class="nav-number">4.1.</span> <span class="nav-text">深度学习革命</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#神经网络"><span class="nav-number">5.</span> <span class="nav-text">神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#人工神经网络"><span class="nav-number">5.1.</span> <span class="nav-text">人工神经网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深层神经网络"><span class="nav-number">5.2.</span> <span class="nav-text">深层神经网络</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用"><span class="nav-number">6.</span> <span class="nav-text">应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自动语音识别"><span class="nav-number">6.1.</span> <span class="nav-text">自动语音识别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图像识别"><span class="nav-number">6.2.</span> <span class="nav-text">图像识别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#视觉艺术处理"><span class="nav-number">6.3.</span> <span class="nav-text">视觉艺术处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自然语言处理"><span class="nav-number">6.4.</span> <span class="nav-text">自然语言处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#药物发现与毒理学"><span class="nav-number">6.5.</span> <span class="nav-text">药物发现与毒理学</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#客户关系管理"><span class="nav-number">6.6.</span> <span class="nav-text">客户关系管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#推荐系统"><span class="nav-number">6.7.</span> <span class="nav-text">推荐系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生物信息学"><span class="nav-number">6.8.</span> <span class="nav-text">生物信息学</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#医学图像分析"><span class="nav-number">6.9.</span> <span class="nav-text">医学图像分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移动广告"><span class="nav-number">6.10.</span> <span class="nav-text">移动广告</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图像恢复"><span class="nav-number">6.11.</span> <span class="nav-text">图像恢复</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#金融欺诈检测"><span class="nav-number">6.12.</span> <span class="nav-text">金融欺诈检测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#军事"><span class="nav-number">6.13.</span> <span class="nav-text">军事</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#人类认知与大脑发育的关系"><span class="nav-number">7.</span> <span class="nav-text">人类认知与大脑发育的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#商业活动"><span class="nav-number">8.</span> <span class="nav-text">商业活动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#批评和评论"><span class="nav-number">9.</span> <span class="nav-text">批评和评论</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#理论"><span class="nav-number">9.1.</span> <span class="nav-text">理论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#错误"><span class="nav-number">9.2.</span> <span class="nav-text">错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络威胁"><span class="nav-number">9.3.</span> <span class="nav-text">网络威胁</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王成飞</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

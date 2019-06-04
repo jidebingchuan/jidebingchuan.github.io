@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="机器学习（ML）是对计算机系统使用的算法和统计模型的科学研究，这些算法和统计模型不使用显式指令，而是依靠模式和推理来有效地执行特定的任务。它被视为人工智能的一个子集。机器学习算法基于样本数据（称为“训练数据”）建立数学模型，以便在没有明确编程来执行任务的情况下做出预测或决策。 机器学习算法被广泛应用于各种应用中，如电子邮件过滤和计算机视觉。在这些应用中它是不可行的，开发执行任务的特定指令的算法。机">
+<meta name="keywords" content="人工智能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习">
+<meta property="og:url" content="http://wangchengfei.info/2019/04/26/机器学习/index.html">
+<meta property="og:site_name" content="王成飞博客">
+<meta property="og:description" content="机器学习（ML）是对计算机系统使用的算法和统计模型的科学研究，这些算法和统计模型不使用显式指令，而是依靠模式和推理来有效地执行特定的任务。它被视为人工智能的一个子集。机器学习算法基于样本数据（称为“训练数据”）建立数学模型，以便在没有明确编程来执行任务的情况下做出预测或决策。 机器学习算法被广泛应用于各种应用中，如电子邮件过滤和计算机视觉。在这些应用中它是不可行的，开发执行任务的特定指令的算法。机">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-28T02:03:18.645Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机器学习">
+<meta name="twitter:description" content="机器学习（ML）是对计算机系统使用的算法和统计模型的科学研究，这些算法和统计模型不使用显式指令，而是依靠模式和推理来有效地执行特定的任务。它被视为人工智能的一个子集。机器学习算法基于样本数据（称为“训练数据”）建立数学模型，以便在没有明确编程来执行任务的情况下做出预测或决策。 机器学习算法被广泛应用于各种应用中，如电子邮件过滤和计算机视觉。在这些应用中它是不可行的，开发执行任务的特定指令的算法。机">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="王成飞博客" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://wangchengfei.info/2019/04/26/机器学习/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>机器学习 | 王成飞博客</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?77735b5a26e8f4057c64badd972d97be";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王成飞博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一切皆值得思考</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archives"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2019/04/26/机器学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王成飞">
+      <meta itemprop="description" content="实践后去沉淀，用探索的思维迎接未知领域和挑战。">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王成飞博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">机器学习
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-26 13:58:54" itemprop="dateCreated datePublished" datetime="2019-04-26T13:58:54+08:00">2019-04-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-28 10:03:18" itemprop="dateModified" datetime="2019-04-28T10:03:18+08:00">2019-04-28</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>机器学习（ML）是对计算机系统使用的算法和统计模型的科学研究，这些算法和统计模型不使用显式指令，而是依靠模式和推理来有效地执行特定的任务。它被视为人工智能的一个子集。机器学习算法基于样本数据（称为“训练数据”）建立数学模型，以便在没有明确编程来执行任务的情况下做出预测或决策。</p>
+<p>机器学习算法被广泛应用于各种应用中，如电子邮件过滤和计算机视觉。在这些应用中它是不可行的，开发执行任务的特定指令的算法。机器学习与计算统计密切相关，计算统计集中于使用计算机进行预测。数学优化的研究为机器学习领域提供了方法、理论和应用领域。数据挖掘是机器学习中的一个研究领域，其重点是通过无监督学习进行探索性数据分析。在其跨业务问题的应用中，机器学习也称为预测分析。</p>
+<h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><p>机器学习这个名字是由阿瑟·塞缪尔于1959年创造的。汤姆·M·米切尔对机器学习领域中所研究的算法提供了一个广泛引用的、更正式的定义：“据说，计算机程序是从经验E中学习一些任务t和性能度量p，如果它在t中的任务表现，就像度量p一样。红色被P所取代，随着经验E而改进。“ 机器学习所涉及的任务的定义提供了一个基本的操作定义，而不是用认知术语定义领域。这是根据阿兰·图灵在他的论文《计算机器和智能》中的论述，在论文中，“机器能思考吗？”替换为“机器能做我们（作为思考实体）能做的吗？” 在图灵的建议中，揭示了思维机器可能具有的各种特性以及在构建思维机器时的各种含义。</p>
+<h4 id="机器学习任务"><a href="#机器学习任务" class="headerlink" title="机器学习任务"></a>机器学习任务</h4><p>机器学习任务分为几个大类。在有监督学习中，该算法从包含输入和期望输出的一组数据中建立数学模型。例如，如果任务正在确定图像是否包含某个对象，则受监督学习算法的训练数据将包括包含该对象和不包含该对象的图像（输入），并且每个图像都将有一个标签（输出），指示其是否包含该对象。在特殊情况下，输入可能仅部分可用，或仅限于特殊反馈。半监督学习算法根据不完整的培训数据开发数学模型，其中一部分样本输入没有标签。</p>
+<p>分类算法和回归算法是监督学习的类型。当输出限制在一组有限的值时，使用分类算法。对于过滤电子邮件的分类算法，输入将是传入电子邮件，输出将是要在其中归档电子邮件的文件夹的名称。对于识别垃圾邮件的算法，输出将是“垃圾邮件”或“非垃圾邮件”的预测，由布尔值true和false表示。回归算法以其连续输出命名，这意味着它们在一个范围内可能有任何值。连续值的例子是对象的温度、长度或价格。</p>
+<p>在无监督学习中，该算法从一组只包含输入而不包含所需输出标签的数据中建立数学模型。无监督学习算法被用来寻找数据中的结构，如数据点的分组或聚类。无监督学习可以发现数据中的模式，并可以将输入分组到类别中，如特征学习。维数减少是减少一组数据中“特征”或输入的数量的过程。</p>
+<p>强化学习算法根据预算访问有限输入集的所需输出（培训标签），并优化将获取培训标签的输入选择。当以交互方式使用时，可以将它们显示给人类用户进行标记。强化学习算法在动态环境中以正强化或负强化的形式给出反馈，用于自动驾驶汽车或学习与人类对手进行游戏。</p>
+<p>机器学习中的其他专门算法包括主题建模，其中计算机程序被赋予一组自然属性。所有语言文档，并查找包含类似主题的其他文档。在密度估计问题中，机器学习算法可以用来寻找不可观测的概率密度函数。元学习算法根据以往的经验学习自己的归纳偏倚。在发展机器人学中，机器人学习算法产生自己的学习经验序列，也被称为课程，通过自我引导的探索和与人类的社会互动累积获得新的技能。这些机器人使用主动学习、成熟、运动协同和模仿等指导机制。</p>
+<h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h3><p>美国计算机游戏和人工智能领域的先驱阿瑟·塞缪尔（Arthur Samuel）于1959年在IBM时创造了“机器学习”一词。作为一项科学，机器学习源于对人工智能的探索。早在人工智能作为一门学科的早期，一些研究人员就对让机器从数据中学习感兴趣。他们试图用各种象征性的方法，以及后来被称为“神经网络”的方法来解决这个问题；这些方法主要是感知器和其他模型，后来被发现是对统计学的广义线性模型的再发明。</p>
+<p>然而，越来越多地强调基于知识的逻辑方法，导致了人工智能和机器学习之间的裂痕。概率系统受到数据采集和表示的理论和实践问题的困扰：到1980年，专家系统已成为人工智能的主导，统计学不再受欢迎。</p>
+<p>在人工智能中继续进行符号/基于知识的学习工作，导致归纳逻辑编程，但更多的统计线研究Earch现在不在人工智能领域，而是模式识别和信息检索领域；755个神经网络的研究被人工智能和计算机科学所抛弃。这条线也在人工智能/计算机系统领域外延续，被霍普菲尔德、鲁梅尔哈特和辛顿等其他学科的研究人员称为“连接主义”。他们的主要成功发生在20世纪80年代中期，当时他们重新发明了反向传播。</p>
+<p>机器学习作为一个独立的领域在20世纪90年代开始蓬勃发展，该领域的目标从实现人工智能转变为解决实际问题。它将焦点从它从人工智能继承的象征性方法转移到了从统计学和概率论中借用的方法和模型上。</p>
+<h4 id="与数据挖掘的关系"><a href="#与数据挖掘的关系" class="headerlink" title="与数据挖掘的关系"></a>与数据挖掘的关系</h4><p>机器学习和数据挖掘通常采用相同的方法，并且重叠显著，但是机器学习侧重于预测，基于从培训数据中学习到的已知属性，数据挖掘侧重于发现（以前）数据中的未知属性（这是数据库中知识发现的分析步骤）。数据挖掘使用许多机器学习方法，但目标不同；另一方面，机器学习也使用数据挖掘方法作为“无监督学习”或作为预处理步骤，以提高学习者的准确性。这两个研究团体之间的许多混淆来自他们工作的基本假设：在机器学习中，性能通常是根据复制已知知识的能力来评估的，而在知识发现中Y和数据挖掘（KDD）的关键任务是发现以前未知的知识。根据已知知识评估，未形成（未监督）的方法很容易优于其他监督方法，而在典型的KDD任务中，由于训练数据不可用，监督方法无法使用。</p>
+<h4 id="与优化的关系"><a href="#与优化的关系" class="headerlink" title="与优化的关系"></a>与优化的关系</h4><p>机器学习还与优化密切相关：许多学习问题都被定义为在一组训练示例上最小化某些损失函数。损失函数表示被训练模型的预测与实际问题实例之间的差异（例如，在分类中，人们希望为实例分配一个标签，并且模型被训练为正确预测一组示例的预先分配的标签）。这两个领域之间的差异源于泛化的目标：虽然优化算法可以最大限度地减少训练集的损失，但是机器学习关注的是最小化看不见样本的损失。</p>
+<h4 id="与统计的关系"><a href="#与统计的关系" class="headerlink" title="与统计的关系"></a>与统计的关系</h4><p>机器学习和统计是密切相关的领域。根据迈克尔乔丹的观点，机器学习的思想，从方法论原理到理论工具，在统计学上有着悠久的历史。</p>
+<p>Leo Breiman区分了两种统计建模范式：数据模型和算法模型，其中“算法模型”意味着或多或少的机器学习算法，如随机森林。</p>
+<p>一些统计学家采用了机器学习的方法，从而形成了一个他们称之为统计学习的综合领域。</p>
+<h3 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h3><p>学习者的一个核心目标是从其经验中进行概括。在这种情况下，概括就是学习机器在经历了学习数据集之后，能够准确地执行新的、未看到的示例/任务。训练示例来自一些通常未知的概率分布（被认为是发生空间的代表），学习者必须建立一个关于该空间的通用模型，使其能够在新情况下产生足够精确的预测。</p>
+<p>机器学习算法及其性能的计算分析是计算机理论的一个分支，被称为计算学习理论。由于训练集是有限的，未来是不确定的，学习理论通常不能保证算法的性能。相反，性能的概率界限是很常见的。偏方差分解是量化泛化误差的一种方法。</p>
+<p>为了在泛化上下文中获得最佳性能，假设的复杂性应与数据基础函数的复杂性相匹配。如果假设比函数的复杂度低，那么模型就在数据下面。如果模型的复杂度增加，则训练误差减小。但是，如果假设过于复杂，那么模型会被过度拟合，一般化会更差。</p>
+<p>学习理论家除了研究学习的性能界限外，还研究学习的时间复杂性和可行性。在计算学习理论中，如果计算可以在多项式时间内完成，则认为计算是可行的。有两种时间复杂性结果。正结果表明，一类函数可以在多项式时间内学习。负结果表明，某些类在多项式时间内是无法学习的。</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><h4 id="学习算法类型"><a href="#学习算法类型" class="headerlink" title="学习算法类型"></a>学习算法类型</h4><p>机器学习算法的类型在其方法、输入和输出的数据类型以及要解决的任务或问题类型上有所不同。</p>
+<h5 id="监督和半监督学习"><a href="#监督和半监督学习" class="headerlink" title="监督和半监督学习"></a>监督和半监督学习</h5><p>有监督的学习算法建立了一组数据的数学模型，其中包含输入和期望的输出。这些数据被称为训练数据，由一组训练示例组成。每个训练示例都有一个或多个输入和一个期望的输出，也称为监控信号。在半监督学习算法的情况下，一些训练示例缺少所需的输出。在数学模型中，每个训练示例都由一个数组或向量表示，训练数据由一个矩阵表示。通过对目标函数的迭代优化，监督学习算法学习可用于预测与新输入相关的输出的函数。优化函数将允许算法正确确定不属于训练数据的输入的输出。据说，随着时间的推移，一种提高输出或预测精度的算法已经学会了执行这项任务。</p>
+<p>监督学习算法包括分类和回归。当输出限制在一组有限的值时，使用分类算法；当输出可能在一个范围内有任何数值时，使用回归算法。相似性学习是一个与回归和分类密切相关的有监督机器学习领域，但目标是使用相似函数从示例中学习，该函数测量两个对象的相似性或相关程度。它在排名、推荐系统、视觉身份跟踪、人脸验证和演讲者验证等方面都有应用。</p>
+<h5 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h5><p>无监督学习算法采用一组仅包含输入的数据，并在数据中查找结构，如数据点的分组或聚类。因此，这些算法从没有被标记、分类或分类的测试数据中学习。无监督学习算法不响应反馈，而是识别数据中的共性，并根据每一个新数据中存在或不存在这种共性做出反应。无监督学习的一个核心应用是统计学中的密度估计，尽管无监督学习包含了包括总结和解释数据特征的其他领域。</p>
+<p>聚类分析是将一组观测值分配到子集（称为聚类）中，以便根据一个或多个预先指定的标准，同一聚类内的观测值相似，而从不同聚类中提取的观测值不同。不同的聚类技术对数据的结构做出不同的假设，通常由一些相似性度量来定义和评估，例如通过内部紧度或同一个聚类成员之间的相似性，以及分离、聚类之间的差异。其他方法基于估计的密度和图连通性。</p>
+<h5 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h5><p>强化学习是机器学习的一个领域，它涉及到软件代理应该如何在环境中采取行动，从而使累积奖励的某些概念最大化。由于其一般性，该领域的研究涉及到许多其他学科，如博弈论、控制论、运筹学、信息论、基于仿真的优化、多智能体系统、群体智能、统计学和遗传算法等。（MDP）。许多强化学习算法使用动态编程技术。强化学习算法不假定掌握MDP精确数学模型的知识，并在精确模型不可行时使用。强化学习算法用于自动车辆或学习人类。</p>
+<h4 id="过程和技术"><a href="#过程和技术" class="headerlink" title="过程和技术"></a>过程和技术</h4><p>各种过程、技术和方法可应用于一种或多种机器学习算法，以提高其性能。</p>
+<h5 id="功能学习"><a href="#功能学习" class="headerlink" title="功能学习"></a>功能学习</h5><p>一些学习算法旨在发现培训期间提供的输入的更好的表示。经典示例包括主成分分析和聚类分析。特征学习算法，也称为表示学习算法，通常试图在输入中保存信息，但也以使其有用的方式对其进行转换，通常作为执行分类或预测之前的预处理步骤。此技术允许重建来自未知数据生成分布的输入，但不一定忠实于在该分布下不可信的配置。这取代了手动功能工程，并允许机器学习这些功能并使用它们来执行特定的任务。</p>
+<p>特征学习可以是有监督的，也可以是无监督的。在有监督的特征学习中，使用标记的输入数据学习特征。例子包括人工神经网络、多层感知器和监督字典学习。在无监督特征学习中，特征是用未标记的输入数据学习的。示例包括字典学习、独立组件分析、自动编码器、矩阵分解和各种形式的集群。</p>
+<p>流形学习算法试图在学习表示是低维的约束下实现。稀疏编码算法试图在已知表示是稀疏的约束下实现，这意味着数学模型有许多零。多行子空间学习算法的目标是直接从多维数据的张量表示中学习低维表示，而不将其重塑为高维向量。深度学习算法发现具有更高层次、更抽象特征的多层次表示或特征层次。根据（或生成）低级功能定义。有人认为，智能机器是一种学习表示的机器，它能解开解释观测数据的变化的基本因素。</p>
+<p>特征学习的动机是机器学习任务（如分类）。通常需要数学和计算上便于处理的输入。然而，现实世界的数据，如图像、视频和感官数据，并没有屈服于算法上定义特定特征的尝试。另一种方法是通过检查发现这些特征或表示，而不依赖于显式算法。</p>
+<h5 id="分散学习词典"><a href="#分散学习词典" class="headerlink" title="分散学习词典"></a>分散学习词典</h5><p>稀疏字典学习是一种特征学习方法，其中训练实例表示为基函数的线性组合，并假定为稀疏矩阵。该方法具有较强的NP难解性和近似难解性[32]一种常用的稀疏字典学习启发式方法是K-SVD算法。稀疏字典学习已经应用于多种场合。在分类中，问题是确定以前看不见的培训示例属于哪个类。对于已经构建了每个类的字典，新的培训示例与相应字典最稀疏地表示的类相关联。稀疏字典学习在图像去噪中也得到了应用。关键的想法是一个干净的图像补丁可以用图像字典稀疏地表示，但是噪声不能。</p>
+<h5 id="异常检测"><a href="#异常检测" class="headerlink" title="异常检测"></a>异常检测</h5><p>在数据挖掘中，异常检测，也称为异常检测，是对稀有项目、事件或观察结果的识别，这些项目、事件或观察结果与大多数数据显著不同，从而引起怀疑。通常，异常项目代表一个问题，如银行欺诈、结构缺陷、医疗问题或文本中的错误。异常被称为异常值、新奇、噪音、偏差和异常。</p>
+<p>特别是在滥用和网络入侵检测的背景下，有趣的对象往往不是罕见的对象，而是意外的突发活动。这种模式不符合离群值作为稀有对象的常见统计定义，并且许多离群值检测方法（特别是无监督算法）将在此类数据上失败，除非已对其进行了适当的聚合。相反，聚类分析算法可能能够检测到由这些模式形成的微聚类。</p>
+<p>存在三大类异常检测技术。无监督异常检测技术在假设数据集中的大多数实例都是正常的情况下，通过寻找似乎最不适合数据集其余部分的实例，检测未标记测试数据集中的异常。监督异常检测技术需要一个标记为“正常”和“异常”的数据集，并且需要训练分类器（与许多其他统计分类问题的关键区别在于离群值检测固有的不平衡性）。半监督异常检测技术从一个给定的正常训练数据集构造一个代表正常行为的模型，然后测试模型生成测试实例的可能性。</p>
+<h5 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h5><p>决策树学习使用决策树作为预测模型，从项目的观察（在分支中表示）到项目目标值的结论（在叶中表示）。它是用于统计、数据挖掘和机器学习的预测建模方法之一。目标变量可以采用离散值集的树模型称为分类树；在这些树结构中，叶表示类标签，分支表示导致这些类标签的特征的连词。目标变量可以取连续值（通常为实数）的决策树称为回归树。在决策分析中，决策树可以用来直观、明确地表示决策和决策。在数据挖掘中，决策树描述数据，但生成的分类树可以作为决策的输入。</p>
+<h5 id="关联规则"><a href="#关联规则" class="headerlink" title="关联规则"></a>关联规则</h5><p>关联规则学习是一种基于规则的机器学习方法，用于发现大型数据库中变量之间的关系。它的目的是使用某种“有趣性”的度量来识别在数据库中发现的强规则。这种基于规则的方法在分析更多数据时生成新规则。假设数据集足够大，最终目标是帮助机器模拟人脑的特征提取和抽象关联能力，以获取尚未分类的数据。</p>
+<p>基于规则的机器学习是任何机器学习方法的通用术语，用于识别、学习或发展“规则”来存储、操作或应用知识。基于规则的机器学习算法的定义特征是识别和利用一组关系规则，这些规则共同表示系统捕获的知识。这与其他机器学习算法不同，这些算法通常识别一个奇异模型，该模型可普遍应用于任何实例，以进行预测。基于规则的机器学习方法包括学习分类器系统、关联规则学习和人工免疫系统。</p>
+<p>基于强规则的概念，Rakesh Agrawal、Tomasz Imieli_ski和Arun Swami引入了关联规则，用于发现超市销售点（POS）系统记录的大规模交易数据中产品之间的规律性。例如，洋葱、土豆在超市的销售数据中发现，如果顾客一起购买洋葱和土豆，他们也可能购买汉堡包肉。这些信息可作为市场营销活动（如促销定价或产品投放）决策的基础。除了市场篮分析之外，关联规则现在还应用于应用领域，包括Web使用挖掘、入侵检测、连续生产和生物信息学。与序列挖掘不同，关联规则学习通常不考虑事务内部或跨事务的项目顺序。</p>
+<p>学习分类器系统（LCS）是一系列基于规则的机器学习算法，它们将发现组件（通常是遗传算法）与学习组件结合起来，执行有监督学习、强化学习或无监督学习。他们试图确定一组与上下文相关的规则，这些规则以分段的方式共同存储和应用知识，以便做出预测。</p>
+<p>归纳逻辑规划（ILP）是一种规则学习方法，它将逻辑规划作为输入实例、背景知识和假设的统一表示。给定已知背景知识的编码和一组表示为事实逻辑数据库的实例，ILP系统将派生出一个假设逻辑程序，该程序包含所有正示例和非负示例。归纳编程是一个相关的领域，它考虑了任何一种表示假设（不仅是逻辑编程）的编程语言，例如函数程序。</p>
+<p>归纳逻辑编程在生物信息学和自然语言处理中特别有用。Gordon Plotkin和Ehud Shapiro在逻辑环境中为归纳机器学习奠定了初步的理论基础。夏皮罗于1981建立了他们的第一个实现（模型推理系统）：Prolog程序，从正反例子归纳归纳逻辑程序。非亲子归纳法，提出一种解释观察到的事实的理论，而不是数学归纳法，为一个有序集合的所有成员证明一个性质。</p>
+<h4 id="人工神经网络"><a href="#人工神经网络" class="headerlink" title="人工神经网络"></a>人工神经网络</h4><p>人工神经网络（anns），或称连接主义系统，是受构成动物大脑的生物神经网络的模糊启发而设计的计算系统。神经网络本身不是一种算法，而是许多不同机器学习算法共同工作和处理复杂数据输入的框架。这种系统“学习”通过考虑示例来执行任务，通常不使用任何特定于任务的规则进行编程。</p>
+<p>神经网络是一种基于被称为“人工神经元”的连接单元或节点集合的模型，它松散地模拟生物大脑中的神经元。每一个连接，就像生物大脑中的突触一样，都能把信息，一个“信号”从一个人工神经元传递到另一个神经元。接收信号的人工神经元可以对其进行处理，然后再向与之相连的其他人工神经元发送信号。在通常的人工神经网络实现中，人工神经元之间连接处的信号是实数，每个人工神经元的输出由其输入和的非线性函数计算。人工神经元之间的连接称为“边缘”。人工神经元和边缘的重量通常随着学习的进行而调整。重量增加或减少连接处的信号强度。人工神经元可能有一个阈值，只有当聚合信号超过该阈值时才发送信号。通常，人工神经元聚集成层。不同的层可以对其输入执行不同类型的转换。信号从第一层（输入层）传输到最后一层（输出层），可能在多次遍历层之后。</p>
+<p>神经网络方法的最初目标是以人脑的方式解决问题。然而，随着时间的推移，注意力转移到了执行特定任务上，导致了对生物学的偏离。人工神经网络已广泛应用于计算机视觉、语音识别、机器翻译、社会网络过滤、游戏机和电子游戏以及医学诊断等领域。</p>
+<p>深度学习由人工神经网络中的多个隐藏层组成。这种方法试图模拟人脑将光和声音处理成视觉和听觉的方式。深度学习的一些成功应用是计算机视觉和语音识别。</p>
+<h4 id="支持向量机"><a href="#支持向量机" class="headerlink" title="支持向量机"></a>支持向量机</h4><p>支持向量机（SVMS）又称支持向量网络，是一组用于分类和回归的相关监督学习方法。给出了一组训练示例，每个示例都标记为属于两个类别中的一个，SVM训练算法建立了一个模型，该模型预测新示例是否属于一个类别。SVM训练算法是一个非概率、二元、线性分类器，尽管在Probabi中使用SVM的方法有platt scaling。列表分类设置。除了执行线性分类之外，SVMS还可以使用所谓的内核技巧高效地执行非线性分类，将输入隐式映射到高维特征空间。</p>
+<h4 id="贝叶斯网络"><a href="#贝叶斯网络" class="headerlink" title="贝叶斯网络"></a>贝叶斯网络</h4><p>贝叶斯网络、信念网络或有向无环图模型是一种概率图模型，它用有向无环图（DAG）表示一组随机变量及其条件独立性。例如，贝叶斯网络可以表示疾病和症状之间的概率关系。根据症状，该网络可用于计算各种疾病出现的概率。存在执行推理和学习的有效算法。对变量序列（如语音信号或蛋白质序列）建模的贝叶斯网络称为动态贝叶斯网络。贝叶斯网络在不确定性条件下能表示和求解决策问题的推广称为影响图。</p>
+<h4 id="遗传算法"><a href="#遗传算法" class="headerlink" title="遗传算法"></a>遗传算法</h4><p>遗传算法（GA）是一种模拟自然选择过程的搜索算法和启发式技术，利用突变和交叉等方法生成新的基因型，以期找到一个给定问题的良好解决方案。在机器学习中，80年代和90年代使用了遗传算法。相反，机器学习技术被用来提高遗传算法和进化算法的性能。</p>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>机器学习有许多应用，包括：</p>
+<p>2006年，网络电影公司Netflix举行了第一次“Netflix奖”竞赛，以寻找一个能够更好地预测用户偏好并提高现有Cinematch电影推荐算法精度至少10%的程序。一个由AT&amp;T实验室研究人员组成的联合小组与大混乱和实用理论小组合作，建立了一个合奏模型，以1.6亿美元的价格赢得2009年的大奖。Ecommendation），他们相应地改变了推荐引擎。2010年，《华尔街日报》报道了公司Rebellion Research以及他们使用机器学习来预测金融危机。2012年，Sun Microsystems的联合创始人Vinod Khosla预测，未来两个时期，80%的医生工作岗位将失去。数十年来，自动化机器学习医学诊断软件问世2014年，据报道，机器学习算法已应用于艺术史领域，用于研究美术绘画，并可能揭示了艺术家之间之前未被认可的影响。</p>
+<h3 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h3><p>虽然机器学习在某些领域已经发生了变革，但是机器学习程序往往无法实现预期的结果。原因很多：缺乏（合适的）数据、无法访问数据、数据偏差、隐私问题、选择不当的任务和算法、错误的工具和人员、缺乏资源和评估。</p>
+<p>2018年，Uber的一辆自驾汽车未能检测到一名行人，该行人在一次碰撞中丧生。尝试在医疗保健中使用机器学习，而IBM Watson系统即使经过多年的时间和数十亿的投资，也未能实现。</p>
+<h4 id="偏见"><a href="#偏见" class="headerlink" title="偏见"></a>偏见</h4><p>尤其是机器学习方法可能存在不同的数据偏差。仅针对当前客户的机器学习系统可能无法预测培训数据中未表示的新客户群的需求。</p>
+<p>当对人造数据进行培训时，机器学习可能会产生与社会上已经存在的相同的宪法和无意识偏见。从数据中学习的语言模型已被证明包含类似人类的偏见。用于刑事风险评估的机器学习系统被发现对黑人有偏见。</p>
+<p>在2015年，谷歌的照片经常将黑人标记为大猩猩，而在2018年，这一问题仍然没有得到很好的解决，但据报道谷歌仍在使用解决方案从训练数据中删除所有大猩猩，因此根本无法识别真正的大猩猩。</p>
+<p>2016年，微软测试了一款从Twitter上学习的聊天机器人，它很快就学会了种族主义和性别歧视的语言。由于这些挑战，机器学习的有效使用可能需要更长的时间才能在其他领域被采用。关注减少机器学习的偏见，推动机器学习为人类造福，是我的问题。</p>
+<p>人工智能科学家，包括李飞飞，不断地表达，他提醒工程师，“人工智能没有任何人造的东西……它是受人启发的，它是由人创造的，最重要的是它会影响人。这是一个我们才刚刚开始了解的强大工具，这是一个深刻的责任。</p>
+<h3 id="模型评估"><a href="#模型评估" class="headerlink" title="模型评估"></a>模型评估</h3><p>分类机学习模型可以通过精度估计技术（如维持方法）进行验证，该方法将训练和测试集中的数据进行分割（通常为2/3训练集和1/3测试集指定），并评估训练模型在测试集上的性能。相比之下，k-折叠交叉验证方法将数据随机划分为k子集，然后分别进行k实验，考虑1个用于评估的子集和剩余的k-1子集用于训练模型。除了维持和交叉验证方法外，bootstrap还可以用来评估模型的准确性，它对n个实例进行抽样，并从数据集中替换这些实例。</p>
+<p>除了总的准确性外，研究者还经常报告敏感性和特异性，即真阳性率（TPR）和真阴性率（TNR）。同样，研究者有时报告假阳性率（fpr）和假阴性率（fnr）。然而，这些比率并不能揭示其分子和分母。总操作特性（TOC）是表达模型诊断能力的有效方法。TOC显示了前面提到的速率的分子和分母，因此TOC提供的信息比常用的接收器操作特征（ROC）和曲线下ROC的相关面积（AUC）更多。</p>
+<h3 id="伦理"><a href="#伦理" class="headerlink" title="伦理"></a>伦理</h3><p>机器学习提出了一系列伦理问题。对收集到的带有偏见的数据集进行培训的系统可能会在使用时显示这些偏见（算法偏见），从而数字化文化偏见。例如，使用具有种族主义雇佣政策的公司的招聘数据可能会导致机器学习系统复制偏见，通过对求职者与以前的SUC的相似性进行评分。负责人负责收集系统使用的数据和算法规则文档，因此是机器学习的关键部分。</p>
+<p>因为语言包含偏见，所以在语言语料库上训练的机器也必然会学习偏见。</p>
+<p>其他形式的伦理挑战，与个人偏见无关，在医疗保健中更常见。卫生保健专业人员担心，这些系统的设计可能不符合公众利益，而是作为创收机器。这在美国尤其如此，那里存在着一个永久的道德困境，即改善医疗保健，同时增加利润。例如，算法的设计可以为患者提供不必要的测试或药物，在这些测试或药物中，算法的所有者持有股份。在医疗保健领域，机器学习有巨大的潜力，为专业人员提供诊断、药物治疗甚至为患者规划康复路径的强大工具，但只有在前面提到的个人偏见和这些“贪婪”偏见得到解决之前，这种情况才会发生。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>您的支持是我最大的动力！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="王成飞 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="王成飞 Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/人工智能/" rel="tag"># 人工智能</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/24/人工智能/" rel="next" title="人工智能">
+                <i class="fa fa-chevron-left"></i> 人工智能
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/28/算法/" rel="prev" title="算法">
+                算法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4" alt="王成飞">
+            
+              <p class="site-author-name" itemprop="name">王成飞</p>
+              <div class="site-description motion-element" itemprop="description">实践后去沉淀，用探索的思维迎接未知领域和挑战。</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/jidebingchuan" title="GitHub &rarr; https://github.com/jidebingchuan" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:wcf_first@163.com" title="E-Mail &rarr; mailto:wcf_first@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#缘起"><span class="nav-number">1.</span> <span class="nav-text">缘起</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#机器学习任务"><span class="nav-number">1.1.</span> <span class="nav-text">机器学习任务</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#历史"><span class="nav-number">2.</span> <span class="nav-text">历史</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#与数据挖掘的关系"><span class="nav-number">2.1.</span> <span class="nav-text">与数据挖掘的关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#与优化的关系"><span class="nav-number">2.2.</span> <span class="nav-text">与优化的关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#与统计的关系"><span class="nav-number">2.3.</span> <span class="nav-text">与统计的关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理论"><span class="nav-number">3.</span> <span class="nav-text">理论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法"><span class="nav-number">4.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#学习算法类型"><span class="nav-number">4.1.</span> <span class="nav-text">学习算法类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#监督和半监督学习"><span class="nav-number">4.1.1.</span> <span class="nav-text">监督和半监督学习</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#无监督学习"><span class="nav-number">4.1.2.</span> <span class="nav-text">无监督学习</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#强化学习"><span class="nav-number">4.1.3.</span> <span class="nav-text">强化学习</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#过程和技术"><span class="nav-number">4.2.</span> <span class="nav-text">过程和技术</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#功能学习"><span class="nav-number">4.2.1.</span> <span class="nav-text">功能学习</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分散学习词典"><span class="nav-number">4.2.2.</span> <span class="nav-text">分散学习词典</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#异常检测"><span class="nav-number">4.2.3.</span> <span class="nav-text">异常检测</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#决策树"><span class="nav-number">4.2.4.</span> <span class="nav-text">决策树</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关联规则"><span class="nav-number">4.2.5.</span> <span class="nav-text">关联规则</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#人工神经网络"><span class="nav-number">4.3.</span> <span class="nav-text">人工神经网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#支持向量机"><span class="nav-number">4.4.</span> <span class="nav-text">支持向量机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#贝叶斯网络"><span class="nav-number">4.5.</span> <span class="nav-text">贝叶斯网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遗传算法"><span class="nav-number">4.6.</span> <span class="nav-text">遗传算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用"><span class="nav-number">5.</span> <span class="nav-text">应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#限制"><span class="nav-number">6.</span> <span class="nav-text">限制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#偏见"><span class="nav-number">6.1.</span> <span class="nav-text">偏见</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型评估"><span class="nav-number">7.</span> <span class="nav-text">模型评估</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伦理"><span class="nav-number">8.</span> <span class="nav-text">伦理</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王成飞</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

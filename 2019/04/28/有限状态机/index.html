@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="有限状态机（FSM:finite-state machine ）或有限状态机（FSA:finite-state automaton）、有限自动机或简单的状态机是计算的数学模型。它是一个抽象的机器，在任何给定的时间内都可以处于有限个状态中的一个。FSM可以根据一些外部输入从一个状态更改为另一个状态；从一个状态更改为另一个状态称为转换。FSM由其状态列表、初始状态和每个转换的条件定义。有限状态机有两种">
+<meta name="keywords" content="架构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="有限状态机">
+<meta property="og:url" content="http://wangchengfei.info/2019/04/28/有限状态机/index.html">
+<meta property="og:site_name" content="王成飞博客">
+<meta property="og:description" content="有限状态机（FSM:finite-state machine ）或有限状态机（FSA:finite-state automaton）、有限自动机或简单的状态机是计算的数学模型。它是一个抽象的机器，在任何给定的时间内都可以处于有限个状态中的一个。FSM可以根据一些外部输入从一个状态更改为另一个状态；从一个状态更改为另一个状态称为转换。FSM由其状态列表、初始状态和每个转换的条件定义。有限状态机有两种">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-28T10:02:45.473Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="有限状态机">
+<meta name="twitter:description" content="有限状态机（FSM:finite-state machine ）或有限状态机（FSA:finite-state automaton）、有限自动机或简单的状态机是计算的数学模型。它是一个抽象的机器，在任何给定的时间内都可以处于有限个状态中的一个。FSM可以根据一些外部输入从一个状态更改为另一个状态；从一个状态更改为另一个状态称为转换。FSM由其状态列表、初始状态和每个转换的条件定义。有限状态机有两种">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="王成飞博客" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://wangchengfei.info/2019/04/28/有限状态机/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>有限状态机 | 王成飞博客</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?77735b5a26e8f4057c64badd972d97be";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王成飞博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一切皆值得思考</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archives"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2019/04/28/有限状态机/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王成飞">
+      <meta itemprop="description" content="实践后去沉淀，用探索的思维迎接未知领域和挑战。">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王成飞博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">有限状态机
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-28 16:01:20 / Modified: 18:02:45" itemprop="dateCreated datePublished" datetime="2019-04-28T16:01:20+08:00">2019-04-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>有限状态机（FSM:<strong>finite-state machine</strong> ）或有限状态机（FSA:<strong>finite-state automaton</strong>）、有限自动机或简单的状态机是计算的数学模型。它是一个抽象的机器，在任何给定的时间内都可以处于有限个状态中的一个。FSM可以根据一些外部输入从一个状态更改为另一个状态；从一个状态更改为另一个状态称为转换。FSM由其状态列表、初始状态和每个转换的条件定义。有限状态机有两种类型——确定性有限状态机和非确定性有限状态机。确定性有限状态机可以构造为任何非确定性状态机。</p>
+<p>现代社会的许多装置都可以观察到状态机的行为，这些装置根据一系列事件来执行预定的动作序列。简单的例子是自动售货机，当硬币的正确组合存放时，自动售货机分配产品；电梯，其停止顺序由乘客要求的楼层决定；交通灯，当汽车等待时改变顺序；组合锁，需要按正确的顺序输入组合号。</p>
+<p>有限状态机的计算能力比其他一些计算模型（如图灵机）要小，计算能力的区别意味着图灵机可以完成但FSM不能完成的计算任务。这是因为FSM的内存受其状态数的限制。FSMS是在更一般的自动机理论领域进行研究的。</p>
+<h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><p>一个可以用状态机模拟的简单机械装置的例子是旋转栅门。旋转栅门用于控制地铁和游乐园游乐设施的进出，它是一个在腰部高度有三个旋转臂的门，一个在入口通道上。最初被锁住，堵住入口，防止顾客通过。把硬币或代币放在旋转栅门上的一个槽中，就能打开门把手，让一个顾客可以通过。客户通过后，手臂再次锁定，直到插入另一枚硬币。</p>
+<p>作为状态机，旋转栅门有两种可能的状态：锁定和解锁。有两种可能的输入影响其状态：将硬币放入槽（硬币）和推动臂（推动）。在锁定状态下，推动臂没有任何作用；无论给多少次输入推动，它都保持锁定状态。把硬币放进去——也就是给机器一个硬币输入——将状态从锁定转换为解锁。在解锁状态下，放入额外的硬币没有效果；即，提供额外的硬币输入不会改变状态。但是，客户通过手臂推动，提供推动输入，将状态切换回锁定状态。</p>
+<p>转门状态机可以用状态转换表表示，显示每个可能的状态、它们之间的转换（基于给机器的输入）和每个输入产生的输出：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Current State</th>
+<th style="text-align:center">Input</th>
+<th style="text-align:center">Next State</th>
+<th style="text-align:center">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Locked</td>
+<td style="text-align:center">coin</td>
+<td style="text-align:center">Unlocked</td>
+<td style="text-align:center">Unlocks the turnstile so that the customer can push through.</td>
+</tr>
+<tr>
+<td style="text-align:center">push</td>
+<td style="text-align:center">Locked</td>
+<td style="text-align:center">None</td>
+<td style="text-align:center">None</td>
+</tr>
+<tr>
+<td style="text-align:center">Unlocked</td>
+<td style="text-align:center">coin</td>
+<td style="text-align:center">Unlocked</td>
+<td style="text-align:center">None</td>
+</tr>
+<tr>
+<td style="text-align:center">push</td>
+<td style="text-align:center">Locked</td>
+<td style="text-align:center">When the customer has pushed through, locks the turnstile.</td>
+<td style="text-align:center">None</td>
+</tr>
+</tbody>
+</table>
+<p>转门状态机也可以用一个称为状态图的有向图来表示。每个状态都由一个节点（圆）表示。边（箭头）显示从一种状态到另一种状态的转换。每个箭头都标有触发转换的输入。不引起状态变化的输入（如处于解锁状态的硬币输入）由返回原始状态的圆形箭头表示。从黑点进入锁定节点的箭头表示它是初始状态。</p>
+<h3 id="概念和术语"><a href="#概念和术语" class="headerlink" title="概念和术语"></a>概念和术语</h3><p>状态是对正在等待执行转换的系统状态的描述。转换是在满足条件或接收到事件时要执行的一组操作。例如，当使用音频系统收听收音机时（系统处于“收音机”状态），接收到“下一个”刺激会导致移动到下一个电台。当系统处于“cd”状态时，“next”刺激会导致移动到下一个轨道。相同的刺激根据当前状态触发不同的动作。</p>
+<p>在某些有限状态机表示中，也可以将动作与状态关联：</p>
+<ul>
+<li><p>进入动作：进入状态时执行。</p>
+</li>
+<li><p>退出操作：退出状态时执行。</p>
+</li>
+</ul>
+<h3 id="表示"><a href="#表示" class="headerlink" title="表示"></a>表示</h3><p>状态图是计算机科学和相关领域用来描述系统行为的一种图。状态图要求所描述的系统由有限数量的状态组成；有时确实如此，而有时这是一个合理的抽象。存在多种形式的状态图，它们略有不同，语义也有所不同。</p>
+<h4 id="状态-事件表"><a href="#状态-事件表" class="headerlink" title="状态/事件表"></a>状态/事件表</h4><p>使用了几种状态转换表类型。最常见的表示形式如下：当前状态（例如B）和输入（例如Y）的组合显示下一个状态（例如C）。完整操作的信息没有直接在表中描述，只能使用脚注添加。包含完整动作信息的FSM定义可以使用状态表（另请参见虚拟有限状态机）。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Current stateInput</th>
+<th style="text-align:center">State A</th>
+<th style="text-align:center">State B</th>
+<th style="text-align:center">State C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Input X</td>
+<td style="text-align:center">…</td>
+<td style="text-align:center">…</td>
+<td style="text-align:center">…</td>
+</tr>
+<tr>
+<td style="text-align:center">Input Y</td>
+<td style="text-align:center">…</td>
+<td style="text-align:center">State C</td>
+<td style="text-align:center">…</td>
+</tr>
+<tr>
+<td style="text-align:center">Input Z</td>
+<td style="text-align:center">…</td>
+<td style="text-align:center">…</td>
+<td style="text-align:center">…</td>
+</tr>
+</tbody>
+</table>
+<h4 id="UML状态机"><a href="#UML状态机" class="headerlink" title="UML状态机"></a>UML状态机</h4><p>统一建模语言有一个描述状态机的符号。UML状态机克服了传统有限状态机的局限性，同时保留了它们的主要优点。UML状态机引入了层次嵌套状态和正交区域的新概念，同时扩展了操作的概念。UML状态机具有Mealy机器和Moore机器的特性。它们支持依赖于系统状态和触发事件的操作，如在Mealy机器中，以及与状态而非转换相关的进入和退出操作，如在Moore机器中。</p>
+<h4 id="SDL状态机"><a href="#SDL状态机" class="headerlink" title="SDL状态机"></a>SDL状态机</h4><p>规范和描述语言是ITU的一个标准，其中包括描述转换中动作的图形符号：</p>
+<ul>
+<li>发送事件</li>
+<li>接收一个事件</li>
+<li>启动计时器</li>
+<li>取消计时器</li>
+<li>启动另一个并发状态机</li>
+<li>决策</li>
+</ul>
+<p>SDL嵌入称为“抽象数据类型”的基本数据类型、操作语言和执行语义，以便使有限状态机可执行。</p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>除了在这里介绍的系统建模中的应用之外，有限状态机在许多不同的领域中都具有重要意义，包括电气工程、语言学、计算机科学、哲学、生物学、数学和逻辑。有限状态机是在自动机理论和计算理论中研究的一类自动机。在计算机科学中，有限状态机广泛应用于应用行为建模、硬件数字系统设计、软件工程、编译器、网络协议以及计算和语言研究。</p>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>有限状态机可以细分为传感器、接收器、分类器和序列器。</p>
+<h4 id="接受者（识别者）"><a href="#接受者（识别者）" class="headerlink" title="接受者（识别者）"></a>接受者（识别者）</h4><p>接收器（也称为识别器和序列检测器）产生二进制输出，指示是否接受接收的输入。FSM的每个状态要么是“接受”，要么是“不接受”。收到所有输入后，如果当前状态为接受状态，则接受输入；否则拒绝输入。通常，输入是一系列符号（字符）；不使用动作。</p>
+<p>一组（可能是无限的）符号序列，又名。形式语言，如果有某个有限状态机恰好接受该集合，则称为常规语言。例如，偶数为零的二进制字符串集是一种常规语言，而长度为质数的所有字符串集不是。</p>
+<p>机器也可以被描述为定义一种语言，该语言包含机器接受的每个字符串，但不包含被拒绝的字符串；该语言被机器“接受”。根据定义，FSM接受的语言是常规语言——如果有一些FSM接受，那么语言就是常规语言。</p>
+<p>确定给定的有限状态接受者所接受的语言的问题是代数路径问题本身的一个实例，它将最短路径问题推广到具有由（任意）半环元素加权的边的图上。</p>
+<p>开始状态也可以是接受状态，在这种情况下，自动机接受空字符串。</p>
+<h4 id="分类器"><a href="#分类器" class="headerlink" title="分类器"></a>分类器</h4><p>分类器是有限状态机的一种推广，它类似于接受者，在终止时生成单个输出，但有两个以上的终止状态。</p>
+<h4 id="换能器"><a href="#换能器" class="headerlink" title="换能器"></a>换能器</h4><p>传感器根据给定的输入或使用动作的状态生成输出。它们用于控制应用和计算语言学领域。</p>
+<p>在控制应用程序中，可区分两种类型：</p>
+<p><strong>摩尔机</strong></p>
+<p>FSM仅使用入口操作，即输出仅取决于状态。摩尔模型的优点是简化了行为。考虑一个电梯门。状态机识别两个命令：“命令打开”和“命令关闭”，触发状态更改。进入动作（E:）在“打开”状态下启动电机打开车门，在“关闭”状态下启动电机在另一方向关闭门。状态“打开”和“关闭”在完全打开或关闭时停止电机。它们向外部世界（例如，向其他电梯）发出“门是开的”或“门是关的”的信号。</p>
+<p><strong>梅利机</strong></p>
+<p>FSM还使用输入动作，即输出取决于输入和状态。使用有限的FSM通常会导致状态数量的减少。示例显示了一个实施与摩尔示例中相同行为的简单FSM（该行为取决于实施的FSM执行模型，并且将起作用，例如，对于虚拟FSM，但对于事件驱动的FSM不起作用）。有两个输入动作（i:）：“如果命令关闭到达，启动电机关闭车门”和“如果命令打开到达，启动电机向另一个方向打开车门”。未显示“打开”和“关闭”中间状态。</p>
+<h4 id="序列器"><a href="#序列器" class="headerlink" title="序列器"></a>序列器</h4><p>序列器或发生器是具有单个字母输入字母表的接受器和传感器类型的一个子类。它们只产生一个序列，可以看作是接受器或传感器输出的输出序列。</p>
+<h4 id="决定论"><a href="#决定论" class="headerlink" title="决定论"></a>决定论</h4><p>另一个区别是确定性（dfa）和非确定性（nfa，gnfa）自动机。在确定性自动机中，每个状态对于每个可能的输入只有一个转换。在非确定性自动机中，输入可以导致给定状态的一个、多个或没有转换。Powerset构造算法可以将任何非确定性自动机转换为具有相同功能的（通常更复杂）确定性自动机。</p>
+<p>只有一种状态的有限状态机称为“组合FSM”。它只允许在转换到状态时执行操作。这个概念在需要许多有限状态机一起工作的情况下是有用的，并且当把一个纯粹的组合部分看作一种适合设计工具的FSM形式时也是很方便的。</p>
+<h3 id="替代语义学"><a href="#替代语义学" class="headerlink" title="替代语义学"></a>替代语义学</h3><p>还有其他一些语义可以用来表示状态机。例如，有一些用于为嵌入式控制器建模和设计逻辑的工具。它们将分层状态机（通常具有多个当前状态）、流程图和真值表组合成一种语言，从而形成不同的形式主义和语义集。这些图，如Harel的原始状态机[12]支持层次嵌套状态、正交区域、状态操作和转换操作。</p>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p>优化一个FSM意味着找到一个具有执行相同功能的最小状态数的机器。最快的已知算法是Hopcroft最小化算法其他技术包括使用蕴涵表或摩尔约简过程。此外，非循环FSA可以在线性时间内最小化。</p>
+<h3 id="实施"><a href="#实施" class="headerlink" title="实施"></a>实施</h3><h4 id="硬件应用"><a href="#硬件应用" class="headerlink" title="硬件应用"></a>硬件应用</h4><p>在数字电路中，可以使用可编程逻辑器件、可编程逻辑控制器、逻辑门和触发器或继电器来构建FSM。更具体地说，硬件实现需要一个寄存器来存储状态变量，一个确定状态转换的组合逻辑块，以及第二个确定FSM输出的组合逻辑块。典型的硬件实现之一是理查兹控制器。</p>
+<p>在Medvedev机器中，输出直接连接到状态触发器，以最小化触发器和输出之间的时间延迟。</p>
+<p>对于低功耗状态机，可以通过状态编码进行优化，以最小化功耗。</p>
+<h4 id="软件应用程序"><a href="#软件应用程序" class="headerlink" title="软件应用程序"></a>软件应用程序</h4><p>以下概念通常用于使用有限状态机构建软件应用程序：</p>
+<ul>
+<li>基于自动机的程序设计</li>
+<li>事件驱动有限状态机</li>
+<li>虚拟有限状态机</li>
+<li>状态设计模式</li>
+</ul>
+<h4 id="有限状态机和编译器"><a href="#有限状态机和编译器" class="headerlink" title="有限状态机和编译器"></a>有限状态机和编译器</h4><p>有限自动机常用于编程语言编译器的前端。这样的前端可能包含几个有限状态机，它们实现词汇分析器和语法分析器。从一系列字符开始，词汇分析器构建一系列语言标记（如保留字、文本和标识符），解析器从中构建语法树。词汇分析器和解析器处理编程语言语法的常规部分和上下文无关部分。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>您的支持是我最大的动力！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="王成飞 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="王成飞 Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/架构/" rel="tag"># 架构</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/28/算法/" rel="next" title="算法">
+                <i class="fa fa-chevron-left"></i> 算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/30/研发流程规范/" rel="prev" title="研发流程规范">
+                研发流程规范 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4" alt="王成飞">
+            
+              <p class="site-author-name" itemprop="name">王成飞</p>
+              <div class="site-description motion-element" itemprop="description">实践后去沉淀，用探索的思维迎接未知领域和挑战。</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/jidebingchuan" title="GitHub &rarr; https://github.com/jidebingchuan" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:wcf_first@163.com" title="E-Mail &rarr; mailto:wcf_first@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#缘起"><span class="nav-number">1.</span> <span class="nav-text">缘起</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#概念和术语"><span class="nav-number">2.</span> <span class="nav-text">概念和术语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表示"><span class="nav-number">3.</span> <span class="nav-text">表示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#状态-事件表"><span class="nav-number">3.1.</span> <span class="nav-text">状态/事件表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UML状态机"><span class="nav-number">3.2.</span> <span class="nav-text">UML状态机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SDL状态机"><span class="nav-number">3.3.</span> <span class="nav-text">SDL状态机</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用法"><span class="nav-number">4.</span> <span class="nav-text">用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分类"><span class="nav-number">5.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#接受者（识别者）"><span class="nav-number">5.1.</span> <span class="nav-text">接受者（识别者）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分类器"><span class="nav-number">5.2.</span> <span class="nav-text">分类器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#换能器"><span class="nav-number">5.3.</span> <span class="nav-text">换能器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#序列器"><span class="nav-number">5.4.</span> <span class="nav-text">序列器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#决定论"><span class="nav-number">5.5.</span> <span class="nav-text">决定论</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#替代语义学"><span class="nav-number">6.</span> <span class="nav-text">替代语义学</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化"><span class="nav-number">7.</span> <span class="nav-text">优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实施"><span class="nav-number">8.</span> <span class="nav-text">实施</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#硬件应用"><span class="nav-number">8.1.</span> <span class="nav-text">硬件应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#软件应用程序"><span class="nav-number">8.2.</span> <span class="nav-text">软件应用程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有限状态机和编译器"><span class="nav-number">8.3.</span> <span class="nav-text">有限状态机和编译器</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王成飞</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="缘起在日常工作中长说软件架构和软件设计，那么这两者的内容和关系是什么样的，总是傻傻分不清楚，以下通过介绍具体内容对两个领域有初步的认识和了解。 软件架构简单来说，软件架构是将软件特性（如灵活性、可扩展性、可行性、可重用性和安全性）转换为满足技术和业务期望的结构化解决方案的过程。这个定义让我们询问一个软件的特性，这个特性会影响一个软件架构设计。除了技术要求外，还有一长串主要代表业务或操作要求的特征。">
+<meta name="keywords" content="架构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件架构和软件设计的区别">
+<meta property="og:url" content="http://wangchengfei.info/2019/04/16/软件架构和软件设计的区别/index.html">
+<meta property="og:site_name" content="王成飞博客">
+<meta property="og:description" content="缘起在日常工作中长说软件架构和软件设计，那么这两者的内容和关系是什么样的，总是傻傻分不清楚，以下通过介绍具体内容对两个领域有初步的认识和了解。 软件架构简单来说，软件架构是将软件特性（如灵活性、可扩展性、可行性、可重用性和安全性）转换为满足技术和业务期望的结构化解决方案的过程。这个定义让我们询问一个软件的特性，这个特性会影响一个软件架构设计。除了技术要求外，还有一长串主要代表业务或操作要求的特征。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-16T01:53:10.179Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="软件架构和软件设计的区别">
+<meta name="twitter:description" content="缘起在日常工作中长说软件架构和软件设计，那么这两者的内容和关系是什么样的，总是傻傻分不清楚，以下通过介绍具体内容对两个领域有初步的认识和了解。 软件架构简单来说，软件架构是将软件特性（如灵活性、可扩展性、可行性、可重用性和安全性）转换为满足技术和业务期望的结构化解决方案的过程。这个定义让我们询问一个软件的特性，这个特性会影响一个软件架构设计。除了技术要求外，还有一长串主要代表业务或操作要求的特征。">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="王成飞博客" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://wangchengfei.info/2019/04/16/软件架构和软件设计的区别/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>软件架构和软件设计的区别 | 王成飞博客</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?77735b5a26e8f4057c64badd972d97be";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王成飞博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一切皆值得思考</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archives"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2019/04/16/软件架构和软件设计的区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王成飞">
+      <meta itemprop="description" content="实践后去沉淀，用探索的思维迎接未知领域和挑战。">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王成飞博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">软件架构和软件设计的区别
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-16 09:15:59 / Modified: 09:53:10" itemprop="dateCreated datePublished" datetime="2019-04-16T09:15:59+08:00">2019-04-16</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><p>在日常工作中长说软件架构和软件设计，那么这两者的内容和关系是什么样的，总是傻傻分不清楚，以下通过介绍具体内容对两个领域有初步的认识和了解。</p>
+<h3 id="软件架构"><a href="#软件架构" class="headerlink" title="软件架构"></a>软件架构</h3><p>简单来说，软件架构是将软件特性（如灵活性、可扩展性、可行性、可重用性和安全性）转换为满足技术和业务期望的结构化解决方案的过程。这个定义让我们询问一个软件的特性，这个特性会影响一个软件架构设计。除了技术要求外，还有一长串主要代表业务或操作要求的特征。</p>
+<h3 id="软件架构特点"><a href="#软件架构特点" class="headerlink" title="软件架构特点"></a>软件架构特点</h3><p>如前所述，软件特性描述了软件在操作和技术层面上的需求和期望。因此，当一个产品所有者说他们在一个快速变化的市场中竞争时，他们应该迅速调整他们的商业模式。如果一个企业处理问题需要在时间上完成的紧急需求，那么该软件应该是“可扩展的、模块化的和可维护的”。作为软件架构师，您应该注意到性能和低容错性、可扩展性和可靠性是软件的关键特性。现在，在定义了以前的特性之后，业务所有者告诉你，他们对该项目的预算有限，这里出现了另一个特性，即“可行性”。</p>
+<p>了解更多<a href="https://en.wikipedia.org/wiki/List_of_system_quality_attributes" target="_blank" rel="noopener">软件特性</a>。</p>
+<h3 id="软件架构模式"><a href="#软件架构模式" class="headerlink" title="软件架构模式"></a>软件架构模式</h3><p>大多数人以前可能听说过“微服务”这个词。微服务是许多其他软件体系结构模式之一，如分层模式、事件驱动模式、无服务器模式等等。其中一些稍后讨论。微服务模式在被亚马逊和Netflix采用并显示出巨大影响后，获得了良好的声誉。现在让我们更深入地研究架构模式。</p>
+<p>注意，不要混淆工厂或适配器模式等设计模式和架构模式。我稍后再讨论。</p>
+<h4 id="serverless架构"><a href="#serverless架构" class="headerlink" title="serverless架构"></a>serverless架构</h4><p>指的是依赖第三方服务来管理服务器复杂性和后端管理的应用程序的解决方案。无服务器架构分为两大类。第一个是“后端即服务（BaaS）”，第二个是“功能即服务（FaaS）”。无服务器架构将节省大量时间来处理和修复部署和服务器常规任务的错误。最著名的无服务器API供应商是Amazon AWS“lambda”。</p>
+<p>了解更多<a href="https://aws.amazon.com/serverless/" target="_blank" rel="noopener">serverless架构</a>。</p>
+<h4 id="事件驱动架构"><a href="#事件驱动架构" class="headerlink" title="事件驱动架构"></a>事件驱动架构</h4><p>这个体系结构依赖于事件生产者和事件消费者。主要的想法是分离系统的各个部分，当一个有趣的事件从另一个部分被触发时，每个部分都会被触发。这很复杂？让我们简化一下。假设设计了一个在线商店系统，它有两个部分。采购模块和供应商模块。如果客户进行采购，采购模块将生成“orderpending”事件，因为供应商模块对“orderpending”事件很感兴趣，因此在触发一个事件时，它将进行监听。一旦供应商模块获得此事件，它将执行一些任务，或者可能触发另一个事件，以便从某个供应商订购更多产品。</p>
+<p>事件生产者不知道哪个事件消费者在监听哪个事件。另外，其他消费者也不知道他们中的哪些人会听哪些事件。因此，主要思想是将系统的各个部分解耦。</p>
+<p>了解更多<a href="https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven" target="_blank" rel="noopener">事件驱动架构风格</a></p>
+<h4 id="微型服务架构"><a href="#微型服务架构" class="headerlink" title="微型服务架构"></a>微型服务架构</h4><p>微服务架构已经成为近几年来最流行的架构。它依赖于开发小型、独立的模块化服务，其中每个服务解决特定的问题或执行独特的任务，并且这些模块通过定义良好的API相互通信，以实现业务目标。</p>
+<h3 id="软件设计"><a href="#软件设计" class="headerlink" title="软件设计"></a>软件设计</h3><p>软件架构负责软件的框架和高级基础结构，而软件设计负责代码级设计，如每个模块正在做什么、类范围和功能用途等。</p>
+<p>如果你是一个开发人员，那么了解什么是SOLID的原则以及设计模式应该如何解决常规问题是很重要的。</p>
+<p>SOLID是指单一责任、开放封闭、里氏替换、界面分离和依赖倒置原则。</p>
+<ol>
+<li>单一责任：意味着每个类必须有一个单一的目标、责任和改变的理由。</li>
+<li>开闭原则：一个类应该为扩展而打开，但为修改而关闭。简单地说，您应该能够向类中添加更多的功能，但不要以破坏使用当前函数的现有代码的方式编辑当前函数。</li>
+<li>里氏替换原则：这个原则指导开发人员使用继承，以一种不会在任何时候破坏应用程序逻辑的方式。因此，如果名为“bclass”的子类继承自父类“aclass”，则子类不应以更改行为父类的方式复制父类的功能。因此，在不破坏应用程序逻辑的情况下，可以轻松地使用bclass对象而不是aclass对象。</li>
+<li>接口分离原则：简单地说，由于一个类可以实现多个接口，那么以一个类永远不会被强制实现对其用途不重要的函数的方式构造代码。所以，对接口进行分类。</li>
+<li>依赖倒置原则：如果你曾经在应用程序开发中实践过TDD，那么就知道分离代码对于可测试性和模块化多重要。换句话说，如果某个类“ex:purchase”依赖于“users”类，那么用户对象实例化应该来自“purchase”类之外。</li>
+</ol>
+<h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><h4 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h4><p>是OOP中最常用的软件设计模式，因为当你必须修改所使用的某个类时，它会节省很多时间。</p>
+<p>假设您想实例化一个users（）模型类，有两种方法可以做到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$users=new users();</span><br><span class="line">$users=datafactory::get(&apos;users&apos;);</span><br></pre></td></tr></table></figure>
+<p>我更喜欢第二种方法，有两个原因。首先，将类名从“users”更改为“users data”只需要在“数据工厂内”的一个位置进行一次更改，其余代码将相同。其次，如果类用户开始使用用户（$connection）等参数，那么您还需要在一个位置更改它，而不是在每个需要用户对象的函数中更改它。所以，如果你认为第一种方法更好，可以再想想迭代时需要规范重构某个类名多么胆战心惊。</p>
+<h4 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h4><p>适配器模式是一种软件设计模式。从它的名称来看，会期望它将类的意外用法转换为预期的用法。</p>
+<p>假设你的应用程序处理youtube API，为了获得访问令牌，必须调用一个名为getYoutubetoken()的函数；所以，在应用程序的20个不同地方调用了这个函数。</p>
+<p>然后，谷歌发布了新版本的YouTube API，并将其重命名为getAccessToken()。</p>
+<p>现在，你必须在应用程序的任何位置查找和替换函数名，或者也可以创建一个适配器类，在这种情况下，只需更改一行，应用程序的其余部分会继续正常工作。</p>
+<p>本文没有详细讨论设计模式，如果了解更多信息，下面是一些参考链接：</p>
+<ol>
+<li><a href="https://code.tutsplus.com/series/design-patterns-in-php--cms-747" target="_blank" rel="noopener">php 中的设计模式</a></li>
+<li><a href="http://www.phptherightway.com/pages/Design-Patterns.html" target="_blank" rel="noopener">php 设计模式</a></li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>软件架构师和软件开发人员之间是有区别的。软件架构师通常是经验丰富的团队领导，他们对现有的解决方案有很好的了解，帮助他们在计划阶段做出正确的决策。而软件开发人员应该对软件设计有更多的了解，并且对软件架构有足够的了解，这样会使团队内部的沟通更加容易。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>您的支持是我最大的动力！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="王成飞 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="王成飞 Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/架构/" rel="tag"># 架构</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/15/MVVS/" rel="next" title="MVVS">
+                <i class="fa fa-chevron-left"></i> MVVS
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/16/事件驱动架构/" rel="prev" title="事件驱动架构">
+                事件驱动架构 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4" alt="王成飞">
+            
+              <p class="site-author-name" itemprop="name">王成飞</p>
+              <div class="site-description motion-element" itemprop="description">实践后去沉淀，用探索的思维迎接未知领域和挑战。</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/jidebingchuan" title="GitHub &rarr; https://github.com/jidebingchuan" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:wcf_first@163.com" title="E-Mail &rarr; mailto:wcf_first@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#缘起"><span class="nav-number">1.</span> <span class="nav-text">缘起</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件架构"><span class="nav-number">2.</span> <span class="nav-text">软件架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件架构特点"><span class="nav-number">3.</span> <span class="nav-text">软件架构特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件架构模式"><span class="nav-number">4.</span> <span class="nav-text">软件架构模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#serverless架构"><span class="nav-number">4.1.</span> <span class="nav-text">serverless架构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件驱动架构"><span class="nav-number">4.2.</span> <span class="nav-text">事件驱动架构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#微型服务架构"><span class="nav-number">4.3.</span> <span class="nav-text">微型服务架构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件设计"><span class="nav-number">5.</span> <span class="nav-text">软件设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计模式"><span class="nav-number">6.</span> <span class="nav-text">设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#工厂模式"><span class="nav-number">6.1.</span> <span class="nav-text">工厂模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#适配器模式"><span class="nav-number">6.2.</span> <span class="nav-text">适配器模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王成飞</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
