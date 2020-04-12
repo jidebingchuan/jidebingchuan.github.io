@@ -338,6 +338,332 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2019/04/16/事件驱动架构/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王成飞">
+      <meta itemprop="description" content="实践后去沉淀，用探索的思维迎接未知领域和挑战。">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王成飞博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/16/事件驱动架构/" class="post-title-link" itemprop="url">事件驱动架构</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-16 10:47:20" itemprop="dateCreated datePublished" datetime="2019-04-16T10:47:20+08:00">2019-04-16</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-17 15:20:14" itemprop="dateModified" datetime="2019-04-17T15:20:14+08:00">2019-04-17</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>
+              事件驱动的体系结构由生成事件流的事件生产者和监听事件的事件消费者组成。
+事件是近实时交付的，因此消费者可以在事件发生时立即响应。生产者与消费者脱钩，生产者不知道消费者在听什么。消费者也相互脱钩，每个消费者都能看到所有的事件。这与竞争的消费者模式不同，消费者从队列中提取消息，消息只处理一次（假设没有错误）。
+在一些系统中，例如物联网，事件必须以非常大的容量被接收。事件驱动架构可以使用pub/sub模型或事件流模型。
+
+pub/sub：消息传递基础结构跟踪订阅。当一个事件发布时，它会将该事件发送给每个订阅服务器。接收到事件后，无法重播该事件，新订阅服务器看不到该事件。
+
+事件流：事件被写入日志。事件是严格有序的（在分区内）并且是持久的。客户端不订阅流，而是可以从流的任何部分读取。客户端负责推进其在流程中的位置。这意味着客户端
+              ...
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/16/事件驱动架构/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2019/04/16/软件架构和软件设计的区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王成飞">
+      <meta itemprop="description" content="实践后去沉淀，用探索的思维迎接未知领域和挑战。">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王成飞博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/16/软件架构和软件设计的区别/" class="post-title-link" itemprop="url">软件架构和软件设计的区别</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-16 09:15:59 / Modified: 09:53:10" itemprop="dateCreated datePublished" datetime="2019-04-16T09:15:59+08:00">2019-04-16</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>
+              缘起在日常工作中长说软件架构和软件设计，那么这两者的内容和关系是什么样的，总是傻傻分不清楚，以下通过介绍具体内容对两个领域有初步的认识和了解。
+软件架构简单来说，软件架构是将软件特性（如灵活性、可扩展性、可行性、可重用性和安全性）转换为满足技术和业务期望的结构化解决方案的过程。这个定义让我们询问一个软件的特性，这个特性会影响一个软件架构设计。除了技术要求外，还有一长串主要代表业务或操作要求的特征。
+软件架构特点如前所述，软件特性描述了软件在操作和技术层面上的需求和期望。因此，当一个产品所有者说他们在一个快速变化的市场中竞争时，他们应该迅速调整他们的商业模式。如果一个企业处理问题需要在时间上完成的紧急需求，那么该软件应该是“可扩展的、模块化的和可维护的”。作为软件架构师，您应该注意到性能和低容错性、可扩展性和可靠性是软件的
+              ...
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/16/软件架构和软件设计的区别/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2019/04/15/MVVS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1649,342 +1975,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2018/07/04/《用户体验要素》读后感/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王成飞">
-      <meta itemprop="description" content="实践后去沉淀，用探索的思维迎接未知领域和挑战。">
-      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="王成飞博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/07/04/《用户体验要素》读后感/" class="post-title-link" itemprop="url">《用户体验要素》读后感</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-07-04 10:26:50" itemprop="dateCreated datePublished" datetime="2018-07-04T10:26:50+08:00">2018-07-04</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-04-04 11:00:56" itemprop="dateModified" datetime="2019-04-04T11:00:56+08:00">2019-04-04</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>
-              书的作者是Jesse James Grarrett，之前写过《Ajax：A New Approach to Web Application》，被誉为ajax之父。
-用户体验的通俗解释就是”好用”、”好使”，好用就是商机，因为用的人更多，停留时间更长，口碑更好，转化率更高等等，重要性无需赘言。
-作者尝试将用户体验拆分问多个层次去解释，逐步细化和深入，从框架到细节，从整体到局部将用户体验划分为几个层面表现层、框架层、结构层、范围层、战略层；不管是功能型产品还是信息展示型产品，作者从每个层面阐明各自需要解决的核心问题。
-战略层需要考虑的问题是对于用户和公司来讲，产品的核心需求和战略目标是哪些，需要明确并定义出来；在写产品文档之前、在写第一行代码之前，产品就注定会失败，为什么？因为产品的定位不明确，满足用户哪个核心需求不明确，只
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/07/04/《用户体验要素》读后感/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2018/05/04/《简约至上-交互式设计四策略》读后感/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王成飞">
-      <meta itemprop="description" content="实践后去沉淀，用探索的思维迎接未知领域和挑战。">
-      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="王成飞博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/05/04/《简约至上-交互式设计四策略》读后感/" class="post-title-link" itemprop="url">《简约至上-交互式设计四策略》读后感</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-05-04 10:22:24" itemprop="dateCreated datePublished" datetime="2018-05-04T10:22:24+08:00">2018-05-04</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-04-04 11:00:58" itemprop="dateModified" datetime="2019-04-04T11:00:58+08:00">2019-04-04</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>
-              书是从亚马逊畅销书里看到的，开始浏览了下目录，编排简单，书也不厚；虽然不做产品，拿来做泛读还是不错的。
-拿到手感觉书的打印质量不错，翻译也比较通顺，图灵教育出版，作者是Giles Colborne，在交互设计上颇有建树。
-书的开篇先介绍简单的概念，简单没有用描述性的语言试图的定义或囊括某个范围，而是举例说明，就像插座一样看一眼就知道如何用；也举例说明了什么是复杂，早期的打印机，拆开后除了连接电源还需要自己寻找驱动、安装驱动，还需要各种配置，结果可能还是用不了；不能过度复杂，也不宜过度简单，过度复杂需要用户投入学习、思考（don’t make me think？），过度简单就会让用户失去控制感，感到焦虑和无所适从。
-那么、如何能够理解用户使用时是否感到简单，走到用户的使用环境中去观察，办公室、家里、户外、人群中等等场景，产
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/05/04/《简约至上-交互式设计四策略》读后感/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2033,7 +2023,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">56</span>
+                    <span class="site-state-item-count">58</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
