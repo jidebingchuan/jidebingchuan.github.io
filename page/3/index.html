@@ -338,6 +338,172 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2019/04/17/编码技巧/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王成飞">
+      <meta itemprop="description" content="实践后去沉淀，用探索的思维迎接未知领域和挑战。">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王成飞博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/17/编码技巧/" class="post-title-link" itemprop="url">编码技巧</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-17 14:52:16" itemprop="dateCreated datePublished" datetime="2019-04-17T14:52:16+08:00">2019-04-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-06 09:57:37" itemprop="dateModified" datetime="2019-05-06T09:57:37+08:00">2019-05-06</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>
+              优秀的开发人员是由代码的质量来定义的。在软件行业，编写好的代码意味着节省可能用于测试、更新、扩展或修复错误的资金。在本文中，将向你展示一些实际的技术和示例，这些技术和思想将帮助清理遗留代码，并对其进行重构，使其更加健壮和模块化。这些不仅可以帮助重构旧代码，而且从现在开始实践如何编写干净代码。
+什么是
+              ...
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/17/编码技巧/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2019/04/16/事件驱动架构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -438,12 +604,7 @@
           
             <p>
               事件驱动的体系结构由生成事件流的事件生产者和监听事件的事件消费者组成。
-事件是近实时交付的，因此消费者可以在事件发生时立即响应。生产者与消费者脱钩，生产者不知道消费者在听什么。消费者也相互脱钩，每个消费者都能看到所有的事件。这与竞争的消费者模式不同，消费者从队列中提取消息，消息只处理一次（假设没有错误）。
-在一些系统中，例如物联网，事件必须以非常大的容量被接收。事件驱动架构可以使用pub/sub模型或事件流模型。
-
-pub/sub：消息传递基础结构跟踪订阅。当一个事件发布时，它会将该事件发送给每个订阅服务器。接收到事件后，无法重播该事件，新订阅服务器看不到该事件。
-
-事件流：事件被写入日志。事件是严格有序的（在分区内）并且是持久的。客户端不订阅流，而是可以从流的任何部分读取。客户端负责推进其在流程中的位置。这意味着客户端
+事件是近实时交付的，因此消费者可以在事件发生时立即响应。生产者与消费者脱钩，生产者不知道消费者在听什么。消费者也相互脱钩，每个消费者都能看到所有的事件。这与竞争的消费者模式不同，消费者从队列中提取消息，消息只处理一次（假设没有错
               ...
             </p>
           <!--noindex-->
@@ -597,8 +758,7 @@ pub/sub：消息传递基础结构跟踪订阅。当一个事件发布时，它�
           
             <p>
               缘起在日常工作中长说软件架构和软件设计，那么这两者的内容和关系是什么样的，总是傻傻分不清楚，以下通过介绍具体内容对两个领域有初步的认识和了解。
-软件架构简单来说，软件架构是将软件特性（如灵活性、可扩展性、可行性、可重用性和安全性）转换为满足技术和业务期望的结构化解决方案的过程。这个定义让我们询问一个软件的特性，这个特性会影响一个软件架构设计。除了技术要求外，还有一长串主要代表业务或操作要求的特征。
-软件架构特点如前所述，软件特性描述了软件在操作和技术层面上的需求和期望。因此，当一个产品所有者说他们在一个快速变化的市场中竞争时，他们应该迅速调整他们的商业模式。如果一个企业处理问题需要在时间上完成的紧急需求，那么该软件应该是“可扩展的、模块化的和可维护的”。作为软件架构师，您应该注意到性能和低容错性、可扩展性和可靠性是软件的
+软件架构简单来说，软件架构是将软件特性（如灵活性、可扩展性、可行性、可重用性和安全性）转换为满足技术和业务期望的结构化解决方案的过程。这个定义让我们询问一个
               ...
             </p>
           <!--noindex-->
@@ -754,16 +914,8 @@ pub/sub：消息传递基础结构跟踪订阅。当一个事件发布时，它�
               缘起使命（Mission）、愿景（Vision）、价值观（Value）、战略（Strategy），简称MVVS，是指引组织文化建设的基本纲领，是团队跟公司产生文化链接、对齐落地的关键环节，也是领军人物想清楚、带领大家向前进的重要工具。
 公司对每个业务进行队形的战略工具。
 思考战略：决定我们做什么。
-愿景：成为什么，主要是对组织的形态。
-价值观：达成目标时奉行的价值和模式。
-使命：责任和目标，业务目标制定。
-检查路径对于企业业务管理可以使用此工具对业务定位、业务发展路径、业务发展方式等多个维度进行上下对齐，领导和个人均可以在目标设定、方案制定等核心环节检验是否按照整体战略部署、落地。
-个人目标此工具对个人目标的管理、制定同样适用。
-达成什么样的成就？M
-成为什么样的人？V
-奉行什么处世价值？V
 
-              
+              ...
             </p>
           <!--noindex-->
           
@@ -919,7 +1071,7 @@ pub/sub：消息传递基础结构跟踪订阅。当一个事件发布时，它�
 换行字符：\n
 为什么windows需要两个，而linux和Mac需要一个呢
 符号        ASCII码        意义\n               10            换行\r                13            回车CR
-故事在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33，Linux/Unix下的tty概念也来自于此）的玩意，每秒钟可以打10个字符。但是它有一个问题，就是打完一行换行的时候，要用去0.2秒，正好可以打两个字符。要是在这0.2秒里面，又有新的字符传过来，那么这个字符将丢失。于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做“回车”，告诉打字机把打印头定位在左边界；另一个叫做“
+故事在计算
               ...
             </p>
           <!--noindex-->
@@ -1086,9 +1238,7 @@ pub/sub：消息传递基础结构跟踪订阅。当一个事件发布时，它�
             <p>
               缘起和产品多次的沟通中，遇到产品的定位分析、优势分析、壁垒分析，如何确定产品的战略层内容。
 同时在和产品同学做产品方案评审时，需求很发散、不聚焦，没有目标。
-产品定位分析定位理论，由美国著名营销专家艾·里斯（Al Ries）与杰克·特劳特（Jack Trout）于20世纪70年代提出。里斯和特劳特认为，定位要从一个产品开始，那产品可能是一种商品、一项服务、一个机构甚至是一个人，也许就是你自己。但是定位不是你对产品要做的事，定位是你对预期客户要做的事。换句话说，你要在预期客户的头脑里给产品定位，确保产品在预期客户头脑里占据一个真正有价值的地位。
-定位理论的核心：“一个中心两个基本点”：以“打造品牌”为中心，以“竞争导向”和“消费者心智”为基本点。
-从以上概念可以推到产品定位是通过竞争占领市场并盈利为目的，并在用户中明确认知
+产品定位分析定位理论，由美国著名营销专家艾·里斯（Al Ries）与杰克·特劳特（Jack Trout）于20世纪70年代提出。里斯和特劳特认
               ...
             </p>
           <!--noindex-->
@@ -1243,9 +1393,7 @@ pub/sub：消息传递基础结构跟踪订阅。当一个事件发布时，它�
             <p>
               整本书分成几个大的部分，每个部分列举了很多就诊者的真实案例，和平时生活场景中遇到的问题非常相似，也有很多可以借鉴和思考的描述。
 自律第一部分讲的自律，内容有很多以问题抽象的章节，例如隐瞒真相是对还是错，最终都是度的问题，当有人说欺骗是为了保护你这样的鬼话时，你始终都要打上几个问号。
-实事求是是重要的让人认识现实的第一步，很多心理问题都是认识和现实的脱节导致冲突，就像坐在船里晕船一样，眼睛看到是静止的，耳内平衡感受到晃动，两者接收信号不一致，大脑纠结打架开始晕船；心里疾病就是大脑认知和现实情况的冲突，内外不一致导致心里冲突，形成心理疾病。
-我们所谓的想不通，想不明白，导致很多积郁成疾，产生心里疾病，还是不能可观的认识并接受现实。
-爱爱是心智成熟的动力，那么爱是持续的、恒定的成长，爱的范围从爱自己、爱家人、爱朋友、爱众生可以
+实事求是是重要的
               ...
             </p>
           <!--noindex-->
@@ -1399,10 +1547,7 @@ pub/sub：消息传递基础结构跟踪订阅。当一个事件发布时，它�
           
             <p>
               从一件小事说起太太想带娃出去吃饭，并说明了陪伴的重要性，心想平时加班多，每天也起的比较早，陪孩子出去吃饭，而不是去幼儿园吃饭，应该是个不错的主意，于是乎带着娃去吃早点。
-吃饭时的思考排队点餐，等了大约10分钟，三个人也没有沟通交流因为餐馆人很多，嘈杂声中也很难集中注意力，所以通过早餐时间和孩子聊天，让孩子享受陪伴，其实效率不高。
-点完餐发现挂一漏万，点了想吃的但是发现没有营养，心想这不会影响孩子发育吧，是孩子需要陪伴，还是自己认为孩子需要陪伴，况且今天上一天课，明天就可以带着出去玩。
-排队吃饭用了半个小时，提前也没有洗手，对养成好习惯也不利。
-如何区别好习惯和坏习惯任何行为的选择都是利弊得失的筛选，对自己有利的保持，不利的则改正，所谓物竞天择、优胜劣汰（进化论？），那么如何判断当前的习惯好还是不好；很难，因为很小的一件事
+吃饭时的思考排队点餐，等了大约10分钟，三个人也没有沟通交流因为餐馆人很多，嘈杂声中也很难集中注意力，所以通过早餐时间和孩子聊天，
               ...
             </p>
           <!--noindex-->
@@ -1569,10 +1714,7 @@ pub/sub：消息传递基础结构跟踪订阅。当一个事件发布时，它�
             <p>
               缘起看到瑞的一个视频《经济机器是如何运转的》，后来看亚马逊的推荐书里有一本书是瑞写的《原则》，故下载了pdf略读。
 内容整本书将整体原则分为工作和生活两个部分，工作原则和生活原则，生活的原则和工作类似。
-关于工作的原则，瑞推崇系统化的迭代方法，将日常情绪的部分去除，根据系统的抽象和实施，在遇到决策时和多人做的决定进行对比，找出差异并寻找更优的决策，这样不会因为人的因素而导致离谱的决策。
-对于工作，瑞建议找到自己感兴趣的工作，其中讲了瑞在投行工作和最终决定出来成立自己的公司，桥水公司（这个名字非常陌生），其中也讲到中国的发展，桥水所起到的一些作用，瑞的二儿子算是中国通，从小在中国接受教育。
-找到有意义的工作，这点很赞同，认同是很大的生产力，如果对一个事情的结果在认知上觉得没有意义，那么在工作的过程中如何提高兴趣和产出。
-找
+关于工作的原则，瑞推崇系统化的迭代方法，将日常情绪的部分去除，根据系统的抽象和实施，在遇到决策时
               ...
             </p>
           <!--noindex-->
@@ -1743,194 +1885,13 @@ pub/sub：消息传递基础结构跟踪订阅。当一个事件发布时，它�
 理解比特币业务场景
 理解比特币开发
 
-区块链概念（是什么）其实我是在新浪的时候（2012年）就听说同事投资了比特币，只是当时感觉又不能花，和qq币木有什么分别吧。像是一场大骗局，后来听到区块链后开始了解后面的背景。
-区块链是支撑比特币的技术基础，场景说明可以看：
-比特币白皮书
-一个故事告诉你比特币的原理及运作机制
-总结一句话： 目标：点对点的电子支付系统
-解决：中心化信用问题
-技术：数据库、加密、共识、RPC、摘要
-名词：比特币、区块链、挖矿、旷工、公告、分叉、加密、公钥、签名、链。
-区块链业务场景（有啥用）产业白皮书
-工信部的白皮书
-腾讯关于TRUSTsql
+区块链概念（是什么）其实我是在新浪的时候（2012年）就听说同事投资了比特币，只是当时感觉又不能花
               ...
             </p>
           <!--noindex-->
           
             <div class="post-button text-center">
               <a class="btn" href="/2018/07/25/初识区块链/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2018/07/21/信任的成本/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王成飞">
-      <meta itemprop="description" content="实践后去沉淀，用探索的思维迎接未知领域和挑战。">
-      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="王成飞博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/07/21/信任的成本/" class="post-title-link" itemprop="url">信任的成本</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-07-21 20:25:11" itemprop="dateCreated datePublished" datetime="2018-07-21T20:25:11+08:00">2018-07-21</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-06-12 20:31:52" itemprop="dateModified" datetime="2019-06-12T20:31:52+08:00">2019-06-12</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>
-              缘起这周的大雨从周一开始，连续下了三天，小车由于天窗水槽被日常泥沙堵住，导致车内进水。
-昨天下班后找到小区后面的洗车店，需要500元可以把车内积水清理干净，2天后可以取车。
-当时心中疑惑，问了下保险公司是不是可以修，洗车店老板笃定的说那不可能，只有发动机进水才会修。
-怀疑放下车后心里不安，之前从未在小店保养或者维修，还是问下4s店的师傅，微信答复说可以走保险，约今天过去修车。
-今天一早8点去4s店，等师傅检查完说，看完保险单，这个保险不能走，只能自费，问起价格，980元可以完成积水清理，说之前1500元，现在优惠，一周后可以取车。
-心生疑惑，问为何价格比小店贵了一倍，一个师傅说这没办法，4s点价格就是贵，其实这个没有技术含量，也可以自己找小店修理，问外部靠谱小店，汽配城可以修。
-对比开车到汽配城，问其价格，200元可以清
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/07/21/信任的成本/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -2023,7 +1984,7 @@ pub/sub：消息传递基础结构跟踪订阅。当一个事件发布时，它�
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">58</span>
+                    <span class="site-state-item-count">59</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

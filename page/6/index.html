@@ -338,6 +338,172 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2013/08/02/python-ORM-工具/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王成飞">
+      <meta itemprop="description" content="实践后去沉淀，用探索的思维迎接未知领域和挑战。">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王成飞博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/08/02/python-ORM-工具/" class="post-title-link" itemprop="url">python ORM 工具</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2013-08-02 17:11:29" itemprop="dateCreated datePublished" datetime="2013-08-02T17:11:29+08:00">2013-08-02</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-09 21:00:20" itemprop="dateModified" datetime="2019-04-09T21:00:20+08:00">2019-04-09</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>
+              Python中使用最多的框架是Django，他是一个全特性（full-stack）的web框架，其中包含了ORM工具，如果你使用的就是Django，那么ORM是现成的。
+那如果我没使用Django呢，SQLAlchemy是单独使用较多的python ORM工具，提供了丰富的接口，也提供了类似Djan
+              ...
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2013/08/02/python-ORM-工具/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2013/08/02/ORM利弊谈/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -440,17 +606,8 @@
               利
 看到stackoverflow上一篇为什么要用ORM工具的主题，对于我来说使用ORM可以从维护众多sql语句中解放出来.
 关注业务层（BLL）的逻辑实现，将数据库的具体操作用ORM封装，这样使用数据层（DAL）时就可以使用面向对象的编程方式.
-易于维护（体现在数据层变动后，ORM相当于防腐层，可以统一收敛数据依赖的变更）。
-
-弊有几个方面是ORM解决不了的：
-
-写出高效的查询。
-
-做出统一的操作接口（因为业务操作场景众多，很难再get和set中满足所有业务需求）。
-
-
-
-              
+易于维护（体现在数据层变动后，ORM相当于防腐层，可
+              ...
             </p>
           <!--noindex-->
           
@@ -621,25 +778,7 @@
 
 
 Name
-IP SLA Reports
-Logical Grouping
-Trending
-Trend Prediction
-Auto Discovery
-Agentless
-SNMP
-Syslog
-Plugins
-Triggers / Alerts
-MIBCompiler
-WebApp
-Distributed Monitoring
-Inventory
-Platform
-Data Storage Method
-License
-Maps
-Access
+IP SLA
               ...
             </p>
           <!--noindex-->
@@ -805,10 +944,7 @@ Access
           
             <p>
               缘起采集的MIB库信息有了之后，那么就是选择拉的方式还是推的方式采集数据，拉的方式由监控系统轮询各个系统的代理获取系统指标数据，例如温度、风扇转速、IO、内存等指标数据；推的方式由SNMP的代理端主动推送一条数据给数据管理端（SNMP Trap）。
-NET-SNMP在 Linux 系统中，我们可以选择 net-snmp 来处理绝大多数和 SNMP 相关的工作。
-NET-SNMP 是一种开放源代码的 SNMP 协议实现。它支持 SNMP v1, SNMP v2c 与 SNMP v3，并可以使用 IPV4 及 IPV6 。也包含 SNMP Trap 的所有相关实现。Net-snmp 包含了 snmp 实用程序集和完整的 snmp 开发库。
-用户使用 net-snmp 提供的工具，可以完成很多关于 SNMP 的操作。
-功能特性
+NET-SNMP在 Linux 系统中，我们可以选
               ...
             </p>
           <!--noindex-->
@@ -974,9 +1110,7 @@ NET-SNMP 是一种开放源代码的 SNMP 协议实现。它支持 SNMP v1, SNMP
           
             <p>
               缘起网络监控基于SNMP协议，而各家定义的指标并不一致，例如华为和Oracle为交换机的风扇转速查询OID不一致，而华为的部分OID是私有地址，那么就需要自己先了解华为MIB库，之后基于了解的MIB库进行指标采集、监控。
-作用MIB（管理信息库）是用来管理交换网络实体信息的数据库。通常和SNMP配合使用。
-管理信息库MIB指明了网络元素所维持的变量（即能够被管理进程查询和设置的信息）。MIB给出了一个网络中所有可能的被管理对象的集合的数据结构。SNMP的管理信息库采用和域名系统DNS相似的树型结构，它的根在最上面，根没有名字。
-命名标准对象命名树的顶级对象有三个，即ISO、ITU-T和这两个组织的联合体。在ISO的下面有4个结点，其中的一个（标号3）是被标识的组织。在其下面有一个美国国防部（Department of D
+作用MIB（管理信息库）是用来管理交换网络实体信息的数据库。通常和SNMP配合
               ...
             </p>
           <!--noindex-->
@@ -1142,11 +1276,7 @@ NET-SNMP 是一种开放源代码的 SNMP 协议实现。它支持 SNMP v1, SNMP
           
             <p>
               缘起近期在做公司监控系统，熟悉下常见的协议及支撑范围，其中SNMP（简单网络管理协议）是Internet协议簇的一部分，形成于IETF（互联网工程工作小组）。
-适用范围SNMP(simple network management protocol)是因特网架构委员会IAB定义的一个应用层协议。SNMP广泛用于管理和监控网络设备，大多数专业的网络设备都有SNMP agent代理，这些代理被激活和配置后用于和SNMP管理 NMS(network management system)网络管理系统通信。
-适用场景典型的用法是配置agent代理，管理机通过agent进行监控和管理。
-监控中获取配置的方法是：GET、GETNEXT、GETBULK、TRAP、INFORM。
-管理配置和控制的方法是：SET。
-管理和配置指令只有网络结构
+适用范围SNMP(simple network management protocol)是因特网架构委员会IAB定义的一个应用层协议。SNM
               ...
             </p>
           <!--noindex-->
@@ -1312,9 +1442,7 @@ NET-SNMP 是一种开放源代码的 SNMP 协议实现。它支持 SNMP v1, SNMP
           
             <p>
               缘起最近开展系统配置管理相关的项目，但配置管理的概念仍比较模糊，做一个梳理，对配置管理的概念，相关软件的对比，企业级的使用情况做一个了解。
-定义看了中文诸多对配置管理的解释和说明，比较片面，领域很窄，通过对维基百科英文版的“configuration management”的学习，将个人理解解释如下：
-配置管理（configuration management简称CM）是详细记录和更新企业硬件和软件的信息，是一个需求、设计、运营对产品性能、功能和物理属性信息建设并持续维护的过程。配置管理过程广泛应用于军事工程组织管理复杂的系统，比如武器、运载工具、信息系统。军事外，也用于信息技术服务管理。
-配置管理介绍配置管理用于系统的整个生命周期，提供可控和可视化的性能、功能和物理属性维护。配置管理验证系统预期性能，确认并归档足够的数
+定义看了中文诸多对配置管理的解释和说明，比较片面，领域很窄，通过对维基百科英文版的“configuration management”的学习，将个人理解解释如下
               ...
             </p>
           <!--noindex-->
@@ -1480,9 +1608,7 @@ NET-SNMP 是一种开放源代码的 SNMP 协议实现。它支持 SNMP v1, SNMP
           
             <p>
               上大学，并不了解网络中的一切，但我报的专业是计算机科学与技术；在此之前，只是在初中的时候第一次观看同学用电脑打游戏，在高二的时候第一次学习了计算机的开机和关机键，第一次打开了并学习了WPS2000，第一次对这个一个铁箱子加一个电视屏有了接触，感觉这怪玩意真是没有什么值得赞的地方。
-去机房上机之前需要带鞋套，这么麻烦的手续之后，只是开机，学习敲打几个字母，编辑几个汉字，兴奋程度真是比不上带球过人上篮的快感。
-高三毕业的时候，表姐给了我个QQ号，刚开始只是为了和表姐联系方便，大一第一次用QQ开始上网；大学的第一学期，第一次申请雅虎的电子邮箱，第一次发邮件给同学，还催着同学赶紧回复，看看这玩意靠谱吗。
-大二的时候，第一次用自己攒下的奖学金买了自己的电脑主机（华硕主板、清华同方银色机箱）和显示器（CRT15寸杂牌），第一次发现了
+去机房上机之前需要
               ...
             </p>
           <!--noindex-->
@@ -1749,7 +1875,7 @@ Next官网: [Next](https://theme-next.iissnan.com
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">58</span>
+                    <span class="site-state-item-count">59</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
