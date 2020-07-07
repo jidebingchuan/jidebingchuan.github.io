@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wangchengfei.info/"/>
-  <updated>2020-05-24T08:16:56.949Z</updated>
+  <updated>2020-07-07T00:09:11.171Z</updated>
   <id>http://wangchengfei.info/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>《增长黑客》读后感</title>
+    <link href="http://wangchengfei.info/2020/07/05/%E3%80%8A%E5%A2%9E%E9%95%BF%E9%BB%91%E5%AE%A2%E3%80%8B%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
+    <id>http://wangchengfei.info/2020/07/05/《增长黑客》读后感/</id>
+    <published>2020-07-05T00:44:18.000Z</published>
+    <updated>2020-07-07T00:09:11.171Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="选书"><a href="#选书" class="headerlink" title="选书"></a>选书</h3><p>最近做投放相关项目，新的业务和导流场景，虽然之前也做过相似的C端用户拉新项目，深知之前的方法和实践还不成体系，故想从理论上学习业内前人的经验总结，更好、更快、更正确的指导当前的项目。</p><p>黑客增长这本书是在中信书店的畅销书单上了解到，看完目录发现正是所求，加入购物车后在中信书店购物券的加持下果断下单。</p><h3 id="读书"><a href="#读书" class="headerlink" title="读书"></a>读书</h3><h4 id="有限资源获得最大限度成长"><a href="#有限资源获得最大限度成长" class="headerlink" title="有限资源获得最大限度成长"></a>有限资源获得最大限度成长</h4><p>无论是我们的人生目标、还是项目目标，都是在有限资源、有限时间约束下，让目标成果最大化的实践过程，而一个成体系的理论体系让我们明白是否在走弯路，例如日常不停迭代是否带来正向收益，我们的成果是在扩大还是缩小？</p><h4 id="让数据驱动增长"><a href="#让数据驱动增长" class="headerlink" title="让数据驱动增长"></a>让数据驱动增长</h4><p>GrowingIO创始人张梦溪说出了指导业务增长的手段，那就是用数据来衡量，数据是不带感情和偏见，最能接近客观现实的表达。</p><p>“If you are not growing, then you are dying! ”，很喜欢的一句话，一个企业无论何时都要思考成长问题，这也是资本对企业估值的根本逻辑。</p><h4 id="低成本、高效率的精准营销"><a href="#低成本、高效率的精准营销" class="headerlink" title="低成本、高效率的精准营销"></a>低成本、高效率的精准营销</h4><p>精准影响，找到投放效率最高的渠道，这是降低成本的关键，当前投放渠道是否考虑当前可用的所有渠道，并根据实验选出最优渠道。</p><h4 id="搭建增长团队"><a href="#搭建增长团队" class="headerlink" title="搭建增长团队"></a>搭建增长团队</h4><p>做增长，要有横向统一的团队，要有专人负责增长方向，在传统的职能划分的公司里，横向推动无疑是非常低效率且低效果的。</p><h4 id="好产品是增长的根本"><a href="#好产品是增长的根本" class="headerlink" title="好产品是增长的根本"></a>好产品是增长的根本</h4><p>在团队组建后，并不是开始猛推，而是衡量产品是否找到了“啊哈时刻”，也就是用户痛点，只有发现用户真正感兴趣的点，才是推广和增长的开始，在此之前都应该不断打磨和优化产品。那些花巨资推广，最后草草收场的公司和项目比比皆是。</p><h4 id="确定增长杠杆"><a href="#确定增长杠杆" class="headerlink" title="确定增长杠杆"></a>确定增长杠杆</h4><p>每个产品的目标不同，有的产品看注册、有的产品看下单流水、有的产品看浏览量、有的产品看安装量，不同产品增长使用指标不同，也就是不同产品要选出自己增长的指导指标是哪个，即“北极星指标”，有了指标就可以通过整合数据，形成数据报表，直观的发现每次增长活动的效果。</p><h4 id="快节奏实验"><a href="#快节奏实验" class="headerlink" title="快节奏实验"></a>快节奏实验</h4><p>做到这点，首先要支持实验能力，后续是支持快速迭代验证，最后还要有报表展示能力，这样才能在快速迭代后的总结会上对比分析出结论。实验能力、快速迭代、数据报表，我称为黑客增长的三板斧。</p><h4 id="获客：优化成本，扩大规模"><a href="#获客：优化成本，扩大规模" class="headerlink" title="获客：优化成本，扩大规模"></a>获客：优化成本，扩大规模</h4><p>设计渠道迭代实验，缩小渠道范围，寻找最优渠道，从小处着手，不断优化、调整渠道功能，根据实验数据不断实验循环。</p><h4 id="激活：让潜在用户使用产品"><a href="#激活：让潜在用户使用产品" class="headerlink" title="激活：让潜在用户使用产品"></a>激活：让潜在用户使用产品</h4><p>明确产品“啊哈时刻”，寻找潜在用户，消除用户体重的摩擦（或者门槛），设计触发物无缝引导产品使用。</p><h4 id="留存：唤醒并留住用户"><a href="#留存：唤醒并留住用户" class="headerlink" title="留存：唤醒并留住用户"></a>留存：唤醒并留住用户</h4><p>锁定最佳做法，例如发现浏览3次以上的留存高出3倍，首月下单3次的用户留存为80%，低于3次下单则为35%，那么问题从留存退化为如何让用户下单3次，比如可以发优惠券？</p><h4 id="变现：提供每位用户带来的收益"><a href="#变现：提供每位用户带来的收益" class="headerlink" title="变现：提供每位用户带来的收益"></a>变现：提供每位用户带来的收益</h4><p>比较印象深刻是定价相对论，比如电子书定价9美元，纸质书99美元，电子书加纸质书定价99美元，绝大部分用户就会选择99美元定价的纸质书加电子书。</p><p>一分钱差距，很多商品一分钱和免费存在天壤之别，其中一个例子是一个App预付费但是下载量很少，改为后付费，日下载达到7万的例子。</p><h4 id="良性循环：维持并加速增长"><a href="#良性循环：维持并加速增长" class="headerlink" title="良性循环：维持并加速增长"></a>良性循环：维持并加速增长</h4><p>任何产品都应避免增长停滞，要与鲨鱼为伍，另外使用数据分析发觉新的渠道场景，里面列举了很多小公司依赖谷歌或者facebook，最后因为google和facebook策略调整，导致新增骤降，最终惨淡收场；最后要引入全新视角，给想象插上翅膀。</p><h3 id="用书"><a href="#用书" class="headerlink" title="用书"></a>用书</h3><h4 id="网站推荐"><a href="#网站推荐" class="headerlink" title="网站推荐"></a>网站推荐</h4><p>此书除了整理体系化的知识，还组建了社区，网站也很值得推荐，网址如下：</p><p><a href="https://growthhackers.com/posts" target="_blank" rel="noopener">https://growthhackers.com/posts</a></p><h4 id="项目实战"><a href="#项目实战" class="headerlink" title="项目实战"></a>项目实战</h4><p>看完书后，调研公司内部系统，上线抽样能力，增加服务端、前端、策略端的AB实验能力，增加整站北极星指标，新建了以北极星为指导指标的报表，从此走上黑客增长之路。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;选书&quot;&gt;&lt;a href=&quot;#选书&quot; class=&quot;headerlink&quot; title=&quot;选书&quot;&gt;&lt;/a&gt;选书&lt;/h3&gt;&lt;p&gt;最近做投放相关项目，新的业务和导流场景，虽然之前也做过相似的C端用户拉新项目，深知之前的方法和实践还不成体系，故想从理论上学习业内前人的经验
+      
+    
+    </summary>
+    
+    
+      <category term="读后感" scheme="http://wangchengfei.info/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>《百岁人生》读后感</title>
     <link href="http://wangchengfei.info/2020/05/24/%E3%80%8A%E7%99%BE%E5%B2%81%E4%BA%BA%E7%94%9F%E3%80%8B%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
     <id>http://wangchengfei.info/2020/05/24/《百岁人生》读后感/</id>
     <published>2020-05-24T07:48:39.000Z</published>
-    <updated>2020-05-24T08:16:56.949Z</updated>
+    <updated>2020-05-25T03:17:54.894Z</updated>
     
     <content type="html"><![CDATA[<h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><p>在中信的店铺里看到这本排名很高的书，下面的评论也说很受启发，个人在人生的这个阶段也在思考职业规划的方向，故入手这本书，希望能在生活和职业方面受到一些启发。</p><p>书是中信出版社出版，书本质量、排版、翻译是我比较喜欢的一个出版社。</p><h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>首先书的开篇通过统计数据，展示了20世纪初之后，人们在现代医疗和生活水平提高的环境下，人们的寿命有了很大的提升。</p><p>寿命提升之后，我们之前的学习、工作、退休三段的人生模式是否适用，书中用三个不同时代的人物假设，推演了各自的虚拟人生。</p><p>通过总结三个不同时代的人物生活模式，分析在新的时代背景下，长寿这个礼物会在教育、工作、退休、家庭婚姻等方面产生哪些影响。</p><p>总结完新的人生模式后，在自我认识、人生阶段、政府和公司的运行模式等方面作者提出了当前存在的矛盾及可能的方案。</p><h3 id="长寿的影响"><a href="#长寿的影响" class="headerlink" title="长寿的影响"></a>长寿的影响</h3><p>可以预期的是我们会比前辈们更加长寿却不自知，在现在的生活和工作模式依然是祖辈们的三段方式：受教育、工作和退休。</p><p>加入和我们能够活到100岁而在60岁退休，我们将有40岁的退休时间，那么这40年的财务、家庭关系和自我实现如何解决。</p><p>最可能的样子是我们60岁后依旧工作到70，甚至80岁以上，来解决养老等生活问题。</p><h3 id="就业"><a href="#就业" class="headerlink" title="就业"></a>就业</h3><p>如果我们需要工作到80岁，那么我们的工作技能就不能只是之前受教育阶段所学、所知，受教育和工作更可能以受教育、工作、再受教育、再工作。。。，迭代的方式进行到多阶段的人生模式。</p><h3 id="资产"><a href="#资产" class="headerlink" title="资产"></a>资产</h3><p>在工作上可以积累有形资产（现金、房产、股票等），却不能积累无形资产（健康、亲友关系、激情、好奇心和创造力）。</p><h3 id="自我实现"><a href="#自我实现" class="headerlink" title="自我实现"></a>自我实现</h3><p>如果我们有了可循环的工作、学习、生活模式，我们会选择娱乐还是创造，对于大多数人来说娱乐40年是很无聊的事情，所以更现实的情况是选择自我实现，继续创造。</p><p>由于是多阶段的工作模式，我们在受教育和工作的各个阶段各有可能接触不同年龄层的同学和同事，公司、政府对员工的评估使用年龄的潜规则将越来越不适用。</p><p>由于高产出的行业都是人力资本为主，将来也会有越来越多的高端人才要求更加灵活的工作方式，比如高管的男性也可以要求在家陪伴刚出生的宝宝，得不到满足可以另寻他处，因为婚姻关系的维系一般要比工作关系更加长久。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>如果只有一年，人们实现一个商场；如果有一百年，人们将实现一个大教堂。</p>]]></content>
     
@@ -457,29 +480,6 @@
     
     
       <category term="认知" scheme="http://wangchengfei.info/tags/%E8%AE%A4%E7%9F%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LNMP</title>
-    <link href="http://wangchengfei.info/2019/04/22/LNMP/"/>
-    <id>http://wangchengfei.info/2019/04/22/LNMP/</id>
-    <published>2019-04-22T02:29:35.000Z</published>
-    <updated>2019-04-22T05:25:18.838Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h3><p>最初从“linux、apache、mysql和php”一词普及的缩写“lamp”现在指的是通用软件堆栈模型。模块化可能会有所不同，但这种特定的软件组合之所以流行，是因为它足以承载各种各样的网站框架，如WordPress。大多数Linux发行版的软件存储库中都存在LAMP栈的组件。</p><p>LNMP可以与许多其他免费和开源软件包组合，如：</p><ol><li>netsniff 用于安全测试和强化</li><li>Snort入侵检测（IDS）和入侵预防（IPS）系统</li><li>用于图表的rrdtool</li><li>Nagios、Collectd或Cacti，用于监控</li></ol><p>作为另一个例子，维基百科和其他维基媒体基金会项目为其底层基础设施使用的软件是一个定制的LAMP堆栈，其中添加了诸如Linux虚拟服务器（LVS）用于负载平衡，以及Ceph和Swift用于分布式对象存储。</p><h3 id="演进"><a href="#演进" class="headerlink" title="演进"></a>演进</h3><p>随着不断使用，操作系统、Web服务器、数据库和软件语言的其他组合出现了变化和反义词。例如，在Microsoft Windows操作系统系列上的等效安装称为WAMP。替代Apache运行IIS的另一种方法叫做wimp。涉及其他操作系统的变体包括mamp（macos）、samp（solaris）、famp（freebsd）、iamp（iseries）和xampp（跨平台）。</p><p>Web服务器或数据库管理系统也各不相同。LEMP是一个Apache被更轻量的Web服务器nginx所取代的版本，一个MySQL被PostgreSQL所取代的版本被称为lapp，有时还保留了原来的首字母缩略词lamp（linux/apache/middleware（perl、php、python、ruby）/postgresql）。</p><h3 id="技术栈组件"><a href="#技术栈组件" class="headerlink" title="技术栈组件"></a>技术栈组件</h3><h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p>Linux是一个类Unix的计算机操作系统，它是在自由和开源软件开发和分发模式下组装而成的。大多数Linux发行版，作为基于Linux内核的软件集合，通常围绕包管理系统，通过其包提供完整的灯设置。根据W3Techs在2013年10月的数据，Debian和Ubuntu共享了58.5%的Web服务器市场份额，而Rhel、Fedora和Centos共享了37.3%。</p><h4 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h4><p>LAMP的Web服务器的角色传统上是由Apache提供的，并且已经包括了其他Web服务器，如nginx。</p><p>Apache HTTP服务器是公共互联网上最流行的Web服务器。2013年6月，Netcraft估计，Apache在所有活跃网站中的服务率为54.2%，在所有域名中的顶级服务器中的服务率为53.3%。2014年6月，Apache在所有活跃网站中的服务率估计为52.27%，其次是nginx，为14.36%。</p><p>Apache是在Apache软件基金会的赞助下由开发人员开放的社区开发和维护的。根据Apache许可证发布的Apache是开源软件。支持各种各样的特性，其中许多特性作为扩展Apache核心功能的编译模块实现。这些可以从服务器端编程语言支持到身份验证方案。</p><h4 id="MySQL和备选方案"><a href="#MySQL和备选方案" class="headerlink" title="MySQL和备选方案"></a>MySQL和备选方案</h4><p>MySQL作为LAMP的关系数据库管理系统（RDBMS）的最初角色已经被其他RDBMS（如Mariadb或PostgreSQL）或甚至是NoSQL数据库（如MongoDB）交替提供。</p><p>MySQL是一个多线程、多用户、SQL数据库管理系统（DBMS），2008年被Sun Microsystems收购，2010年被Oracle公司收购。自成立之初，MySQL团队就根据GNU通用公共许可证和各种专有的AGR提供了源代码。</p><p>Mariadb是由其原始开发人员领导的社区开发的MySQL分支。</p><p>PostgreSQL也是PostgreSQL Global Development Group开发的一个与ACID兼容的对象关系数据库管理系统。</p><p>MongoDB是一个Web规模的开源NoSQL数据库，它避开了传统的基于表的关系数据库结构，而倾向于使用动态模式（称为格式bson）的类似JSON的文档，使得在某些类型的应用程序中集成数据变得更容易和更快。</p><h4 id="PHP和备选方案"><a href="#PHP和备选方案" class="headerlink" title="PHP和备选方案"></a>PHP和备选方案</h4><p>PHP作为LAMP的应用程序编程语言的角色也由其他语言（如Perl和Python）执行。</p><p>PHP是一种为Web开发而设计的服务器端脚本语言，也用作通用编程语言。PHP代码由Web服务器通过PHP处理器解释生成的网页。PHP命令可以选择直接嵌入到HTML源文档中，而不是调用外部文件来处理数据。它还发展到包括命令行界面功能，可以在独立的图形应用程序中使用。</p><p>php是根据php许可条款发布的免费软件，由于php许可条款对php的使用有限制，因此与gnu通用公共许可（gpl）不兼容。</p><p>Perl是一系列高级、通用、解释、动态编程语言。这个系列中的语言包括Perl5和Perl6。它们提供了高级的文本处理工具，不受许多当代Unix命令行工具的任意数据长度限制，促进了文本文件的操作。Perl5在20世纪90年代末作为一种用于Web的CGI脚本语言而广受欢迎，部分原因是它的解析能力。</p><p>python是一种广泛使用的通用高级编程语言，python支持多种编程范式，包括面向对象、命令式、函数式和过程式范式。它具有动态类型系统、自动内存管理、标准库和严格使用空白的特点与其他动态语言一样，python通常被用作脚本语言，但也被广泛用于非脚本上下文。</p><h3 id="高可用性和负载平衡"><a href="#高可用性和负载平衡" class="headerlink" title="高可用性和负载平衡"></a>高可用性和负载平衡</h3><p>对于服务于大量请求的网站或提供需要高正常运行时间的服务的网站，需要特定的解决方案。高可用性方法可能涉及多个Web和数据库服务器，以及执行每个服务器提供的资源逻辑聚合的附加组件，以及跨多个服务器分配工作负载。Web服务器的聚合可以通过在其前面放置负载平衡器来提供，例如通过使用Linux虚拟服务器（LVS）。对于数据库服务器的聚合，MySQL提供了内部复制机制，在原始数据库（master）与其副本（slaves）之间实现主从关系。</p><p>这种高可用性设置还可以通过提供各种形式的冗余来提实例的可用性，使某些组件（单独的服务器）能够在不中断灯实例作为一个整体提供的服务的用户的情况下经历停机。这种冗余设置还可以处理导致单个服务器上的数据丢失的硬件故障，以防止集体存储的数据实际丢失。除了更高的可用性之外，这些灯设置还能够为内部数据库读取操作的数量远高于写入/更新操作的数量的服务提供几乎线性的性能改进。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>LAMP架构是一种架构思想，其中基于大流量和可用性的负载均衡组件，基于web请求处理的web server组件，基于数据存储的数据库组件，基于业务逻辑处理的语言组件。</p><p>每个新增业务初期都需要考虑技术团队背景，团队资源及业务目标，综合考虑技术栈、业务目标、学习和维护成本、团队资源等多个因素，而决策的技术实施结果决定业务效率及研发成本。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;概览&quot;&gt;&lt;a href=&quot;#概览&quot; class=&quot;headerlink&quot; title=&quot;概览&quot;&gt;&lt;/a&gt;概览&lt;/h3&gt;&lt;p&gt;最初从“linux、apache、mysql和php”一词普及的缩写“lamp”现在指的是通用软件堆栈模型。模块化可能会有所不同，但这种特定
-      
-    
-    </summary>
-    
-    
-      <category term="架构" scheme="http://wangchengfei.info/tags/%E6%9E%B6%E6%9E%84/"/>
     
   </entry>
   
