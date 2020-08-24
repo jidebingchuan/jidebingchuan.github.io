@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="选书之前看了一本《增长黑客》的书，对投放的业务层面有一些新的认识，但在问题的抽象和系统抽象层面，没有深入的介绍，故想找一本可以对业务和系统都有介绍的书。 在网上查阅了很多资料后，选择了这本《计算广告：互联网商业变现的市场和技术》，书中对互联网广告的发展历史，市场结构，产品设计，系统设计，开源软件接收都有比较具体和深入的介绍，作为在线广告的从业者，无论是产品还是技术，都非常值得一读。 读书前言点评点">
+<meta name="keywords" content="读后感 营销">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《计算广告》读后感">
+<meta property="og:url" content="http://wangchengfei.info/2020/08/24/《计算广告》读后感/index.html">
+<meta property="og:site_name" content="王成飞博客">
+<meta property="og:description" content="选书之前看了一本《增长黑客》的书，对投放的业务层面有一些新的认识，但在问题的抽象和系统抽象层面，没有深入的介绍，故想找一本可以对业务和系统都有介绍的书。 在网上查阅了很多资料后，选择了这本《计算广告：互联网商业变现的市场和技术》，书中对互联网广告的发展历史，市场结构，产品设计，系统设计，开源软件接收都有比较具体和深入的介绍，作为在线广告的从业者，无论是产品还是技术，都非常值得一读。 读书前言点评点">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-08-24T05:54:29.631Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《计算广告》读后感">
+<meta name="twitter:description" content="选书之前看了一本《增长黑客》的书，对投放的业务层面有一些新的认识，但在问题的抽象和系统抽象层面，没有深入的介绍，故想找一本可以对业务和系统都有介绍的书。 在网上查阅了很多资料后，选择了这本《计算广告：互联网商业变现的市场和技术》，书中对互联网广告的发展历史，市场结构，产品设计，系统设计，开源软件接收都有比较具体和深入的介绍，作为在线广告的从业者，无论是产品还是技术，都非常值得一读。 读书前言点评点">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="王成飞博客" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://wangchengfei.info/2020/08/24/《计算广告》读后感/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>《计算广告》读后感 | 王成飞博客</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?77735b5a26e8f4057c64badd972d97be";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王成飞博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一切皆值得思考</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archives"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2020/08/24/《计算广告》读后感/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王成飞">
+      <meta itemprop="description" content="实践后去沉淀，用探索的思维迎接未知领域和挑战。">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王成飞博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">《计算广告》读后感
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2020-08-24 13:06:49 / Modified: 13:54:29" itemprop="dateCreated datePublished" datetime="2020-08-24T13:06:49+08:00">2020-08-24</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="选书"><a href="#选书" class="headerlink" title="选书"></a>选书</h3><p>之前看了一本《增长黑客》的书，对投放的业务层面有一些新的认识，但在问题的抽象和系统抽象层面，没有深入的介绍，故想找一本可以对业务和系统都有介绍的书。</p>
+<p>在网上查阅了很多资料后，选择了这本《计算广告：互联网商业变现的市场和技术》，书中对互联网广告的发展历史，市场结构，产品设计，系统设计，开源软件接收都有比较具体和深入的介绍，作为在线广告的从业者，无论是产品还是技术，都非常值得一读。</p>
+<h3 id="读书"><a href="#读书" class="headerlink" title="读书"></a>读书</h3><h4 id="前言点评"><a href="#前言点评" class="headerlink" title="前言点评"></a>前言点评</h4><p>点评里真的很多大佬，百度深度学习实验室科学家，雅虎实验室广告科学副总裁，阿里妈妈负责人等，对此书可以全面、系统、深入的介绍广告都给出了很高的评价，此书初版于2015年，移动互联网发展的当下，对原生广告的思考和总结也很到位。</p>
+<h4 id="免费的本质"><a href="#免费的本质" class="headerlink" title="免费的本质"></a>免费的本质</h4><p>互联网经历了网站到搜索，社交到电商，免费wifi，免费存储等互联网免费服务，而免费服务的背后，无一例外是面向广告主的收费模式。</p>
+<h4 id="广告的进化"><a href="#广告的进化" class="headerlink" title="广告的进化"></a>广告的进化</h4><p>互联网广告初期，投放广告的形式和传统媒体一样，是平移传统的电视或广告牌模式，这种模式是根据时间段和用户量进行售卖，早期Yahoo的banner广告条就是最早的根据时间段售卖的广告，成为CPT广告。</p>
+<p>由于流量和时间有限，那么短期内广告收入就会有增长瓶颈，如何突破瓶颈，就是后续的定向广告，根据人群标签再进行划分，例如最基础的地域标签，这样不同的广告主可以根据地域标签定向展示自己的广告。</p>
+<p>如果定向广告也用完了，下一步就是基于上下文的广告，根据用户浏览的页面，解析出页面标签，推荐广告内容，例如基于汽车文章的汽车广告，基于美妆文章的化妆品广告推荐，这样广告场景又多了一份收入。</p>
+<p>如果以上也不够了，大的平台还会有广告联盟，例如百度网盟、阿里妈妈、adsense等，可以将平台广告主的广告需求发布到网络，联合不同的站点进行推广。</p>
+<h4 id="广告的特点"><a href="#广告的特点" class="headerlink" title="广告的特点"></a>广告的特点</h4><p>广告的流程和线下推广一致，找最合适的用户，推广合适的产品，赚取销售费用，而线上则是媒体方赚取推广费用，主要的收费模式分为两大类，按照量和按照效果，按照量的有CPT和CPM，按照效果的有CPA、CPS等。</p>
+<p>典型的推广场景有搜索和媒体，搜索流量无疑是线上渠道中最优质的渠道，用户意图明确，转化率高；其中越接近最终转化场景的，效果越好，例如在淘宝店家推广时，使用阿里妈妈在淘宝体系内的搜索转化效果，会好于在新浪等媒体网站的搜索里。</p>
+<p>在线广告的匹配需要用到线上广告数据或者媒体数据进行匹配，就会涉及数据的流动和计算逻辑，而转化的效果依赖数据准确和全面，依赖计算算法的优化，例如同一个广告给用户推荐三遍，转化效果会很差。</p>
+<p>由于移动互联网的屏幕变小，广告形式上更多的基于分时场景进行投放，例如打开app时的开屏广告，浏览推荐信息的信息流广告，浏览内容时的挂载广告，而且要求广告和当前场景比较一致，称之为原生广告，例如视频做饭拿到的品牌电饭煲，点歌用的小度音响（节目叫什么生活来着）。</p>
+<p>广告的技术实现上，由于场景不同，系统上会有差异，作者给出的通用架构非常受用，广告库和用户标签库作为基础数据，基于基础数据的用户行为数据，我成为三大主题数据，广告、用户、行为；基于广告数据倒排检索系统，基于三大数据的排序和收益管理系统，我成为三大系统，检索、排序、收益管理。</p>
+<h4 id="广告系统的开源组合"><a href="#广告系统的开源组合" class="headerlink" title="广告系统的开源组合"></a>广告系统的开源组合</h4><p>Nginx作为广告系统的server，支持高并发、高稳定、可扩展。</p>
+<p>Zookeeper最为集群的配置管理和服务管理。</p>
+<p>Lucene作为检索服务，将广告数据生成支持全文检索的倒排。</p>
+<p>Thrift作为跨语言的服务调用，当然还有谷歌的ProtoBuf。</p>
+<p>Flume作为数据高速公路，支持低延时、高吞吐的数据处理。</p>
+<p>Hadoop作为离线大量用户行为数据分析系统。</p>
+<p>Redis作为在线标签库服务，支持高并发、易扩展的缓存服务。</p>
+<p>Storm作为在线数据处理系统，支持低延时、高吞吐的数据计算。</p>
+<p>Spark最为在线模型迭代的数据处理系统，支持增量的模型数据处理。</p>
+<h3 id="用书"><a href="#用书" class="headerlink" title="用书"></a>用书</h3><h4 id="网站推荐"><a href="#网站推荐" class="headerlink" title="网站推荐"></a>网站推荐</h4><p>github图书地址：<a href="https://dirtysalt.github.io/html/computational-advertising.html" target="_blank" rel="noopener">https://dirtysalt.github.io/html/computational-advertising.html</a></p>
+<p>中国广告协会：<a href="https://www.china-caa.org/" target="_blank" rel="noopener">https://www.china-caa.org/</a></p>
+<h4 id="项目实战"><a href="#项目实战" class="headerlink" title="项目实战"></a>项目实战</h4><p>可以参照作者的架构图练习，画出更加直观通用的系统架构；当前业务的系统也可以参考架构图，分阶段的实施；对广告系统的整体认识上更加清晰。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>您的支持是我最大的动力！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="王成飞 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="王成飞 Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/读后感-营销/" rel="tag"># 读后感 营销</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/05/《增长黑客》读后感/" rel="next" title="《增长黑客》读后感">
+                <i class="fa fa-chevron-left"></i> 《增长黑客》读后感
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4" alt="王成飞">
+            
+              <p class="site-author-name" itemprop="name">王成飞</p>
+              <div class="site-description motion-element" itemprop="description">实践后去沉淀，用探索的思维迎接未知领域和挑战。</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/jidebingchuan" title="GitHub &rarr; https://github.com/jidebingchuan" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:wcf_first@163.com" title="E-Mail &rarr; mailto:wcf_first@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#选书"><span class="nav-number">1.</span> <span class="nav-text">选书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读书"><span class="nav-number">2.</span> <span class="nav-text">读书</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言点评"><span class="nav-number">2.1.</span> <span class="nav-text">前言点评</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#免费的本质"><span class="nav-number">2.2.</span> <span class="nav-text">免费的本质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#广告的进化"><span class="nav-number">2.3.</span> <span class="nav-text">广告的进化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#广告的特点"><span class="nav-number">2.4.</span> <span class="nav-text">广告的特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#广告系统的开源组合"><span class="nav-number">2.5.</span> <span class="nav-text">广告系统的开源组合</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用书"><span class="nav-number">3.</span> <span class="nav-text">用书</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#网站推荐"><span class="nav-number">3.1.</span> <span class="nav-text">网站推荐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#项目实战"><span class="nav-number">3.2.</span> <span class="nav-text">项目实战</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王成飞</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
