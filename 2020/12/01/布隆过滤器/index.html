@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="缘起在线业务请求量达到一定级别后，性能优化成为突出的问题，除了常规的多机房、优化索引、多级缓存外，如果处理大量的无效请求，减少服务负载成为一个重要问题。 常见的使用场景问题有很多，列举相关场景如下：  Google Chrome 识别恶意 URL 从数十亿个垃圾邮件列表中判断某邮箱是否垃圾邮箱 爬虫对 URL 去重 判断一个用户id是否是一个老用户  概念布隆过滤器（英语：Bloom Filter">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="布隆过滤器">
+<meta property="og:url" content="http://wangchengfei.info/2020/12/01/布隆过滤器/index.html">
+<meta property="og:site_name" content="王成飞博客">
+<meta property="og:description" content="缘起在线业务请求量达到一定级别后，性能优化成为突出的问题，除了常规的多机房、优化索引、多级缓存外，如果处理大量的无效请求，减少服务负载成为一个重要问题。 常见的使用场景问题有很多，列举相关场景如下：  Google Chrome 识别恶意 URL 从数十亿个垃圾邮件列表中判断某邮箱是否垃圾邮箱 爬虫对 URL 去重 判断一个用户id是否是一个老用户  概念布隆过滤器（英语：Bloom Filter">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://wangchengfei.info/images/bloom-img.png">
+<meta property="og:updated_time" content="2020-12-01T11:10:24.874Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="布隆过滤器">
+<meta name="twitter:description" content="缘起在线业务请求量达到一定级别后，性能优化成为突出的问题，除了常规的多机房、优化索引、多级缓存外，如果处理大量的无效请求，减少服务负载成为一个重要问题。 常见的使用场景问题有很多，列举相关场景如下：  Google Chrome 识别恶意 URL 从数十亿个垃圾邮件列表中判断某邮箱是否垃圾邮箱 爬虫对 URL 去重 判断一个用户id是否是一个老用户  概念布隆过滤器（英语：Bloom Filter">
+<meta name="twitter:image" content="http://wangchengfei.info/images/bloom-img.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="王成飞博客" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://wangchengfei.info/2020/12/01/布隆过滤器/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>布隆过滤器 | 王成飞博客</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?77735b5a26e8f4057c64badd972d97be";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王成飞博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一切皆值得思考</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archives"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2020/12/01/布隆过滤器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王成飞">
+      <meta itemprop="description" content="实践后去沉淀，用探索的思维迎接未知领域和挑战。">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王成飞博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">布隆过滤器
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2020-12-01 10:25:14 / Modified: 19:10:24" itemprop="dateCreated datePublished" datetime="2020-12-01T10:25:14+08:00">2020-12-01</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><p>在线业务请求量达到一定级别后，性能优化成为突出的问题，除了常规的多机房、优化索引、多级缓存外，如果处理大量的无效请求，减少服务负载成为一个重要问题。</p>
+<p>常见的使用场景问题有很多，列举相关场景如下：</p>
+<ul>
+<li>Google Chrome 识别恶意 URL</li>
+<li>从数十亿个垃圾邮件列表中判断某邮箱是否垃圾邮箱</li>
+<li>爬虫对 URL 去重</li>
+<li>判断一个用户id是否是一个老用户</li>
+</ul>
+<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>布隆过滤器（英语：Bloom Filter）是1970年由布隆提出的。它实际上是一个很长的二进制向量和一系列随机映射函数。布隆过滤器可以用于检索一个元素是否在一个集合中。它的优点是空间效率和查询时间都远远超过一般的算法，缺点是有一定的误识别率和删除困难。</p>
+<p>如果想判断一个元素是不是在一个集合里，一般想到的是将集合中所有元素保存起来，然后通过比较确定。链表、树、散列表（又叫哈希表，Hash table）等等数据结构都是这种思路。但是随着集合中元素的增加，我们需要的存储空间越来越大。同时检索速度也越来越慢，上述三种结构的检索时间复杂度分别为 O(n),O(log n),O(1)。</p>
+<p>布隆过滤器的原理是，当一个元素被加入集合时，通过K个散列函数将这个元素映射成一个位数组中的K个点，把它们置为1。检索时，我们只要看看这些点是不是都是1就（大约）知道集合中有没有它了：如果这些点有任何一个0，则被检元素一定不在；如果都是1，则被检元素<strong>很可能</strong>在。这就是布隆过滤器的基本思想。</p>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>空间成本低，使用二进制向量存储</li>
+<li>时间成本低，使用hash算法计算，复杂度为O(k)</li>
+</ul>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>存在误算率，当检查存在时不一定存在，需要二次检查</li>
+<li>不支持删除，因为每个bit位可重叠设置，无法单独删除</li>
+</ul>
+<h3 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h3><h4 id="布隆过滤器设置"><a href="#布隆过滤器设置" class="headerlink" title="布隆过滤器设置"></a>布隆过滤器设置</h4><ul>
+<li>空的布隆过滤器为m位的bit数组</li>
+<li>k个不同的hash函数返回k个位置信息</li>
+<li>将m位的bit数组中k个位置置1</li>
+</ul>
+<h4 id="布隆过滤器查询"><a href="#布隆过滤器查询" class="headerlink" title="布隆过滤器查询"></a>布隆过滤器查询</h4><ul>
+<li>计算查询值的k个不同hash函数的k个位置信息</li>
+<li>查询m位的bit数组中k个位置的值</li>
+<li>每个位置为1则可能存在，有一个为0则肯定不存在</li>
+</ul>
+<h4 id="若删除较频繁如何处理"><a href="#若删除较频繁如何处理" class="headerlink" title="若删除较频繁如何处理"></a>若删除较频繁如何处理</h4><ul>
+<li>重建布隆过滤器</li>
+<li>新建删除历史的布隆过滤器判断是否删除过，存在错误率</li>
+<li>计数型布隆过滤器</li>
+</ul>
+<h4 id="误判率"><a href="#误判率" class="headerlink" title="误判率"></a>误判率</h4><p><img src="/images/bloom-img.png" alt="bloom-img.png"></p>
+<p>概率快速查询表如下（经过验证概率表和计算公式能够对上）</p>
+<table>
+<thead>
+<tr>
+<th><em>m</em>/<em>n</em></th>
+<th><em>k</em></th>
+<th><em>k</em>=1</th>
+<th><em>k</em>=2</th>
+<th><em>k</em>=3</th>
+<th><em>k</em>=4</th>
+<th><em>k</em>=5</th>
+<th><em>k</em>=6</th>
+<th><em>k</em>=7</th>
+<th><em>k</em>=8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>1.39</td>
+<td>0.393</td>
+<td>0.400</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>2.08</td>
+<td>0.283</td>
+<td>0.237</td>
+<td>0.253</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>2.77</td>
+<td>0.221</td>
+<td>0.155</td>
+<td>0.147</td>
+<td>0.160</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>3.46</td>
+<td>0.181</td>
+<td>0.109</td>
+<td>0.092</td>
+<td>0.092</td>
+<td>0.101</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>4.16</td>
+<td>0.154</td>
+<td>0.0804</td>
+<td>0.0609</td>
+<td>0.0561</td>
+<td>0.0578</td>
+<td>0.0638</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>4.85</td>
+<td>0.133</td>
+<td>0.0618</td>
+<td>0.0423</td>
+<td>0.0359</td>
+<td>0.0347</td>
+<td>0.0364</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>5.55</td>
+<td>0.118</td>
+<td>0.0489</td>
+<td>0.0306</td>
+<td>0.024</td>
+<td>0.0217</td>
+<td>0.0216</td>
+<td>0.0229</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>6.24</td>
+<td>0.105</td>
+<td>0.0397</td>
+<td>0.0228</td>
+<td>0.0166</td>
+<td>0.0141</td>
+<td>0.0133</td>
+<td>0.0135</td>
+<td>0.0145</td>
+</tr>
+<tr>
+<td>10</td>
+<td>6.93</td>
+<td>0.0952</td>
+<td>0.0329</td>
+<td>0.0174</td>
+<td>0.0118</td>
+<td>0.00943</td>
+<td>0.00844</td>
+<td>0.00819</td>
+<td>0.00846</td>
+</tr>
+<tr>
+<td>11</td>
+<td>7.62</td>
+<td>0.0869</td>
+<td>0.0276</td>
+<td>0.0136</td>
+<td>0.00864</td>
+<td>0.0065</td>
+<td>0.00552</td>
+<td>0.00513</td>
+<td>0.00509</td>
+</tr>
+<tr>
+<td>12</td>
+<td>8.32</td>
+<td>0.08</td>
+<td>0.0236</td>
+<td>0.0108</td>
+<td>0.00646</td>
+<td>0.00459</td>
+<td>0.00371</td>
+<td>0.00329</td>
+<td>0.00314</td>
+</tr>
+<tr>
+<td>13</td>
+<td>9.01</td>
+<td>0.074</td>
+<td>0.0203</td>
+<td>0.00875</td>
+<td>0.00492</td>
+<td>0.00332</td>
+<td>0.00255</td>
+<td>0.00217</td>
+<td>0.00199</td>
+</tr>
+<tr>
+<td>14</td>
+<td>9.7</td>
+<td>0.0689</td>
+<td>0.0177</td>
+<td>0.00718</td>
+<td>0.00381</td>
+<td>0.00244</td>
+<td>0.00179</td>
+<td>0.00146</td>
+<td>0.00129</td>
+</tr>
+<tr>
+<td>15</td>
+<td>10.4</td>
+<td>0.0645</td>
+<td>0.0156</td>
+<td>0.00596</td>
+<td>0.003</td>
+<td>0.00183</td>
+<td>0.00128</td>
+<td>0.001</td>
+<td>0.000852</td>
+</tr>
+<tr>
+<td>16</td>
+<td>11.1</td>
+<td>0.0606</td>
+<td>0.0138</td>
+<td>0.005</td>
+<td>0.00239</td>
+<td>0.00139</td>
+<td>0.000935</td>
+<td>0.000702</td>
+<td>0.000574</td>
+</tr>
+<tr>
+<td>17</td>
+<td>11.8</td>
+<td>0.0571</td>
+<td>0.0123</td>
+<td>0.00423</td>
+<td>0.00193</td>
+<td>0.00107</td>
+<td>0.000692</td>
+<td>0.000499</td>
+<td>0.000394</td>
+</tr>
+<tr>
+<td>18</td>
+<td>12.5</td>
+<td>0.054</td>
+<td>0.0111</td>
+<td>0.00362</td>
+<td>0.00158</td>
+<td>0.000839</td>
+<td>0.000519</td>
+<td>0.00036</td>
+<td>0.000275</td>
+</tr>
+<tr>
+<td>19</td>
+<td>13.2</td>
+<td>0.0513</td>
+<td>0.00998</td>
+<td>0.00312</td>
+<td>0.0013</td>
+<td>0.000663</td>
+<td>0.000394</td>
+<td>0.000264</td>
+<td>0.000194</td>
+</tr>
+<tr>
+<td>20</td>
+<td>13.9</td>
+<td>0.0488</td>
+<td>0.00906</td>
+<td>0.0027</td>
+<td>0.00108</td>
+<td>0.00053</td>
+<td>0.000303</td>
+<td>0.000196</td>
+<td>0.00014</td>
+</tr>
+<tr>
+<td>21</td>
+<td>14.6</td>
+<td>0.0465</td>
+<td>0.00825</td>
+<td>0.00236</td>
+<td>0.000905</td>
+<td>0.000427</td>
+<td>0.000236</td>
+<td>0.000147</td>
+<td>0.000101</td>
+</tr>
+<tr>
+<td>22</td>
+<td>15.2</td>
+<td>0.0444</td>
+<td>0.00755</td>
+<td>0.00207</td>
+<td>0.000764</td>
+<td>0.000347</td>
+<td>0.000185</td>
+<td>0.000112</td>
+<td>7.46e-05</td>
+</tr>
+<tr>
+<td>23</td>
+<td>15.9</td>
+<td>0.0425</td>
+<td>0.00694</td>
+<td>0.00183</td>
+<td>0.000649</td>
+<td>0.000285</td>
+<td>0.000147</td>
+<td>8.56e-05</td>
+<td>5.55e-05</td>
+</tr>
+<tr>
+<td>24</td>
+<td>16.6</td>
+<td>0.0408</td>
+<td>0.00639</td>
+<td>0.00162</td>
+<td>0.000555</td>
+<td>0.000235</td>
+<td>0.000117</td>
+<td>6.63e-05</td>
+<td>4.17e-05</td>
+</tr>
+<tr>
+<td>25</td>
+<td>17.3</td>
+<td>0.0392</td>
+<td>0.00591</td>
+<td>0.00145</td>
+<td>0.000478</td>
+<td>0.000196</td>
+<td>9.44e-05</td>
+<td>5.18e-05</td>
+<td>3.16e-05</td>
+</tr>
+<tr>
+<td>26</td>
+<td>18</td>
+<td>0.0377</td>
+<td>0.00548</td>
+<td>0.00129</td>
+<td>0.000413</td>
+<td>0.000164</td>
+<td>7.66e-05</td>
+<td>4.08e-05</td>
+<td>2.42e-05</td>
+</tr>
+<tr>
+<td>27</td>
+<td>18.7</td>
+<td>0.0364</td>
+<td>0.0051</td>
+<td>0.00116</td>
+<td>0.000359</td>
+<td>0.000138</td>
+<td>6.26e-05</td>
+<td>3.24e-05</td>
+<td>1.87e-05</td>
+</tr>
+<tr>
+<td>28</td>
+<td>19.4</td>
+<td>0.0351</td>
+<td>0.00475</td>
+<td>0.00105</td>
+<td>0.000314</td>
+<td>0.000117</td>
+<td>5.15e-05</td>
+<td>2.59e-05</td>
+<td>1.46e-05</td>
+</tr>
+<tr>
+<td>29</td>
+<td>20.1</td>
+<td>0.0339</td>
+<td>0.00444</td>
+<td>0.000949</td>
+<td>0.000276</td>
+<td>9.96e-05</td>
+<td>4.26e-05</td>
+<td>2.09e-05</td>
+<td>1.14e-05</td>
+</tr>
+<tr>
+<td>30</td>
+<td>20.8</td>
+<td>0.0328</td>
+<td>0.00416</td>
+<td>0.000862</td>
+<td>0.000243</td>
+<td>8.53e-05</td>
+<td>3.55e-05</td>
+<td>1.69e-05</td>
+<td>9.01e-06</td>
+</tr>
+<tr>
+<td>31</td>
+<td>21.5</td>
+<td>0.0317</td>
+<td>0.0039</td>
+<td>0.000785</td>
+<td>0.000215</td>
+<td>7.33e-05</td>
+<td>2.97e-05</td>
+<td>1.38e-05</td>
+<td>7.16e-06</td>
+</tr>
+<tr>
+<td>32</td>
+<td>22.2</td>
+<td>0.0308</td>
+<td>0.00367</td>
+<td>0.000717</td>
+<td>0.000191</td>
+<td>6.33e-05</td>
+<td>2.5e-05</td>
+<td>1.13e-05</td>
+<td>5.73e-06</td>
+</tr>
+</tbody>
+</table>
+<h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><p>设计业务主键使用的过滤器，减少redis和mysql的请求次数，降低无效请求带来的服务压力。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://en.wikipedia.org/wiki/Bloom_filter" target="_blank" rel="noopener">Bloom filter-wikipedia</a></p>
+<p><a href="https://zh.wikipedia.org/wiki/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8" target="_blank" rel="noopener">布隆过滤器</a></p>
+<p><a href="https://juejin.cn/post/6844904007790673933" target="_blank" rel="noopener">5 分钟搞懂布隆过滤器，亿级数据过滤算法你值得拥有！</a></p>
+<p><a href="https://adayinthelifeof.nl/2012/04/09/bloom-filters/" target="_blank" rel="noopener">Bloom filters</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>您的支持是我最大的动力！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="王成飞 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="王成飞 Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/11/21/《终身学习：哈佛毕业后的六堂课》读后感/" rel="next" title="《终身学习：哈佛毕业后的六堂课》读后感">
+                <i class="fa fa-chevron-left"></i> 《终身学习：哈佛毕业后的六堂课》读后感
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4" alt="王成飞">
+            
+              <p class="site-author-name" itemprop="name">王成飞</p>
+              <div class="site-description motion-element" itemprop="description">实践后去沉淀，用探索的思维迎接未知领域和挑战。</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">68</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/jidebingchuan" title="GitHub &rarr; https://github.com/jidebingchuan" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:wcf_first@163.com" title="E-Mail &rarr; mailto:wcf_first@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#缘起"><span class="nav-number">1.</span> <span class="nav-text">缘起</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">2.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">2.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">2.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理论"><span class="nav-number">3.</span> <span class="nav-text">理论</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#布隆过滤器设置"><span class="nav-number">3.1.</span> <span class="nav-text">布隆过滤器设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#布隆过滤器查询"><span class="nav-number">3.2.</span> <span class="nav-text">布隆过滤器查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#若删除较频繁如何处理"><span class="nav-number">3.3.</span> <span class="nav-text">若删除较频繁如何处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#误判率"><span class="nav-number">3.4.</span> <span class="nav-text">误判率</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实践"><span class="nav-number">4.</span> <span class="nav-text">实践</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王成飞</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

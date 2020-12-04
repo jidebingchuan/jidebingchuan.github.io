@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="目标是什么人嘛，总是喜欢找理由，比如我们做什么事情的时候，就需要说服自己和别人，我们的目标是什么，我们为什么这么做，有几种办法做，为什么这种是最优的。 当然，我们在公司做工程师也一样，开发一个新系统、新模块，修改一个老流程、老问题，迁移一个老业务、老系统，也都会问自己，目标是什么，最优的方法是什么。 但是，在产品、运营和我们讲的时候，产品会说用户体验，运营会说用户规模，那么如果两个的方案不同甚至冲">
+<meta name="keywords" content="架构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个工程师的目标修养">
+<meta property="og:url" content="http://wangchengfei.info/2019/07/31/一个工程师的目标修养/index.html">
+<meta property="og:site_name" content="王成飞博客">
+<meta property="og:description" content="目标是什么人嘛，总是喜欢找理由，比如我们做什么事情的时候，就需要说服自己和别人，我们的目标是什么，我们为什么这么做，有几种办法做，为什么这种是最优的。 当然，我们在公司做工程师也一样，开发一个新系统、新模块，修改一个老流程、老问题，迁移一个老业务、老系统，也都会问自己，目标是什么，最优的方法是什么。 但是，在产品、运营和我们讲的时候，产品会说用户体验，运营会说用户规模，那么如果两个的方案不同甚至冲">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-09-12T14:59:55.865Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一个工程师的目标修养">
+<meta name="twitter:description" content="目标是什么人嘛，总是喜欢找理由，比如我们做什么事情的时候，就需要说服自己和别人，我们的目标是什么，我们为什么这么做，有几种办法做，为什么这种是最优的。 当然，我们在公司做工程师也一样，开发一个新系统、新模块，修改一个老流程、老问题，迁移一个老业务、老系统，也都会问自己，目标是什么，最优的方法是什么。 但是，在产品、运营和我们讲的时候，产品会说用户体验，运营会说用户规模，那么如果两个的方案不同甚至冲">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="王成飞博客" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://wangchengfei.info/2019/07/31/一个工程师的目标修养/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>一个工程师的目标修养 | 王成飞博客</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?77735b5a26e8f4057c64badd972d97be";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王成飞博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一切皆值得思考</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archives"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2019/07/31/一个工程师的目标修养/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王成飞">
+      <meta itemprop="description" content="实践后去沉淀，用探索的思维迎接未知领域和挑战。">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王成飞博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">一个工程师的目标修养
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-31 11:22:17" itemprop="dateCreated datePublished" datetime="2019-07-31T11:22:17+08:00">2019-07-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-09-12 22:59:55" itemprop="dateModified" datetime="2019-09-12T22:59:55+08:00">2019-09-12</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="目标是什么"><a href="#目标是什么" class="headerlink" title="目标是什么"></a>目标是什么</h3><p>人嘛，总是喜欢找理由，比如我们做什么事情的时候，就需要说服自己和别人，我们的目标是什么，我们为什么这么做，有几种办法做，为什么这种是最优的。</p>
+<p>当然，我们在公司做工程师也一样，开发一个新系统、新模块，修改一个老流程、老问题，迁移一个老业务、老系统，也都会问自己，目标是什么，最优的方法是什么。</p>
+<p>但是，在产品、运营和我们讲的时候，产品会说用户体验，运营会说用户规模，那么如果两个的方案不同甚至冲突的时候，哪个才是准绳呢？</p>
+<p>大学老师在讲公司管理课的时候告诉我们公司是以营利为目的的组织，那么组织的最大目的就是最大规模的盈利。</p>
+<p>哪些会对一个业务的盈利造成影响，就是我们对目标的衡量标准。</p>
+<h3 id="影响利润的因素"><a href="#影响利润的因素" class="headerlink" title="影响利润的因素"></a>影响利润的因素</h3><p>一个经典的公式：利润=收入-成本</p>
+<p>哪些会对利润产生影响，业务内容是最重要的一部分，如果一个新的业务产生，想象空间巨大，那么对当前的目标有促进和强化作用，那么是可取的。</p>
+<p>另外如果是一个老的业务，从内因看，规模、效率、质量、成本上是影响利润的直接因素；从外因看，政策、经济、技术、文化等影响大，暂不深入。</p>
+<p>扩大规模后，单个产品利润短期不变，边际成本降低，所以是增加了利润收入；提升当前生产效率是降低单位产品成本，所以增加了利润收入；质量和品牌影响力提升增加用户使用和购买意愿，所以是影响需求端的重要因素，影响利润规模；成本当然依赖前几项，当然也有针对成本的单独优化，使当前规模和利润不变的情况下，增加利润，一般出现在产品的中后期。</p>
+<p>作为工程师，工程师的价值可以对利润产生直接或间接影响，例如互联网系统的稳定性（例如用户系统的稳定性，有问题很要命），例如网页的响应时间对用户产生直接影响。</p>
+<h3 id="系统对规模的支撑"><a href="#系统对规模的支撑" class="headerlink" title="系统对规模的支撑"></a>系统对规模的支撑</h3><p>系统对业务规模的支撑分为几个类型，从数据的结构上看，分为结构化数据和非结构化数据，从使用的场景上分为增删改查。</p>
+<h4 id="结构化数据存储"><a href="#结构化数据存储" class="headerlink" title="结构化数据存储"></a>结构化数据存储</h4><p>结构化数据当前的常用方案为mysql、mongodb、mysql server、redis、mola，以上为非时间序列；influxdb、rrdtool等时间序列的数据库。</p>
+<p>百万级别的数据，使用常见的存储结构满足业务需求（单库、单表、单机或多机容灾、单机房或多机房）。</p>
+<p>千万到百亿级别的数据，使用分治法处理（分库、分表、多机器、多集群、多机房）。</p>
+<p>百亿以上级别的数据，使用多中类型系统及基础设施结合治理。</p>
+<h4 id="非结构化数据存储"><a href="#非结构化数据存储" class="headerlink" title="非结构化数据存储"></a>非结构化数据存储</h4><p>常见的图片、视频、音频、软件包等，都为文件数据，大小不一，meta数据提取后需要使用非结构化的文件存储系统处理。</p>
+<p>当前使用nfs、afs等分布式系统，文件使用根据规模和效率使用不同的机器，sata盘还是ssd（一般考虑使用成本，分级存储，热数据使用ssd，冷数据使用sata）。</p>
+<h3 id="语言对规模的支撑"><a href="#语言对规模的支撑" class="headerlink" title="语言对规模的支撑"></a>语言对规模的支撑</h3><p>c语言无疑是当前执行效率最高的语言，通常将较成熟的算法封装使用。</p>
+<p>考虑开发迭代、维护等成本，快速迭代业务会使用java、php、python、go语言，例如接口相关、界面相关、业务流程及逻辑相关。</p>
+<h3 id="系统对效率的支撑"><a href="#系统对效率的支撑" class="headerlink" title="系统对效率的支撑"></a>系统对效率的支撑</h3><p>业务系统对业务的支撑从无到有，从有到优，从优到细。</p>
+<p>例如地推这个业务，传统模式是手记录，每天小组长汇总，之后进行整体汇总，这个过程漫长、易错，那么系统提升的第一步是信息化，地推人员信息、拉新用户、消费客单价等，这些信息化后，一方面提升推广效率，另一方面可以大规模的协同和短时间的反馈，例如之前一周一个活动，现在每天可以做活动，每天出效果和排行数据，从线下交互升级为线上交互。</p>
+<p>信息化仅仅是业务跑通的第一步，期间还有很多的流程会有往复和非系统交互，例如邮件，第二步是流程化，使用批处理或其他手段，打通多个系统和业务，形成半自动的系统流程，人做审核和干预，例如支付和第三方对账，数据打通后可以使用机器对账，流程可以从月级别优化到天甚至小时级别，从大部分人链接系统升级为系统链接职能的人（审批、审核等）。</p>
+<p>第三步是实时流，就像标准生产的流水线一样，一个不多，一个不少，灵活定制，让流程和效率达到最优，在处理速度和衔接环节上做到实时通知、实时处理。</p>
+<h3 id="系统对质量的支撑"><a href="#系统对质量的支撑" class="headerlink" title="系统对质量的支撑"></a>系统对质量的支撑</h3><p>互联网提供的产品就系统本身的功能，系统的sla最核心的是安全性、稳定性、问题响应时间，下一个十年是公司固化的十年，因为版权法会对数据的流动产生封禁作用，核心用户数据无法低成本流通后，新的巨无霸产品崛起的成本就会增加，这和当前互联网的拉新成本越来越高互为印证，数据安全将是未来产品的基本要求。</p>
+<p>对质量的把控，大的产品都有QA团队，做发布前的业务检查、类似产品线的品控一样，对接口功能、性能、安全、维护性、扩展性等做检查，做到事前保障。</p>
+<p>稳定性通过常见的监控系统承载、展示，类似google的dapper系统，可以查看每一次业务请求的依赖，每个请求都是一个有向无环图，通过图可以看出调用路径、深度、耗时、错误等关键信息，进而对产品质量的事后发现、定位提供快速解决的手段。</p>
+<p>传统产品需要召回返修，互联网产品需要修复、升级、发布（app产品，仅是后端升级即可），在这个修复的过程中，大产品需要涉及问题定位、职责定位、问题规模、修复方案、修复跟进人及后续修复效果评估。</p>
+<h3 id="系统对成本的优化"><a href="#系统对成本的优化" class="headerlink" title="系统对成本的优化"></a>系统对成本的优化</h3><p>通过复用降低边际成本。</p>
+<h4 id="存储复用"><a href="#存储复用" class="headerlink" title="存储复用"></a>存储复用</h4><p>业务在发展迭代的过程中，会出现多个业务系统、多个存储系统、多个业务部门，在业务交叉或空白的地方总会存在多个存储系统，做无关紧要的事，因为老系统排期或者资源协调，搭建新的数服务，在整体看，多个数据中心增加了数据协商一致的成本，也增加业务部门间的交互和人力成本。故存储的设计需要最早考虑，业务最影响后续业务迭代的基础服务，如果存储层面升级，基于系统搭建的各个业务系统及使用流程大概率需要升级或迁移。</p>
+<h4 id="服务复用"><a href="#服务复用" class="headerlink" title="服务复用"></a>服务复用</h4><p>常见的系统配置、权限管理、用户信息，基本每个子系统都会涉及，所以初期的时候涉及并服务化，对后续的升级迭代提升效果明显，自然的迭代流程往往导致没有统一的权限管理、配置管理和用户中心。</p>
+<h4 id="流程复用"><a href="#流程复用" class="headerlink" title="流程复用"></a>流程复用</h4><p>大部分的产品分为数据生成端，我称为P，数据消费端，我成为C，也就是PC结构，生产者和消费者，往往也有两个部门（通俗的叫B端和C端，2B类业务），两拨人、两个老大、两条流程，那么很多功能的子流程可以复用，例如相似判断、去重、标签挖掘、检索、安全检查、基础业务库等。现实是几波人几个库，几个流程，那么中间的数据流转就不是生产线的直线，是曲折的交互，在业务数据的处理效率和质量提升上产生不好的影响，所以初期应该规定某些系统的唯一性和负责人。</p>
+<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>互联网系统不产生业务信息、只是业务信息加工和挖掘的提供者，在信息挖掘和加工到信息的消费和使用构成了整个业务体系，如果组织的划分违背了业务数据的流动则业务衰，如果组织划分满足业务数据的流动则业务兴。</p>
+<p>故如果能增加系统的以上属性则是我们的共同目标，如果不满足则不是我们的共同目标，可以不做或少做。</p>
+<p>我们的共同目标是利润，如果说利润增加伤害了业务，我们要做的又是长期业务则不做，系统对收入贡献最大的还是从业务模式、效率提升、业务质量提升入手，降低成本毕竟是业务后期重点关注且易出问题的点。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>您的支持是我最大的动力！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="王成飞 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="王成飞 Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/架构/" rel="tag"># 架构</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/22/曼哈顿工程/" rel="next" title="曼哈顿工程">
+                <i class="fa fa-chevron-left"></i> 曼哈顿工程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/08/《精进：如何成为一个很厉害的人》读后感/" rel="prev" title="《精进：如何成为一个很厉害的人》读后感">
+                《精进：如何成为一个很厉害的人》读后感 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4" alt="王成飞">
+            
+              <p class="site-author-name" itemprop="name">王成飞</p>
+              <div class="site-description motion-element" itemprop="description">实践后去沉淀，用探索的思维迎接未知领域和挑战。</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">68</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/jidebingchuan" title="GitHub &rarr; https://github.com/jidebingchuan" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:wcf_first@163.com" title="E-Mail &rarr; mailto:wcf_first@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#目标是什么"><span class="nav-number">1.</span> <span class="nav-text">目标是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#影响利润的因素"><span class="nav-number">2.</span> <span class="nav-text">影响利润的因素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统对规模的支撑"><span class="nav-number">3.</span> <span class="nav-text">系统对规模的支撑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#结构化数据存储"><span class="nav-number">3.1.</span> <span class="nav-text">结构化数据存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非结构化数据存储"><span class="nav-number">3.2.</span> <span class="nav-text">非结构化数据存储</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语言对规模的支撑"><span class="nav-number">4.</span> <span class="nav-text">语言对规模的支撑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统对效率的支撑"><span class="nav-number">5.</span> <span class="nav-text">系统对效率的支撑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统对质量的支撑"><span class="nav-number">6.</span> <span class="nav-text">系统对质量的支撑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统对成本的优化"><span class="nav-number">7.</span> <span class="nav-text">系统对成本的优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#存储复用"><span class="nav-number">7.1.</span> <span class="nav-text">存储复用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#服务复用"><span class="nav-number">7.2.</span> <span class="nav-text">服务复用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#流程复用"><span class="nav-number">7.3.</span> <span class="nav-text">流程复用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写在最后"><span class="nav-number">8.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王成飞</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

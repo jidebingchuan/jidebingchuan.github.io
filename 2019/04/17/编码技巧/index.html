@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="优秀的开发人员是由代码的质量来定义的。在软件行业，编写好的代码意味着节省可能用于测试、更新、扩展或修复错误的资金。在本文中，将向你展示一些实际的技术和示例，这些技术和思想将帮助清理遗留代码，并对其进行重构，使其更加健壮和模块化。这些不仅可以帮助重构旧代码，而且从现在开始实践如何编写干净代码。 什么是重构？为什么我们需要重构？重构是指帮助你编写干净代码的技术和步骤。这对其他开发人员很重要，他们将能够">
+<meta name="keywords" content="编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编码技巧">
+<meta property="og:url" content="http://wangchengfei.info/2019/04/17/编码技巧/index.html">
+<meta property="og:site_name" content="王成飞博客">
+<meta property="og:description" content="优秀的开发人员是由代码的质量来定义的。在软件行业，编写好的代码意味着节省可能用于测试、更新、扩展或修复错误的资金。在本文中，将向你展示一些实际的技术和示例，这些技术和思想将帮助清理遗留代码，并对其进行重构，使其更加健壮和模块化。这些不仅可以帮助重构旧代码，而且从现在开始实践如何编写干净代码。 什么是重构？为什么我们需要重构？重构是指帮助你编写干净代码的技术和步骤。这对其他开发人员很重要，他们将能够">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-06T01:57:37.637Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="编码技巧">
+<meta name="twitter:description" content="优秀的开发人员是由代码的质量来定义的。在软件行业，编写好的代码意味着节省可能用于测试、更新、扩展或修复错误的资金。在本文中，将向你展示一些实际的技术和示例，这些技术和思想将帮助清理遗留代码，并对其进行重构，使其更加健壮和模块化。这些不仅可以帮助重构旧代码，而且从现在开始实践如何编写干净代码。 什么是重构？为什么我们需要重构？重构是指帮助你编写干净代码的技术和步骤。这对其他开发人员很重要，他们将能够">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="王成飞博客" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://wangchengfei.info/2019/04/17/编码技巧/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>编码技巧 | 王成飞博客</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?77735b5a26e8f4057c64badd972d97be";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王成飞博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一切皆值得思考</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archives"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2019/04/17/编码技巧/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王成飞">
+      <meta itemprop="description" content="实践后去沉淀，用探索的思维迎接未知领域和挑战。">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王成飞博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">编码技巧
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-17 14:52:16" itemprop="dateCreated datePublished" datetime="2019-04-17T14:52:16+08:00">2019-04-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-06 09:57:37" itemprop="dateModified" datetime="2019-05-06T09:57:37+08:00">2019-05-06</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>优秀的开发人员是由代码的质量来定义的。在软件行业，编写好的代码意味着节省可能用于测试、更新、扩展或修复错误的资金。在本文中，将向你展示一些实际的技术和示例，这些技术和思想将帮助清理遗留代码，并对其进行重构，使其更加健壮和模块化。这些不仅可以帮助重构旧代码，而且从现在开始实践如何编写干净代码。</p>
+<h3 id="什么是重构？为什么我们需要重构？"><a href="#什么是重构？为什么我们需要重构？" class="headerlink" title="什么是重构？为什么我们需要重构？"></a>什么是重构？为什么我们需要重构？</h3><p>重构是指帮助你编写干净代码的技术和步骤。这对其他开发人员很重要，他们将能够读取、扩展和重用代码，而无需进行大量编辑。</p>
+<p>下来的几行将向你展示一些重构遗留代码的示例，并使其变得更好。</p>
+<h4 id="不要重构没有单元测试的生产代码"><a href="#不要重构没有单元测试的生产代码" class="headerlink" title="不要重构没有单元测试的生产代码"></a>不要重构没有单元测试的生产代码</h4><p>第一个建议是不要重构没有单元测试的遗留代码。原因是显而易见的：你最终会遇到一些很难修复的功能性BUG，因为你无法找出BUG的原因。因此，如果您需要重构它，首先从测试它开始。确保要重构的部分包含在测试中。</p>
+<p><a href="https://phpunit.readthedocs.io/en/7.1/code-coverage-analysis.html" target="_blank" rel="noopener">检查phpunit代码覆盖率分析</a>。</p>
+<h4 id="从代码的最深处开始重构"><a href="#从代码的最深处开始重构" class="headerlink" title="从代码的最深处开始重构"></a>从代码的最深处开始重构</h4><p>通常，最深的一点是关注一个单一的逻辑，这使得重构更容易。</p>
+<h4 id="通过将方法划分为更小的方法或配置文件-db表来缩短方法"><a href="#通过将方法划分为更小的方法或配置文件-db表来缩短方法" class="headerlink" title="通过将方法划分为更小的方法或配置文件/db表来缩短方法"></a>通过将方法划分为更小的方法或配置文件/db表来缩短方法</h4><h4 id="在if语句中始终使用"><a href="#在if语句中始终使用" class="headerlink" title="在if语句中始终使用{}"></a>在if语句中始终使用{}</h4><h4 id="不要使用魔法数字或魔法字符串"><a href="#不要使用魔法数字或魔法字符串" class="headerlink" title="不要使用魔法数字或魔法字符串"></a>不要使用魔法数字或魔法字符串</h4><p>如果判断房间超过250，它将返回一条错误消息。在这种情况下，250被认为是一个魔法数字。如果不是编写它的开发人员，就很难弄清楚它代表什么。</p>
+<h4 id="不要使用else语句，如果你不需要"><a href="#不要使用else语句，如果你不需要" class="headerlink" title="不要使用else语句，如果你不需要"></a>不要使用else语句，如果你不需要</h4><h4 id="对方法、变量和测试使用有意义的名称"><a href="#对方法、变量和测试使用有意义的名称" class="headerlink" title="对方法、变量和测试使用有意义的名称"></a>对方法、变量和测试使用有意义的名称</h4><h4 id="使用编程语言的最大能力"><a href="#使用编程语言的最大能力" class="headerlink" title="使用编程语言的最大能力"></a>使用编程语言的最大能力</h4><p>许多开发人员没有使用他们所使用的编程语言的全部功能。这些特性中的许多可以节省大量的精力，并使代码更加健壮。注意仅仅使用类型提示就可以很容易地用更少的代码获得相同的结果。</p>
+<h4 id="最后提供一些关于更好编码的提示"><a href="#最后提供一些关于更好编码的提示" class="headerlink" title="最后提供一些关于更好编码的提示"></a>最后提供一些关于更好编码的提示</h4><ol>
+<li>使用新的数组形式[]而不是旧的一个数组（）。</li>
+<li>使用===运算符而不是==除非不检查数据类型很重要。</li>
+<li>给公共方法提供简短的描述性名称总是一个好主意。</li>
+<li>私有方法的名称较长是可以的，因为它们的作用域有限。</li>
+<li>仅对实现接口的方法使用常规名称example add（），对单个类方法使用描述性名称adduser（）或adddocument（）。</li>
+<li>从类中移除未使用的方法。</li>
+<li>使用前缀是/具有返回布尔值的函数，例如：isadmin（$user）、hasPermission（$user）。</li>
+<li>总是在类方法和属性中使用访问修饰符。</li>
+<li>注意界面污染：只能使用用户可以公开使用的方法。在公共方法位于顶部的地方组织类方法。</li>
+<li>始终将单一责任概念应用于类和方法定义。</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>您的支持是我最大的动力！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="王成飞 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="王成飞 Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/编程/" rel="tag"># 编程</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/16/事件驱动架构/" rel="next" title="事件驱动架构">
+                <i class="fa fa-chevron-left"></i> 事件驱动架构
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/18/推荐算法/" rel="prev" title="推荐算法">
+                推荐算法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4" alt="王成飞">
+            
+              <p class="site-author-name" itemprop="name">王成飞</p>
+              <div class="site-description motion-element" itemprop="description">实践后去沉淀，用探索的思维迎接未知领域和挑战。</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">68</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/jidebingchuan" title="GitHub &rarr; https://github.com/jidebingchuan" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:wcf_first@163.com" title="E-Mail &rarr; mailto:wcf_first@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是重构？为什么我们需要重构？"><span class="nav-number">1.</span> <span class="nav-text">什么是重构？为什么我们需要重构？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#不要重构没有单元测试的生产代码"><span class="nav-number">1.1.</span> <span class="nav-text">不要重构没有单元测试的生产代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从代码的最深处开始重构"><span class="nav-number">1.2.</span> <span class="nav-text">从代码的最深处开始重构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过将方法划分为更小的方法或配置文件-db表来缩短方法"><span class="nav-number">1.3.</span> <span class="nav-text">通过将方法划分为更小的方法或配置文件/db表来缩短方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在if语句中始终使用"><span class="nav-number">1.4.</span> <span class="nav-text">在if语句中始终使用{}</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不要使用魔法数字或魔法字符串"><span class="nav-number">1.5.</span> <span class="nav-text">不要使用魔法数字或魔法字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不要使用else语句，如果你不需要"><span class="nav-number">1.6.</span> <span class="nav-text">不要使用else语句，如果你不需要</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对方法、变量和测试使用有意义的名称"><span class="nav-number">1.7.</span> <span class="nav-text">对方法、变量和测试使用有意义的名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用编程语言的最大能力"><span class="nav-number">1.8.</span> <span class="nav-text">使用编程语言的最大能力</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最后提供一些关于更好编码的提示"><span class="nav-number">1.9.</span> <span class="nav-text">最后提供一些关于更好编码的提示</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王成飞</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

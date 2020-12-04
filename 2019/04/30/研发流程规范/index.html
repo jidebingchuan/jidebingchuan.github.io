@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="如何把大象装进冰箱？ 如何批量的把大象装进冰箱？ 缘起任何目标的实现都有N多路径，那么当我们确定目标后，如何快速达成目标，除了目标拆解和关键点设置检查，规范的流程规范是保障我们目标和关键点顺利落地的保障工具。 在我们设定研发目标后，有哪些核心步骤，每个步骤有哪些问题及解决工具，标准化的流程和工具如何达成团队共识落地，以下为总结中见。 以下通过规范约束的形式，明确每个阶段需要关注的内容和落地的形式。">
+<meta name="keywords" content="管理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="研发流程规范">
+<meta property="og:url" content="http://wangchengfei.info/2019/04/30/研发流程规范/index.html">
+<meta property="og:site_name" content="王成飞博客">
+<meta property="og:description" content="如何把大象装进冰箱？ 如何批量的把大象装进冰箱？ 缘起任何目标的实现都有N多路径，那么当我们确定目标后，如何快速达成目标，除了目标拆解和关键点设置检查，规范的流程规范是保障我们目标和关键点顺利落地的保障工具。 在我们设定研发目标后，有哪些核心步骤，每个步骤有哪些问题及解决工具，标准化的流程和工具如何达成团队共识落地，以下为总结中见。 以下通过规范约束的形式，明确每个阶段需要关注的内容和落地的形式。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-06T01:44:41.972Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="研发流程规范">
+<meta name="twitter:description" content="如何把大象装进冰箱？ 如何批量的把大象装进冰箱？ 缘起任何目标的实现都有N多路径，那么当我们确定目标后，如何快速达成目标，除了目标拆解和关键点设置检查，规范的流程规范是保障我们目标和关键点顺利落地的保障工具。 在我们设定研发目标后，有哪些核心步骤，每个步骤有哪些问题及解决工具，标准化的流程和工具如何达成团队共识落地，以下为总结中见。 以下通过规范约束的形式，明确每个阶段需要关注的内容和落地的形式。">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="王成飞博客" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://wangchengfei.info/2019/04/30/研发流程规范/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>研发流程规范 | 王成飞博客</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?77735b5a26e8f4057c64badd972d97be";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王成飞博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一切皆值得思考</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archives"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2019/04/30/研发流程规范/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王成飞">
+      <meta itemprop="description" content="实践后去沉淀，用探索的思维迎接未知领域和挑战。">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王成飞博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">研发流程规范
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-30 14:52:35" itemprop="dateCreated datePublished" datetime="2019-04-30T14:52:35+08:00">2019-04-30</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-06 09:44:41" itemprop="dateModified" datetime="2019-05-06T09:44:41+08:00">2019-05-06</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>如何把大象装进冰箱？</p>
+<p>如何批量的把大象装进冰箱？</p>
+<h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><p>任何目标的实现都有N多路径，那么当我们确定目标后，如何快速达成目标，除了目标拆解和关键点设置检查，规范的流程规范是保障我们目标和关键点顺利落地的保障工具。</p>
+<p>在我们设定研发目标后，有哪些核心步骤，每个步骤有哪些问题及解决工具，标准化的流程和工具如何达成团队共识落地，以下为总结中见。</p>
+<p>以下通过规范约束的形式，明确每个阶段需要关注的内容和落地的形式。</p>
+<h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><h4 id="需求管理"><a href="#需求管理" class="headerlink" title="需求管理"></a>需求管理</h4><p><strong>规范约束</strong></p>
+<ul>
+<li>统一存储和浏览空间。分散是丢失的开始。</li>
+<li>统一设计格式和风格。差异化是增加理解成本的开始。</li>
+<li>统一核心业务概念描述。业务沟通成本最高的地方就是理解不一致。</li>
+<li>统一文档迭代meta数据。使用5W1H描述法。</li>
+</ul>
+<h4 id="迭代管理"><a href="#迭代管理" class="headerlink" title="迭代管理"></a>迭代管理</h4><p><strong>规范约束</strong></p>
+<ul>
+<li>需求划分方式：时间或功能。时间适用小团队迭代，分功能适合多团队、多系统迭代。</li>
+<li>功能需求聚合到一个空间。理解需求有延续性，并方便维护。</li>
+</ul>
+<h4 id="bug管理"><a href="#bug管理" class="headerlink" title="bug管理"></a>bug管理</h4><p><strong>规范约束</strong></p>
+<ul>
+<li>bug也是需求的一部分。很多业务迭代后期无法解释是早期需求成为后期bug，而bug修改无文档可追溯。</li>
+<li>bug需求需要补充或引用到功能需求下。改功能需要先理解原需求是什么后做优化修改。</li>
+</ul>
+<h3 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h3><h4 id="可维护性"><a href="#可维护性" class="headerlink" title="可维护性"></a>可维护性</h4><p><strong>规范约束</strong></p>
+<ul>
+<li>当行字符长度不超过80</li>
+<li>单方法行数不超过80</li>
+<li>见PSR1、PSR2</li>
+</ul>
+<h4 id="编码规范"><a href="#编码规范" class="headerlink" title="编码规范"></a>编码规范</h4><p><strong>规范约束</strong></p>
+<ul>
+<li>日志规范见PSR3、RFC5424</li>
+<li>自动加载见PSR4</li>
+<li>缓存见PSR6、RFC2119</li>
+<li>接口规范见PSR7</li>
+</ul>
+<h4 id="重复检查"><a href="#重复检查" class="headerlink" title="重复检查"></a>重复检查</h4><p><strong>规范约束</strong></p>
+<ul>
+<li>每个模块使用的工具和基础类抽象到基础LIB库。</li>
+<li>每个接口使用的工具和基础类抽象到模块基础LIB类。</li>
+</ul>
+<p><strong>检查工具</strong></p>
+<ul>
+<li>PHP-Parser。php静态代码分析工具。</li>
+<li>PHPMD: Php mess detector。代码bug、冗余代码、烂代码、无用方法和参数检查</li>
+<li>PHP dead code detector。检查冗余未使用代码。</li>
+<li>PHP copy sniffer。冗余代码检查</li>
+</ul>
+<h4 id="本地测试"><a href="#本地测试" class="headerlink" title="本地测试"></a>本地测试</h4><p><strong>规范约束</strong></p>
+<ul>
+<li>基础库代码单测覆盖100%。</li>
+<li>接口测试覆盖核心路径。</li>
+<li>接口验证每个参数校验及返回值。</li>
+</ul>
+<h4 id="分支测试"><a href="#分支测试" class="headerlink" title="分支测试"></a>分支测试</h4><p><strong>规范约束</strong></p>
+<ul>
+<li>每个功能从界面触发回归测试。</li>
+<li>整体单侧用例回归。</li>
+</ul>
+<h4 id="合并规范"><a href="#合并规范" class="headerlink" title="合并规范"></a>合并规范</h4><p><strong>规范约束</strong></p>
+<ul>
+<li>分支开发分支发布。避免主干顺路上线导致bug。</li>
+<li>冲突需要沟通修改。避免影响已上线代码。</li>
+</ul>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><h4 id="安全扫描"><a href="#安全扫描" class="headerlink" title="安全扫描"></a>安全扫描</h4><p><strong>规范约束</strong></p>
+<ul>
+<li>必须经过安全扫描后上线。</li>
+</ul>
+<p><strong>推荐工具</strong></p>
+<ul>
+<li>PHP marlware Finder</li>
+</ul>
+<h4 id="自动化回归测试"><a href="#自动化回归测试" class="headerlink" title="自动化回归测试"></a>自动化回归测试</h4><p><strong>规范约束</strong></p>
+<ul>
+<li>必须跑完并通过单侧后提交基础代码。</li>
+<li>必须联调、验证、验收接口后提交合入代码。</li>
+</ul>
+<h4 id="测试用例管理"><a href="#测试用例管理" class="headerlink" title="测试用例管理"></a>测试用例管理</h4><p><strong>规范约束</strong></p>
+<ul>
+<li>所有测试用例统一设计规则。</li>
+<li>所有测试用例统一管理。</li>
+<li>所有测试用例支持分版本、分端设置测试集合。</li>
+</ul>
+<p><strong>推荐工具</strong></p>
+<ul>
+<li>FitNesse</li>
+<li>qaManager</li>
+</ul>
+<h4 id="压力测试"><a href="#压力测试" class="headerlink" title="压力测试"></a>压力测试</h4><p><strong>规范约束</strong></p>
+<ul>
+<li>接口请求在压测满足要求后发起上线。</li>
+</ul>
+<p><strong>推荐工具</strong></p>
+<ul>
+<li>Jmeter</li>
+<li>Postman</li>
+</ul>
+<h3 id="上线"><a href="#上线" class="headerlink" title="上线"></a>上线</h3><h4 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h4><p><strong>规范约束</strong></p>
+<ul>
+<li>所有代码通过tag包的方式发布上线。</li>
+<li>发布包和QA测试通过包一致。</li>
+</ul>
+<h4 id="分级部署"><a href="#分级部署" class="headerlink" title="分级部署"></a>分级部署</h4><p><strong>规范约束</strong></p>
+<ul>
+<li>发布由OP发起。</li>
+<li>必须预览机验证通过后进行下一步。</li>
+<li>任何阶段发现问题，第一时间回滚。</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>您的支持是我最大的动力！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="王成飞 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="王成飞 Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/管理/" rel="tag"># 管理</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/28/有限状态机/" rel="next" title="有限状态机">
+                <i class="fa fa-chevron-left"></i> 有限状态机
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/09/计算机的发展/" rel="prev" title="计算机的发展">
+                计算机的发展 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4" alt="王成飞">
+            
+              <p class="site-author-name" itemprop="name">王成飞</p>
+              <div class="site-description motion-element" itemprop="description">实践后去沉淀，用探索的思维迎接未知领域和挑战。</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">68</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/jidebingchuan" title="GitHub &rarr; https://github.com/jidebingchuan" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:wcf_first@163.com" title="E-Mail &rarr; mailto:wcf_first@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#缘起"><span class="nav-number">1.</span> <span class="nav-text">缘起</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#需求"><span class="nav-number">2.</span> <span class="nav-text">需求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#需求管理"><span class="nav-number">2.1.</span> <span class="nav-text">需求管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#迭代管理"><span class="nav-number">2.2.</span> <span class="nav-text">迭代管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bug管理"><span class="nav-number">2.3.</span> <span class="nav-text">bug管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发"><span class="nav-number">3.</span> <span class="nav-text">开发</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#可维护性"><span class="nav-number">3.1.</span> <span class="nav-text">可维护性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编码规范"><span class="nav-number">3.2.</span> <span class="nav-text">编码规范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重复检查"><span class="nav-number">3.3.</span> <span class="nav-text">重复检查</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本地测试"><span class="nav-number">3.4.</span> <span class="nav-text">本地测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分支测试"><span class="nav-number">3.5.</span> <span class="nav-text">分支测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并规范"><span class="nav-number">3.6.</span> <span class="nav-text">合并规范</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">4.</span> <span class="nav-text">测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安全扫描"><span class="nav-number">4.1.</span> <span class="nav-text">安全扫描</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自动化回归测试"><span class="nav-number">4.2.</span> <span class="nav-text">自动化回归测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试用例管理"><span class="nav-number">4.3.</span> <span class="nav-text">测试用例管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#压力测试"><span class="nav-number">4.4.</span> <span class="nav-text">压力测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上线"><span class="nav-number">5.</span> <span class="nav-text">上线</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#包管理"><span class="nav-number">5.1.</span> <span class="nav-text">包管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分级部署"><span class="nav-number">5.2.</span> <span class="nav-text">分级部署</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王成飞</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

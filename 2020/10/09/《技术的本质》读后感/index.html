@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="选书近期发现服务端的语言也开始转型，公司很多业务从php的语言切换为golang，之前理解服务端的业务场景和基础组件比较稳定，现在也迎来了新的变化，但还是很难看清楚未来的发展方向，想找一本关于技术演化的书看看，希望能从更广的视角理解技术，了解技术的发展演进，了解技术在生活和价值观中起到的作用。 说到golang的发展我理解是应用服务越来越多的部署到云端，而云端需要的技术组件开发使用传统开发语言在效">
+<meta name="keywords" content="读后感">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《技术的本质》读后感">
+<meta property="og:url" content="http://wangchengfei.info/2020/10/09/《技术的本质》读后感/index.html">
+<meta property="og:site_name" content="王成飞博客">
+<meta property="og:description" content="选书近期发现服务端的语言也开始转型，公司很多业务从php的语言切换为golang，之前理解服务端的业务场景和基础组件比较稳定，现在也迎来了新的变化，但还是很难看清楚未来的发展方向，想找一本关于技术演化的书看看，希望能从更广的视角理解技术，了解技术的发展演进，了解技术在生活和价值观中起到的作用。 说到golang的发展我理解是应用服务越来越多的部署到云端，而云端需要的技术组件开发使用传统开发语言在效">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-10-10T04:01:43.124Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《技术的本质》读后感">
+<meta name="twitter:description" content="选书近期发现服务端的语言也开始转型，公司很多业务从php的语言切换为golang，之前理解服务端的业务场景和基础组件比较稳定，现在也迎来了新的变化，但还是很难看清楚未来的发展方向，想找一本关于技术演化的书看看，希望能从更广的视角理解技术，了解技术的发展演进，了解技术在生活和价值观中起到的作用。 说到golang的发展我理解是应用服务越来越多的部署到云端，而云端需要的技术组件开发使用传统开发语言在效">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="王成飞博客" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://wangchengfei.info/2020/10/09/《技术的本质》读后感/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>《技术的本质》读后感 | 王成飞博客</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?77735b5a26e8f4057c64badd972d97be";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王成飞博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一切皆值得思考</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archives"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2020/10/09/《技术的本质》读后感/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王成飞">
+      <meta itemprop="description" content="实践后去沉淀，用探索的思维迎接未知领域和挑战。">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王成飞博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">《技术的本质》读后感
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2020-10-09 19:13:01" itemprop="dateCreated datePublished" datetime="2020-10-09T19:13:01+08:00">2020-10-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2020-10-10 12:01:43" itemprop="dateModified" datetime="2020-10-10T12:01:43+08:00">2020-10-10</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="选书"><a href="#选书" class="headerlink" title="选书"></a>选书</h3><p>近期发现服务端的语言也开始转型，公司很多业务从php的语言切换为golang，之前理解服务端的业务场景和基础组件比较稳定，现在也迎来了新的变化，但还是很难看清楚未来的发展方向，想找一本关于技术演化的书看看，希望能从更广的视角理解技术，了解技术的发展演进，了解技术在生活和价值观中起到的作用。</p>
+<p>说到golang的发展我理解是应用服务越来越多的部署到云端，而云端需要的技术组件开发使用传统开发语言在效率和性能上存在矛盾，所以催生了新的语言发展，例如云端部署要求部署、更新、删除都比较高效，那么打包成一个可执行文件的做法就比较高效，云端环境的部署还有各种基础库及扩展依赖，这在初始化运行环境时就比较低效，使用c这些编译型的语言开发效率又提不上去。</p>
+<p>基于云化的趋势和现在的矛盾，兼顾开发、调试、部署效率（快速编译运行调试，单文件快速部署，支持多cpu架构的协程高效低耗的并发），就有了golang的定位，使用golang来开发云端基础组件，故golang吸取了其他语言的诸多优点，服务云化的潮流趋势。</p>
+<h3 id="读书"><a href="#读书" class="headerlink" title="读书"></a>读书</h3><h4 id="从哪来"><a href="#从哪来" class="headerlink" title="从哪来"></a>从哪来</h4><p>技术给我们带来了舒适的生活和无尽的财富，也成就了经济的繁荣。一句话，我们的世界因技术而改变。但是，技术的本质究竟是什么呢？它从何而来，又是如何进化的呢？</p>
+<p>书中通过拆解比较经典的技术领域来逐层分析，最终推到出所有的技术都是从自然现象开始，从发现现象、寻找规律、人类场景适配，到多种现象规律的组合使用形成新的技术，从而发现更多的现象，找出更多的规律，催生更多的技术和组合技术，周而复始，从而演进到当前繁荣的技术生态。</p>
+<p>从以上的过程作者分析了技术演进的结构：</p>
+<ul>
+<li>技术的组合性，技术是由其余技术组合而成，最终可追溯为某种自然现象。</li>
+<li>技术的分层递归，技术是由其子一层的技术组合而成。</li>
+<li>自然现象，所有技术的实现都是使用自然现象总结的规律，我们的技术组合只是在对自然现象编程。</li>
+</ul>
+<h4 id="技术与科学"><a href="#技术与科学" class="headerlink" title="技术与科学"></a>技术与科学</h4><p>科学是研究自然规律，技术是应用和组合自然规律促进科学，循环往复，只有科学没有技术是空中楼阁，只有技术没有科学就没有方向，技术和科学并重，遇到技术瓶颈时依靠领域或扩领域的科学组合实现，这类跨学科的发展很常见，例如信息论的发展在物理和生物学领域都有众多启发和应用。</p>
+<p>技术一旦走上发展之路，各种各样的版本就会随之出现。通过“内部替换”，开发人员可以用更好的部件（子技术）更换某一形成阻碍的部件。开发人员还可以通过寻找更好的部件或材料，或者加入新组件进行结构深化。旧设计和旧原理一经锁定，就会产生新用途。</p>
+<p>域并不是若干单体技术的简单相加，它们是连贯的整体，对经济的影响也更大。任何新域，都产生于一个已存在的域——母域，而且参与者开始很少能意识到会发生” 颠覆性改变”。但随着理解的深化和实践的固化，新域会慢慢忘记它的母域而横空出世，甚至会极大地提升国家竞争力。</p>
+<h4 id="技术进化"><a href="#技术进化" class="headerlink" title="技术进化"></a>技术进化</h4><p>组合是新技术的潜在来源。 组合的威力，在于它的指数级增长。如果新技术会带来更多的新技术，那么一旦元素数目超过一定阈值，可能的组合数就会爆炸性增长。此外，机会利基也在呼唤着新技术。技术就如同生命体一样，它的进化与生物进化也没什么本质差异。</p>
+<p>众多的技术集合在一起，创造了一种我们称之为“经济”的东西。经济从它的技术中浮现，不断从它的技术中创造自己，并且决定哪种新技术将会进入其中。每一个以新技术形式体现的解决方案，都会带来新的问题，这些问题又迫切需要进一步得到解决。经济是技术的一种表达，并随这些技术的进化而进化。</p>
+<h4 id="技术价值观"><a href="#技术价值观" class="headerlink" title="技术价值观"></a>技术价值观</h4><p>随着基因组研究和纳米技术的发展，生物正在变成技术。与此同时，从技术进化的角度看，技术也正在变为生物。两者已经开始相互接近并纠缠在一起了。我们需要和自然融为一体。如果技术将我们与自然分离，它带给我们的就是死亡。如果技术加强了我们和自然的联系，那就是它对生命和人性的厚爱。</p>
+<h3 id="用书"><a href="#用书" class="headerlink" title="用书"></a>用书</h3><h4 id="跨域学习"><a href="#跨域学习" class="headerlink" title="跨域学习"></a>跨域学习</h4><p>很多领域的突破都是借助其他领域的技术灵感，除了学习计算机科学，对自然（现象）和科学（规律）进展要有一定的认识，在此认识比较丰富和深入的情况下，可以通过迁移组合的方式，解决当前场景中的问题，产生新的技术。</p>
+<h4 id="知识管理"><a href="#知识管理" class="headerlink" title="知识管理"></a>知识管理</h4><p>技术如果是组合而成，那么在学习新技术的时候，就可以根据组合技术形成技术树，这个树就像一个树根一样，每个子节点都是一个自然现象。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>您的支持是我最大的动力！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="王成飞 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="王成飞 Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/读后感/" rel="tag"># 读后感</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/09/28/《信息简史》读后感/" rel="next" title="《信息简史》读后感">
+                <i class="fa fa-chevron-left"></i> 《信息简史》读后感
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/11/21/《终身学习：哈佛毕业后的六堂课》读后感/" rel="prev" title="《终身学习：哈佛毕业后的六堂课》读后感">
+                《终身学习：哈佛毕业后的六堂课》读后感 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4" alt="王成飞">
+            
+              <p class="site-author-name" itemprop="name">王成飞</p>
+              <div class="site-description motion-element" itemprop="description">实践后去沉淀，用探索的思维迎接未知领域和挑战。</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">68</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/jidebingchuan" title="GitHub &rarr; https://github.com/jidebingchuan" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:wcf_first@163.com" title="E-Mail &rarr; mailto:wcf_first@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#选书"><span class="nav-number">1.</span> <span class="nav-text">选书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读书"><span class="nav-number">2.</span> <span class="nav-text">读书</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#从哪来"><span class="nav-number">2.1.</span> <span class="nav-text">从哪来</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#技术与科学"><span class="nav-number">2.2.</span> <span class="nav-text">技术与科学</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#技术进化"><span class="nav-number">2.3.</span> <span class="nav-text">技术进化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#技术价值观"><span class="nav-number">2.4.</span> <span class="nav-text">技术价值观</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用书"><span class="nav-number">3.</span> <span class="nav-text">用书</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#跨域学习"><span class="nav-number">3.1.</span> <span class="nav-text">跨域学习</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#知识管理"><span class="nav-number">3.2.</span> <span class="nav-text">知识管理</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王成飞</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

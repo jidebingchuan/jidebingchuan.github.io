@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="在数学和计算机科学中，算法是解决一类问题的明确说明。算法可以执行计算、数据处理、自动推理和其他任务。 作为一种有效的方法，一种算法可以在有限的空间和时间内，用一种定义良好的形式语言表示，用于计算一个函数从初始状态和初始输入（可能为空）开始，指令描述了一种计算，当执行时，通过有限个定义进行计算，最终产生“输出”，并最终在结束状态终止。从一个状态到下一个状态的转换不一定是确定性的；一些被称为随机化算法">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法">
+<meta property="og:url" content="http://wangchengfei.info/2019/04/28/算法/index.html">
+<meta property="og:site_name" content="王成飞博客">
+<meta property="og:description" content="在数学和计算机科学中，算法是解决一类问题的明确说明。算法可以执行计算、数据处理、自动推理和其他任务。 作为一种有效的方法，一种算法可以在有限的空间和时间内，用一种定义良好的形式语言表示，用于计算一个函数从初始状态和初始输入（可能为空）开始，指令描述了一种计算，当执行时，通过有限个定义进行计算，最终产生“输出”，并最终在结束状态终止。从一个状态到下一个状态的转换不一定是确定性的；一些被称为随机化算法">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-28T08:01:23.718Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法">
+<meta name="twitter:description" content="在数学和计算机科学中，算法是解决一类问题的明确说明。算法可以执行计算、数据处理、自动推理和其他任务。 作为一种有效的方法，一种算法可以在有限的空间和时间内，用一种定义良好的形式语言表示，用于计算一个函数从初始状态和初始输入（可能为空）开始，指令描述了一种计算，当执行时，通过有限个定义进行计算，最终产生“输出”，并最终在结束状态终止。从一个状态到下一个状态的转换不一定是确定性的；一些被称为随机化算法">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="王成飞博客" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://wangchengfei.info/2019/04/28/算法/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>算法 | 王成飞博客</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?77735b5a26e8f4057c64badd972d97be";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王成飞博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一切皆值得思考</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archives"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2019/04/28/算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王成飞">
+      <meta itemprop="description" content="实践后去沉淀，用探索的思维迎接未知领域和挑战。">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王成飞博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">算法
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-28 13:45:57 / Modified: 16:01:23" itemprop="dateCreated datePublished" datetime="2019-04-28T13:45:57+08:00">2019-04-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在数学和计算机科学中，算法是解决一类问题的明确说明。算法可以执行计算、数据处理、自动推理和其他任务。</p>
+<p>作为一种有效的方法，一种算法可以在有限的空间和时间内，用一种定义良好的形式语言表示，用于计算一个函数从初始状态和初始输入（可能为空）开始，指令描述了一种计算，当执行时，通过有限个定义进行计算，最终产生“输出”，并最终在结束状态终止。从一个状态到下一个状态的转换不一定是确定性的；一些被称为随机化算法的算法结合了随机输入。</p>
+<p>算法的概念已经存在了几个世纪。希腊数学家使用埃拉托斯滕斯筛中的算法来寻找素数，使用欧几里得算法来寻找两个数的最大公约数。</p>
+<p>单词algorithm本身源自9世纪的数学家。部分形式化成为现代算法的概念始于试图解决由大卫希尔伯特在1928年提出的Entscheidungsproblem（决策问题）。后来的形式化是试图定义“有效的可计算性”或“有效的方法”。这些形式化包括1930、1934和1935年的G_del–Herbrand–Kleene递归函数、1936年的Alonzo Church的lambda微积分、1936年的Emil Post公式1以及1936-37和1939年的Alan Turing机器。</p>
+<h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><p>“算法”一词的词源于将穆罕默德伊本穆萨的名字拉丁化，这是到Algorismus的第一步，他是波斯数学家、天文学家、地理学家和学者。</p>
+<p>大约825年，al-khwarizmi写了一篇关于印度教-阿拉伯数字系统的阿拉伯语论文，在12世纪被翻译成拉丁语，标题为algoritmi de numero indorum。这个标题的意思是“印地安人的数字上的算法”，其中“算法”是翻译al-khwarizmi名字的拉丁化。选择他的名字，简单的意思是“十进制数字系统”。15世纪，在希腊语单词“算术”的影响下，拉丁语单词改为algorithmus，相应的英语术语“算法”在17世纪首次得到证实；19世纪引入了现代意义。</p>
+<p>在英语中，它最初在1230年被使用，然后在1391年被使用。英语采用了法语术语，但直到19世纪末，“算法”才有了现代英语的含义。</p>
+<p>这个词的另一个早期用法是1240年，在亚历山大德维尔迪欧撰写的名为《卡门·德阿尔戈里斯莫》的手册中。由此开始：</p>
+<blockquote>
+<p>算法主义是目前我们使用印度数字2乘以5的艺术。</p>
+</blockquote>
+<p>这首诗有几百行长，总结了印度骰子，塔利布斯印度语，或印度数字的新风格计算的艺术。</p>
+<h3 id="非正式定义"><a href="#非正式定义" class="headerlink" title="非正式定义"></a>非正式定义</h3><p>非正式的定义可以是“一组精确定义操作序列的规则”。包括所有计算机程序，包括不执行数值计算的程序。通常，程序只有在最终停止时才是一种算法。</p>
+<p>一个典型的算法例子是欧几里得算法，用于确定两个整数的最大公因数；后面的章节例子描述了这个算法（还有其他的例子）。</p>
+<p>Boolos，Jeffrey&amp;1974，1999在以下引文中提供了该词的非正式含义：</p>
+<blockquote>
+<p>没有人能写得足够快、足够长或足够小†（†“越来越小，没有限制……你应该试着写在分子、原子、电子上”），列出一个可枚举的无限集合的所有成员，用一些符号一个接一个地写下他们的名字。但是人类可以做同样有用的事情，在某些可枚举的无限集合的情况下：他们可以给出明确的指令来确定集合的第n个成员，对于任意有限的n。这些指令要非常明确地给出，在某种形式下，它们可以被一台计算机跟随，或者由一个能够驾驶汽车的人跟随。只对符号进行非常基本的运算。</p>
+</blockquote>
+<p>“可枚举无限集”是其元素可以与整数一一对应的集合。因此，Boolos和Jeffrey说，一个算法暗示了一个过程的指令，该过程从一个或多个任意的“输入”整数“创建”输出整数，理论上，这些整数可以任意大。因此，一个算法可以是一个代数方程，例如y=m+n——两个任意的“输入变量”m和n，它们产生一个输出y。但是，不同作者试图定义这个概念，表明这个词的含义远不止这个，它的顺序是（例如加法）：</p>
+<blockquote>
+<p>精确的指令（用“计算机”所理解的语言表示）。对于一个快速、高效、良好的过程，该过程规定了“计算机”的“移动”（机器或人，具有必要的内部信息和能力）。查找、解码，然后处理任意输入整数/符号m和n、符号+和=…以及“有效地”在“合理的”时间内，在指定的地点，以指定的格式，产生个整数y。</p>
+</blockquote>
+<p>算法的概念也被用来定义可判定性的概念。这个概念对于解释正式系统是如何从一组小的公理和规则开始形成的至关重要。在逻辑上，一个算法需要完成的时间是无法测量的，因为它显然与我们习惯的物理维度无关。由于这些不确定性，即正在进行的工作的特征，导致算法定义不可用，既适合具体（在某种意义上）又适合术语的抽象用法。</p>
+<h3 id="形式化"><a href="#形式化" class="headerlink" title="形式化"></a>形式化</h3><p>算法对于计算机处理数据的方式至关重要。许多计算机程序都包含详细说明计算机执行特定任务（按特定顺序）应执行的特定指令的算法，例如计算员工工资或打印学生报告卡。因此，一个算法可以被认为是任何可以被图灵完整系统模拟的操作序列。主张这篇论文的作者包括明斯基（1967年）、萨维奇（1987年）和古列维奇（2000年）：</p>
+<blockquote>
+<p>明斯基：“但我们也会保持，图灵……任何可以“自然”被称为有效的过程，实际上都可以通过（简单的）机器来实现。虽然这看起来很极端，但争论…对它有利是很难反驳的。</p>
+</blockquote>
+<blockquote>
+<p>古列维奇：“…图灵支持他的论文的非正式论点证明了一个更强有力的论点：每种算法都可以被图灵机器模拟……根据Savage，算法是由图灵机定义的计算过程。</p>
+</blockquote>
+<p>通常，当算法与处理信息相关联时，可以从输入源读取数据，写入输出设备，并存储数据以进行进一步处理。存储的数据被视为执行算法的实体的内部状态的一部分。实际上，状态存储在一个或多个数据结构中。</p>
+<p>对于某些这样的计算过程，必须严格定义算法：以它在所有可能出现的情况下应用的方式指定。也就是说，任何有条件的步骤都必须系统地逐个处理；每种情况的标准必须是明确的（并且是可计算的）。</p>
+<p>由于算法是精确步骤的精确列表，因此计算顺序对算法的运行始终至关重要。通常假定指令被明确地列出，并且被描述为“从上到下”的开始，这是一种更正式地由控制流描述的思想。</p>
+<p>到目前为止，对算法形式化的讨论假定了命令式编程的前提。这是最常见的概念，它试图用离散的“机械”的方式来描述一个任务。对于这种形式化算法的概念来说，唯一的一点就是赋值操作，即设置变量的值。它源于“记忆”作为草稿的直觉。下面有这样一个例子。</p>
+<p>有关构成算法的其他概念，请参阅函数编程和逻辑编程。</p>
+<h4 id="表示算法"><a href="#表示算法" class="headerlink" title="表示算法"></a>表示算法</h4><p>算法可以用多种符号表示，包括自然语言、伪代码、流程图、Drakon图、编程语言或控制表（由译员处理）。算法的自然语言表达往往是冗长和模棱两可的，很少用于复杂或技术算法。伪代码、流程图、drakon图和控制表是表示算法的结构化方法，避免了自然语言语句中常见的许多不明确之处。编程语言主要用于以计算机可以执行的形式表示算法，但通常用作定义或记录算法的方法。</p>
+<p>有各种各样的表示可能，人们可以将给定的图灵机程序表示为一系列机器表（更多见有限状态机、状态转换表和控制表）、流程图和drakon图（更多见状态图）或称为“q集”的基本机器代码或汇编代码的形式。</p>
+<p>算法的表示可分为图灵机器描述的三个可接受级别：</p>
+<p>高级描述</p>
+<p>​    “忽略实现细节。在这个层次上，我们不需要提及机器如何管理其磁带或磁头。”</p>
+<p>实现描述</p>
+<p>​    “用于定义图灵机使用其头部的方式以及在磁带上存储数据的方式。在这个层次上，我们不提供状态或过渡函数的细节。”</p>
+<p>正式描述</p>
+<p>​    最详细的“最低级别”给出了图灵机的“状态表”。</p>
+<p>有关所有三个级别中描述的简单算法“添加m+n”的示例，请参见算法示例。</p>
+<h3 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h3><p>算法设计是指求解问题的一种方法或数学过程以及工程算法。算法的设计是运筹学许多解理论的一部分，如动态规划、分治等。设计和实现算法设计的技术也称为算法设计模式，例如模板方法模式和装饰器模式。</p>
+<p>算法设计的一个最重要的方面是创建一个具有高效运行时的算法，也称为大O。</p>
+<p>算法开发的典型步骤：</p>
+<ol>
+<li>问题定义</li>
+<li>模型的开发</li>
+<li>算法说明</li>
+<li>设计算法</li>
+<li>检查算法的正确性</li>
+<li>算法分析</li>
+<li>算法的实现</li>
+<li>程序测试</li>
+<li>文件准备</li>
+</ol>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>大多数算法都是作为计算机程序来实现的。然而，算法也可以通过其他方式实现，例如在生物神经网络（例如，人脑实现算法或昆虫寻找食物）、电路或机械装置中。</p>
+<h3 id="计算机算法"><a href="#计算机算法" class="headerlink" title="计算机算法"></a>计算机算法</h3><p>在计算机系统中，算法基本上是软件开发人员在软件中编写的逻辑实例，对于预期的“目标”计算机从给定的（可能为空）输入产生输出是有效的。即使是在旧硬件中运行的优化算法，也会比在更高效的硬件中运行的非最优（时间复杂度更高）算法产生更快的结果；这就是为什么算法（如计算机硬件）被视为技术的原因。</p>
+<p>“优雅”（紧凑）程序，“良好”（快速）程序：在克努斯非正式地出现“简单和优雅”的概念，如此：</p>
+<blockquote>
+<p>Knuth：“……我们需要一些定义松散的美学意义上的好算法。一个标准…是执行算法所用的时间长度…其他标准包括算法对计算机的适应性、简单性和优雅性等。</p>
+</blockquote>
+<blockquote>
+<p>Chaitin：“……一个程序是“优雅的”，我的意思是它是产生输出的最小可能的程序。</p>
+</blockquote>
+<p>在他的定义前加了一句话：“我将向你展示，你无法证明一个程序是‘优雅的’”——这样的证明可以解决停顿问题（同上）。</p>
+<p>算法与可由算法计算的函数：对于给定的函数，可能存在多个算法。这是真的，即使没有扩展可供程序员使用的指令集。罗杰斯观察到“这是…重要的是要区分算法的概念，即过程和可由算法计算的函数的概念，即由过程生成的映射。同一个函数可能有几个不同的算法。</p>
+<p>不幸的是，在好（速度）和优雅（紧凑）之间可能存在一种权衡——一个优雅的程序可能需要更多的步骤来完成计算，而不是一个不那么优雅的程序。下面是一个使用欧几里得算法的例子。</p>
+<p>计算模型：计算机是一种受限制的机器，是一种盲目遵循其指令的“离散确定性机械装置”。不可区分的计数器代理和相对于代理的能力有效的指令列表。</p>
+<p>明斯基在他的“非常简单的可计算性基础”中描述了兰贝克的“算盘”模型的一个更为契合的变体。除了停止之外，明斯基的机器还包括三种分配操作：零（例如，被0:L←0替换的位置的内容）、继承者（例如，L←L+1）和减量（例如，L←L−1）。程序员很少需要用如此有限的指令集编写“代码”。但明斯基（和梅尔扎克和兰贝克一样）表明，他的机器只有四种基本类型的指令：条件goto、无条件goto、分配/替换/替换和停止。</p>
+<p>模拟算法：计算机（Computor）语言：Knuth建议读者“学习算法的最佳方法是尝试它”。…立即拿笔和纸做一个例子，但模拟或执行真实的东西呢？程序员必须将算法翻译成模拟器/计算机/计算机可以有效执行的语言。斯通举了一个例子：当计算二次方程的根时，计算机必须知道如何取平方根。如果不这样做，那么算法必须提供一组规则来提取平方根，才能有效地发挥作用。</p>
+<p>这意味着程序员必须知道相对于目标计算代理（计算机/计算机）有效的“语言”。</p>
+<p>但是模拟应该使用什么模型呢？vanEmdeBoas观察到，“即使我们把复杂性理论建立在抽象的基础上而不是具体的机器上，模型选择的任意性仍然存在。此时，模拟的概念进入了，当测量速度时，指令集很重要。例如，欧几里得算法中计算余数的子程序执行速度要快得多，如果程序员有一个“模”指令，而不仅仅是减法（或者更糟的是：只有明斯基的“减法”）。</p>
+<p>结构化编程、规范结构：根据丘奇-图灵理论，任何算法都可以通过已知图灵完备的模型来计算，并且根据明斯基的演示，图灵完备只需要四种指令类型：条件goto、无条件goto、赋值、停止。Kemeny和Kurtz观察到，虽然无条件goto和有条件if-then goto的“无纪律”使用会导致“意大利面条代码”，但是程序员可以只使用这些指令编写结构化程序；另一方面，“用结构化语言编写结构化差的程序也可能，而且不太难。” Tausworthe增加了三个规范结构：序列、if-then-else和while-do，还有两个：do-while和case。结构化程序的另一个好处是，它使用数学归纳法来证明正确性。</p>
+<p>标准流程图符号：图形辅助工具称为流程图，提供了描述和记录算法（以及一个计算机程序）的方法。就像minsky机器的程序流程一样，流程图总是从页面的顶部开始向下。它的主要符号只有四个：显示程序流的定向箭头、矩形（序列、GoTo）、菱形（if-then-else）和点（或tie）。标准结构由这些原始形状构成。子结构可以“嵌套”成矩形，但前提是上部结构只有一个出口。符号及其用于构建规范结构的用途如图所示。</p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><h4 id="算法示例"><a href="#算法示例" class="headerlink" title="算法示例"></a>算法示例</h4><p>最简单的算法之一是在随机顺序的数字列表中找到最大的数字。找到解决方案需要查看列表中的每个数字。由此得出一个简单的算法，可以用英语散文的高级描述来说明，如下所示：</p>
+<p>高层次的描述：</p>
+<ol>
+<li>如果集合中没有数字，则没有最高数字。</li>
+<li>假设集合中的第一个数字是集合中最大的数字。</li>
+<li>对于集合中的每个剩余数字：如果此数字大于当前最大数字，则将此数字视为集合中的最大数字。</li>
+<li>当集合中没有要迭代的数字时，请将当前最大的数字视为集合中最大的数字。</li>
+</ol>
+<p>（准）形式描述：用散文写，但更接近于计算机程序的高级语言，以下是用伪代码或pidgin代码对算法进行更正式的编码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Algorithm LargestNumber</span><br><span class="line">  Input: A list of numbers L.</span><br><span class="line">  Output: The largest number in the list L.</span><br><span class="line">  if L.size = 0 return null</span><br><span class="line">  largest ← L[0]</span><br><span class="line">  for each item in L, do</span><br><span class="line">    if item &gt; largest, then</span><br><span class="line">      largest ← item</span><br><span class="line">  return largest</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>“←”表示分配。例如，“最大←项”是指最大值的值变化到项的值。</p>
+<p>“返回”终止算法并输出以下值。</p>
+</blockquote>
+<h4 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h4><p>欧几里得计算两个数的最大公约数（gcd）的算法在其元素的第七卷（“初等数理论”）中出现。欧几里得提出了这样一个问题：“给定两个数互不相乘，以找到它们的最大公约数。”他定义“一个由单位组成的多个数”：一个计数数，一个不包括零的正整数。“测量”是将较短的测量长度s沿较长的长度l连续放置（q次），直到剩余部分r小于较短的长度。在现代词汇中，余数r=l−q×s，q是商，或余数r是“模”，即除法后剩余的整数分数部分。</p>
+<p>为了使欧几里得方法成功，起始长度必须满足两个要求：长度不能为零，并且减法必须是“适当的”；即，测试必须保证两个数字中较小的数字从较大的数字中减去（或者，两个数字可以相等，以便减法得出零）。</p>
+<p>欧几里得的原始证明又增加了第三个要求：两个长度不能是素数。欧几里得规定了这一点，这样他就可以建立一个约简和荒谬的证据，证明两个数字的共同度量实际上是最大的。虽然尼科马丘斯的算法与欧几里得的算法相同，但当这些数字互为素数时，就产生了它们共同度量的数字“1”。所以，准确地说，下面的算法确实是尼科马丘斯的算法。</p>
+<h5 id="欧几里得算法的计算机语言"><a href="#欧几里得算法的计算机语言" class="headerlink" title="欧几里得算法的计算机语言"></a>欧几里得算法的计算机语言</h5><p>执行欧几里得算法只需要几个指令类型：一些逻辑测试（条件goto）、无条件goto、赋值（替换）和减法。</p>
+<p>位置用大写字母表示，例如S、A等。</p>
+<p>一个地点的不同数量（数字）用小写字母书写，并且（通常）与该地点的名称相关。例如，起始位置L可能包含数字L=3009。</p>
+<h4 id="欧几里得算法的一个差程序"><a href="#欧几里得算法的一个差程序" class="headerlink" title="欧几里得算法的一个差程序"></a>欧几里得算法的一个差程序</h4><p>以下算法的框架是Knuth的Euclid’s和Nicomachus的四步版本，但它不是使用除法来查找余数，而是使用剩余长度r中较短长度s的连续减法，直到r小于s。用粗体显示的高级描述改编自Knuth 1973:2-4：</p>
+<p>INPUT：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1 [Into two locations L and S put the numbers l and s that represent the two lengths]:</span><br><span class="line">  INPUT L, S</span><br><span class="line">2 [Initialize R: make the remaining length r equal to the starting/initial/input length l]:</span><br><span class="line">  R ← L</span><br></pre></td></tr></table></figure>
+<p>E0：确保R≥S</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">3 [Ensure the smaller of the two numbers is in S and the larger in R]:</span><br><span class="line">  IF R &gt; S THEN</span><br><span class="line">    the contents of L is the larger number so skip over the exchange-steps 4, 5 and 6:</span><br><span class="line">    GOTO step 6</span><br><span class="line">  ELSE</span><br><span class="line">    swap the contents of R and S.</span><br><span class="line">4   L ← R (this first step is redundant, but is useful for later discussion).</span><br><span class="line">5   R ← S</span><br><span class="line">6   S ← L</span><br></pre></td></tr></table></figure>
+<p>E1：[求余数]：直到R中剩余的长度r小于S中较短的长度s，重复地从R中剩余的长度r中减去S中的测量数字s。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">7 IF S &gt; R THEN</span><br><span class="line">    done measuring so</span><br><span class="line">    GOTO 10</span><br><span class="line">  ELSE</span><br><span class="line">    measure again,</span><br><span class="line">8   R ← R − S</span><br><span class="line">9   [Remainder-loop]:</span><br><span class="line">    GOTO 7.</span><br></pre></td></tr></table></figure>
+<p>E2：[余数是零吗？]：（i）最后一个度量精确，r中的余数为零，程序可以停止，要么（ii）算法必须继续：最后一个度量在r中留下的余数小于s中的度量数。</p>
+<p>E3：【交换S和R】：欧几里得算法的核心。使用余数r来测量以前较小的数s；l用作临时位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">11  L ← R</span><br><span class="line">12  R ← S</span><br><span class="line">13  S ← L</span><br><span class="line">14  [Repeat the measuring process]:</span><br><span class="line">    GOTO 7</span><br></pre></td></tr></table></figure>
+<p>OUTPUT：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">16 HALT, END, STOP.</span><br></pre></td></tr></table></figure>
+<h4 id="欧几里得算法的一个好程序"><a href="#欧几里得算法的一个好程序" class="headerlink" title="欧几里得算法的一个好程序"></a>欧几里得算法的一个好程序</h4><p>以下版本的欧几里得算法只需要六个核心指令就可以完成“不雅”的十三个指令；更糟的是，“不雅”需要更多类型的指令。在本文的顶部可以找到“优雅”的流程图。在（非结构化）基本语言中，步骤是编号的，指令let[]=[]是用←符号表示的赋值指令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">5 REM Euclid&apos;s algorithm for greatest common divisor</span><br><span class="line">6 PRINT &quot;Type two integers greater than 0&quot;</span><br><span class="line">10 INPUT A,B</span><br><span class="line">20 IF B=0 THEN GOTO 80</span><br><span class="line">30 IF A &gt; B THEN GOTO 60</span><br><span class="line">40 LET B=B-A</span><br><span class="line">50 GOTO 20</span><br><span class="line">60 LET A=A-B</span><br><span class="line">70 GOTO 20</span><br><span class="line">80 PRINT A</span><br><span class="line">90 END</span><br></pre></td></tr></table></figure>
+<p>“优雅”是如何工作的：代替外部的“欧几里得循环”，“优雅”在两个“CO循环”之间来回移动，A&gt;B循环计算A←A−B，A B≤A循环计算B←B−A。这是因为，当minutend m最后小于或等于subtrahend s（difference=minutend−subtrahend）时，minutend可以变为s（新的测量长度），副斜线可以变为新的r（要测量的长度）；换句话说，减法的“意义”相反。</p>
+<p>以下版本可用于面向对象的语言：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// Euclid&apos;s algorithm for greatest common divisor</span><br><span class="line">int euclidAlgorithm (int A, int B)&#123;</span><br><span class="line">     A=Math.abs(A);</span><br><span class="line">     B=Math.abs(B);</span><br><span class="line">     while (B!=0)&#123;</span><br><span class="line">          if (A&gt;B) A=A-B;</span><br><span class="line">          else B=B-A;</span><br><span class="line">     &#125;</span><br><span class="line">     return A;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="检查欧几里得算法"><a href="#检查欧几里得算法" class="headerlink" title="检查欧几里得算法"></a>检查欧几里得算法</h4><p>算法是否按照作者的要求执行？一些测试用例通常对核心功能有一定的信心。但测试是不够的。对于测试用例，一个源代码使用3009和884。Knuth建议40902，24140。另一个有趣的例子是两个相对质数14157和5950。</p>
+<p>但是“例外情况”必须被识别和测试。当r&gt;s，s&gt;r，r=s时，“烂代码”会正常运行吗？“优雅”同上：b&gt;a，a&gt;b，a=b？（对所有人都是）。当一个数字为零，两个数字都为零时会发生什么？（“烂代码”在所有情况下永远计算；“优雅”在a=0时永远计算。）如果输入负数会发生什么？分数？如果输入的数字，即由算法/程序计算的函数的域，只包含正整数（包括零），则在零处的失败表示算法（以及实例化它的程序）是一个部分函数而不是一个总函数。一个值得注意的失败由于例外是阿里安5号飞行501火箭失败（1996年6月4日）。</p>
+<h4 id="欧几里得算法的测量与改进"><a href="#欧几里得算法的测量与改进" class="headerlink" title="欧几里得算法的测量与改进"></a>欧几里得算法的测量与改进</h4><p>优雅（紧凑）与善良（速度）：只有六个核心指令，“优雅”是明显的赢家，而“不雅”是13个指令。然而，“不雅”的速度更快（它以更少的步骤到达停止）。算法分析指出了这种情况的原因：“Elegant”在每个减法循环中执行两个条件测试，而“Elegant”只执行一个条件测试。由于算法（通常）需要许多循环通过，所以在执行“b=0”时平均要浪费很多时间。仅在计算余数后才需要的测试。</p>
+<p>算法可以改进吗？：一旦程序员判断一个程序“合适”和“有效”——也就是说，它计算出作者想要的函数，那么问题就变成了，它能被改进吗？</p>
+<p>通过消除五个步骤，可以提高“不雅”的紧凑性。但是Chaitin证明了压缩算法不能用广义算法实现自动化；相反，它只能用启发式的方法实现，即通过穷尽搜索（在繁忙的海狸身上找到的例子）、试错、聪明、洞察力、归纳推理的应用等。观察到步骤4、5和6在步骤11、12和6中重复。这些步骤以及步骤2和3可以被消除。这将核心指令的数量从13个减少到了8个，这使得它在9个步骤中“比”优雅“更优雅”。</p>
+<p>移动“b=0”可以提高“优雅”的速度。在两个减法循环之外进行测试。此更改需要添加三个指令（b=0？A＝0？GOTO）。现在，“优雅”计算示例数更快；对于任何给定的a、b和r、s，是否总是这样，都需要进行详细的分析。</p>
+<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><p>通常重要的是要知道给定算法理论上需要多少特定资源（如时间或存储）。已经开发了用于分析算法以获得定量答案（估计值）的方法；例如，上述排序算法的时间要求为o（n），使用n作为列表长度的大o符号。在任何时候，算法只需要记住两个值：迄今为止发现的最大值，以及它在输入列表中的当前位置。因此，如果不计算存储输入数字所需的空间，则称其具有O（1）的空间要求；如果计算输入数字，则称其具有O（n）的空间要求。</p>
+<p>不同的算法可以用不同的指令集在比其他算法更少或更多的时间、空间或“努力”内完成相同的任务。例如，当用于排序列表或数组上的表查找时，二进制搜索算法（具有cost o（log n））优于顺序搜索（cost o（n））。</p>
+<h4 id="形式与经验"><a href="#形式与经验" class="headerlink" title="形式与经验"></a>形式与经验</h4><p>对算法的分析和研究是计算机科学的一门学科，通常是抽象地实践，而不使用特定的编程语言或实现。从这个意义上讲，算法分析与其他数学学科相似，因为它关注算法的基本属性，而不是任何特定实现的细节。</p>
+<p>通常，伪代码用于分析，因为它是最简单和最一般的表示。然而，最终，大多数算法通常在特定的硬件/软件平台上实现，它们的算法效率最终通过实际代码进行测试。</p>
+<p>对于“一次性”问题的解决，特定算法的效率可能不会产生重大后果（除非n非常大），但对于设计用于快速交互、商业或长寿命科学应用的算法，这可能是至关重要的。从小n到大n的缩放经常暴露出效率低下的算法，否则是良性的。</p>
+<p>经验测试很有用，因为它可能揭示影响性能的意外交互作用。基准点可用于比较程序优化前后的潜在改进与程序优化后的算法。然而，经验检验不能取代正式的分析，以公平的方式进行分析也不容易。</p>
+<h4 id="执行效率"><a href="#执行效率" class="headerlink" title="执行效率"></a>执行效率</h4><p>为了说明即使在成熟的算法中也可能有潜在的改进，最近一项与FFT算法（在图像处理领域中大量使用）相关的重大创新可以将处理时间缩短1000倍，用于医疗成像等应用。一般来说，速度的改进取决于这一问题在实际应用中非常普遍。这种规模的加速使计算机设备能够广泛地利用图像处理（如数码相机和医疗设备）来降低功耗。</p>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>对算法进行分类有多种方法，每种方法都有其自身的优点。</p>
+<h4 id="按实现类型"><a href="#按实现类型" class="headerlink" title="按实现类型"></a>按实现类型</h4><p><strong>递归</strong></p>
+<p>递归算法是一种反复调用（引用）自身的算法，直到某个条件（也称为终止条件）匹配为止，这是函数编程常用的方法。迭代算法使用循环这样的重复构造，有时使用堆栈这样的额外数据结构来解决给定的问题。有些问题很自然地适合于一种实现或另一种实现。例如，使用递归实现可以很好地理解汉内塔。每一个递归版本都有一个等价的（但可能或多或少复杂）迭代版本，反之亦然。</p>
+<p><strong>逻辑</strong></p>
+<p>一个算法可以被看作是受控逻辑推理。这个概念可以表示为：算法=逻辑+控制。逻辑组件表示可用于计算的公理，而控制组件决定对公理应用推导的方式。这是逻辑编程范式的基础。在纯逻辑编程语言中，控制组件是固定的，算法是通过只提供逻辑组件来指定的。这种方法的吸引力在于优雅的语义：公理的变化会在算法中产生定义明确的变化。</p>
+<p><strong>串行、并行或分布式</strong></p>
+<p>通常讨论算法时假定计算机一次执行一条算法指令。这些计算机有时被称为串行计算机。为这种环境设计的算法称为串行算法，而不是并行算法或分布式算法。并行算法利用计算机体系结构，其中多个处理器可以同时处理一个问题，而分布式算法则利用与计算机网络连接的多台计算机。</p>
+<p>并行或分布式算法将问题划分为更对称或不对称的子问题，并将结果收集在一起。这种算法的资源消耗不仅是每个处理器上的处理器周期，而且是处理器之间的通信开销。一些排序算法可以有效地并行化，但是它们的通信开销很高。迭代算法通常是可并行的。有些问题没有并行算法，称为固有的串行问题。</p>
+<p><strong>确定性或非确定性</strong></p>
+<p>确定性算法在算法的每一步都用精确的决策来解决问题，而非确定性算法则是通过猜测来解决问题，尽管典型的猜测是通过启发式更精确地进行的。</p>
+<p><strong>精确或近似</strong></p>
+<p>当许多算法达到精确解时，近似算法寻求更接近真实解的近似。近似可以通过使用确定性策略或随机策略来实现。这种算法对许多困难问题都有实用价值。近似算法的一个例子是背包问题，其中有一组给定的项目。它的目标是包装背包以获得最大的总价值。每件物品都有一定的重量和价值。可携带的总重量不超过某个固定数字x。因此，解决方案必须考虑物品的重量及其值。</p>
+<p><strong>量子算法</strong></p>
+<p>它们运行在一个现实的量子计算模型上。这个术语通常用于那些看似固有量子的算法，或使用量子计算的一些基本特征，如量子叠加或量子纠缠。</p>
+<h4 id="按设计范式"><a href="#按设计范式" class="headerlink" title="按设计范式"></a>按设计范式</h4><p>对算法进行分类的另一种方法是通过它们的设计方法或范式。有一定数量的范例，每一个都不同。此外，这些类别中的每一个都包含许多不同类型的算法。一些常见的范例是：</p>
+<p><strong>暴力或全部搜索</strong></p>
+<p>这是一种幼稚的方法，尝试各种可能的解决方案，看看哪一个是最好的。</p>
+<p><strong>分而治之</strong></p>
+<p>分而治之的算法反复地将一个问题的实例减少到同一个问题的一个或多个较小实例（通常是递归的），直到这些实例足够小，可以轻松解决为止。分而治之的一个例子就是合并排序。在将数据分割成段后，可以对每个数据段进行排序，通过合并段，可以在征服阶段获得整个数据的排序。</p>
+<p>分而治之的一个更简单的变体被称为减少和征服算法，它解决一个相同的子问题，并使用这个子问题的解决方案来解决更大的问题。分而治之将问题划分为多个子问题，因此征服阶段比减少和征服算法更为复杂。减少和征服算法的一个例子是二进制搜索算法。</p>
+<p><strong>搜索和枚举</strong></p>
+<p>许多问题（如下棋）可以被建模为图上的问题。图搜索算法指定了围绕图移动的规则，对于此类问题非常有用。这一类还包括搜索算法、分支和绑定枚举以及回溯。</p>
+<p><strong>随机算法</strong></p>
+<p>这种算法随机（或伪随机）做出一些选择。对于那些无法找到精确解的问题，它们可以非常有用地找到近似解（参见下面的启发式方法）。对于其中一些问题，我们知道最快的近似值必须包含一些随机性。对于某些问题，具有多项式时间复杂度的随机算法是否可以是最快的算法，这是一个开放的问题，称为p对np问题。这种算法有两大类：</p>
+<ol>
+<li>蒙特卡罗算法返回正确答案的概率很高。例如，rp是以多项式时间运行的子类。</li>
+<li>拉斯维加斯算法总是返回正确的答案，但它们的运行时间只是概率限制的，例如ZPP。</li>
+</ol>
+<p><strong>降低复杂性</strong></p>
+<p>这项技术涉及到通过将一个困难问题转化为我们（希望）有渐近最优算法的更为知名的问题来解决它。其目的是找到一种简化算法，其复杂度不受生成的简化算法的控制。例如，一种用于在未排序列表中查找中间值的选择算法，首先对列表（昂贵部分）进行排序，然后拉出排序列表中的中间元素（便宜部分）。这种技术也被称为转换和征服。</p>
+<p><strong>回溯</strong></p>
+<p>在这种方法中，当确定多个解决方案无法生成有效的完整解决方案时放弃它们，并将逐步构建多个解决方案。</p>
+<h4 id="优化问题"><a href="#优化问题" class="headerlink" title="优化问题"></a>优化问题</h4><p>对于优化问题，有一个更具体的算法分类；针对此类问题的算法可以分为上述一个或多个一般类别，也可以分为以下类别之一：</p>
+<p><strong>线性规划</strong></p>
+<p>在寻找线性等式和不等式约束下的线性函数的最优解时，问题的约束可以直接用于产生最优解。有一些算法可以解决这类问题，例如流行的单纯形算法。可以用线性规划解决的问题包括有向图的最大流问题。如果一个问题另外要求一个或多个未知数必须是整数，那么它将被分类为整数编程。</p>
+<p>如果可以证明整数值的所有限制都是表面的，即解满足这些限制，那么线性规划算法就可以解决这一问题。在一般情况下，根据问题的难度，使用专门的算法或找到近似解的算法。</p>
+<p><strong>动态规划</strong></p>
+<p>当一个问题显示最优子结构时，意味着可以从子问题的最优解和重叠子问题的最优解构造出一个问题的最优解，这意味着相同的子问题被用于解决许多不同的问题实例，</p>
+<p>一种称为动态规划的更快方法避免了重新计算已经存在的解。已经计算出来了。例如，Floyd–Warshall算法，通过使用从所有相邻顶点到目标的最短路径，可以找到从加权图中的顶点到目标的最短路径。动态编程和记忆化结合在一起。</p>
+<p>动态规划与分而治之的主要区别在于，子问题在分而治之中或多或少是独立的，而在动态规划中，子问题是重叠的。</p>
+<p>动态编程和直接递归的区别在于递归调用的缓存或内存化。当子问题是独立的，没有重复的时候，记忆没有帮助，因此动态编程不是所有复杂问题的解决方案。</p>
+<p>通过使用memoization或维护已经解决的子问题表，动态规划将许多问题的指数性质降低到多项式复杂性。</p>
+<p><strong>贪婪算法</strong></p>
+<p>贪婪算法类似于动态编程算法，它通过检查子结构来工作，在这种情况下，不是问题而是给定的解决方案。这种算法从一些可能给出或以某种方式构造的解开始，并通过做一些小的修改来改进它。对于某些问题，它们可以找到最优解，而对于其他问题，它们则停留在局部最优解，也就是说，在算法无法改进但不是最优的解上。</p>
+<p>贪婪算法最常用的用途是寻找最小生成树，在那里用这种方法可以找到最优解。哈夫曼树、克鲁斯卡尔、普里姆、索林都是贪婪的算法，可以解决这个优化问题。</p>
+<p><strong>启发算法</strong></p>
+<p>在优化问题中，启发式算法可用于在无法找到最优解的情况下找到接近最优解的解。这些算法的工作原理是，随着算法的发展，越来越接近最优解。原则上，如果运行无限长的时间，他们会找到最优解。它们的优点是在相对较短的时间内可以找到一个非常接近最优解的解。</p>
+<p>这些算法包括局部搜索、禁忌搜索、模拟退火和遗传算法。其中一些算法，如模拟退火算法，是非确定性算法，而另一些算法，如禁忌搜索算法，则是确定性算法。当已知非最优解的误差界时，该算法又被进一步分类为近似算法。</p>
+<h4 id="按研究领域"><a href="#按研究领域" class="headerlink" title="按研究领域"></a>按研究领域</h4><p>每个科学领域都有自己的问题，需要有效的算法。一个领域的相关问题经常一起研究。一些示例类包括搜索算法、排序算法、合并算法、数字算法、图形算法、字符串算法、计算几何算法、组合算法、医学算法、机器学习、密码学、数据压缩算法和解析技术。</p>
+<p>领域往往相互重叠，一个领域中的算法改进可能会改善另一个领域（有时完全不相关）。例如，动态规划是为了优化工业中的资源消耗而发明的，但现在已用于解决许多领域的广泛问题。</p>
+<h4 id="按复杂性"><a href="#按复杂性" class="headerlink" title="按复杂性"></a>按复杂性</h4><p>与输入大小相比，算法可以按需要完成的时间量分类：</p>
+<ul>
+<li>恒定时间：如果算法所需的时间相同，则不考虑输入大小。例如，对数组元素的访问。</li>
+<li>线性时间：如果时间与输入大小成比例。例如，列表的遍历。</li>
+<li>对数时间：如果时间是输入大小的对数函数。例如二进制搜索算法。</li>
+<li>多项式时间：如果时间是输入大小的幂。例如，气泡排序算法具有二次时间复杂性。</li>
+<li>指数时间：如果时间是输入大小的指数函数。例如，暴力搜索。</li>
+</ul>
+<p>有些问题可能有多个复杂度不同的算法，而其他问题可能没有算法或已知的高效算法。还有一些问题到其他问题的映射。基于此，基于最优算法的复杂性，将问题本身进行分类，而不是将算法分为等价类更为合适。</p>
+<h3 id="连续算法"><a href="#连续算法" class="headerlink" title="连续算法"></a>连续算法</h3><p>形容词“continuous”应用于“algorithm”一词时可以表示：</p>
+<p>一种对表示连续量的数据进行运算的算法，即使该数据由离散近似表示，这种算法也在数值分析中进行研究；或一种微分方程形式的算法，在模拟计算机上连续地对数据进行运算。</p>
+<h3 id="法律问题"><a href="#法律问题" class="headerlink" title="法律问题"></a>法律问题</h3><p>算法本身通常不具有专利权。在美国，仅由抽象概念、数字或信号的简单操作组成的主张不构成“过程”（USPTO 2006），因此算法不具有专利权（如Gottschalk v.Benson）。然而，算法的实际应用有时是可申请专利的。例如，在Diamond v.Diehr中，应用简单反馈算法帮助合成橡胶固化被认为是可申请专利的。软件专利是一个极具争议的领域，涉及算法的专利备受批评，尤其是数据压缩算法，如Unisys的LZW专利。</p>
+<p>此外，一些加密算法有导出限制。</p>
+<h3 id="算法的发展"><a href="#算法的发展" class="headerlink" title="算法的发展"></a>算法的发展</h3><h4 id="古代近东"><a href="#古代近东" class="headerlink" title="古代近东"></a>古代近东</h4><p>古希腊使用了算法。两个例子是埃拉托斯坦的筛子，这是尼科马克《算术导论》中描述的：Ch9.2和欧几里得算法，这是在欧几里得元素（约公元前300年）中首次描述的。Ch9.1巴比伦粘土片描述和使用算法程序来计算重要天文事件的时间和地点。</p>
+<h4 id="离散和可分辨符号"><a href="#离散和可分辨符号" class="headerlink" title="离散和可分辨符号"></a>离散和可分辨符号</h4><p>理货记号：为了记录他们的羊群、他们的粮食袋和他们的钱，古人使用理货：在木棍上堆积石头或留下记号，或在粘土中制作离散的符号。通过巴比伦和埃及对标记和符号的使用，最终罗马数字和算盘得以发展（Dilson，第16-41页）。在图灵机器和后图灵机器计算中使用的一元数字系统算法中，计数标记突出显示。</p>
+<h4 id="作为数字“占位符”的符号处理：代数"><a href="#作为数字“占位符”的符号处理：代数" class="headerlink" title="作为数字“占位符”的符号处理：代数"></a>作为数字“占位符”的符号处理：代数</h4><p>古希腊几何学家（欧几里得算法）、印度数学家布拉马库塔（Brahmagupta）和波斯数学家阿尔赫瓦里兹米（Algorism和Algorithmi是从他们的名字衍生而来）以及西欧数学家的工作最终达到了莱布尼兹的微积分比率（ca 1680）的概念：</p>
+<blockquote>
+<p>莱布尼兹提出了逻辑代数，这是一种代数，它规定了用普通代数规定数字运算规则的方式来处理逻辑概念的规则。</p>
+</blockquote>
+<h4 id="具有离散状态的机械装置"><a href="#具有离散状态的机械装置" class="headerlink" title="具有离散状态的机械装置"></a>具有离散状态的机械装置</h4><p>博尔特认为重量驱动的钟的发明是“关键发明[中世纪的欧洲]”，特别是边缘逃逸为我们提供了一个机械钟的滴答声。从13世纪开始，精确的自动机器”。立即导致了“机械自动化”，最终导致了“计算机器”—19世纪中叶查尔斯·巴贝奇和艾达·洛维拉斯伯爵夫人的差分引擎和分析引擎。作为计算机巴贝奇的分析引擎，第一台设备被认为是一台真正的图灵完整的计算机，而不仅仅是一台计算器，因此有时也被称为“历史上的第一个程序员”，尽管巴贝奇的第二台设备的完整实现在她有生之年之后才得以实现。</p>
+<p>逻辑机器1870年——斯坦利·杰文斯（Stanley Jevons）的“逻辑算盘”和“逻辑机器”：技术问题是当以类似于现在所称的卡诺图的形式呈现时，减少布尔方程。Jevons（1880）首先描述了一个简单的“算盘”，它是一种用别针装饰的木头滑片，其设计使任何部分或类别的[逻辑]组合都能被机械地挑选出来。然而，最近，我把这个系统简化成一个完全机械的形式，从而把整个间接的推理过程体现在所谓的逻辑机器上：“他的机器配备了“某些可移动的木杆”和“脚上有21个键，如钢琴的键等等”。用这台机器，他可以分析“三段论或任何其他简单的逻辑论证”。</p>
+<p>1870年，他在英国皇家学会的研究员面前展示了这台机器。然而，另一位逻辑学家约翰·文恩（JohnVenn）在1881年的《符号逻辑》（Symbolic Logic）一书中，却对这一努力的目光：“我对有时被称为逻辑机器的东西的兴趣和重要性没有很高的估计……在我看来，目前已知的或可能被发现的任何发明都不应该被称为逻辑机器”，请参阅算法特征。但不甘示弱，他也提出了“一个计划，有点类似，我理解，以教授的算盘，对应于Jevons教授的逻辑机，可以描述以下发明。我宁愿称之为一个逻辑图机器。但我认为，它可以完全完成任何逻辑机器所能合理预期的一切工作。</p>
+<p>提花织机、Hollerith穿孔卡片、电报和电话——机电继电器：Bell和Newell（1971年）指出，提花织机（1801年）、Hollerith卡片的前身（穿孔卡片，1887年）和“电话交换技术”是导致第一台计算机发展的一棵树的根。电报，电话的前身，在全世界使用，它的离散和可区分的字母编码作为“点和破折号”一个共同的声音。到19世纪末，售票机磁带（约1870年代）开始使用，1890年美国人口普查中使用的是霍利斯卡。然后电传打字机（约1910年）带着穿孔纸，在磁带上使用波特码。</p>
+<p>机电式继电器的电话交换网络（发明于1835年）是数字加法装置的发明者乔治·斯蒂比茨（1937年）的工作的基础。当他在贝尔实验室工作时，他观察到机械计算器与齿轮的“繁重”使用。他在1937年的一个晚上回家，打算测试他的想法…修补工作结束后，Stibitz构建了一个二进制添加设备。</p>
+<p>Davis（2000）观察了机电式继电器的特殊重要性（其两个“二进制状态”打开和关闭）：</p>
+<blockquote>
+<p>只有从20世纪30年代开始，随着使用电气继电器的机电计算器的发展，机器的制造才有了巴贝奇预想的范围。</p>
+</blockquote>
+<h4 id="19世纪到20世纪中叶的数学"><a href="#19世纪到20世纪中叶的数学" class="headerlink" title="19世纪到20世纪中叶的数学"></a>19世纪到20世纪中叶的数学</h4><p>符号和规则：在快速连续的过程中，乔治·布尔（1847、1854）、戈特洛布·弗雷格（1879）和朱塞佩·皮诺（1888-1889）的数学将算术简化为一系列由规则操纵的符号。皮亚诺的算术原理，由一种新方法（1888年）提出，是“在符号语言中对数学公理化的第一次尝试”。</p>
+<p>但是海耶诺特给了弗雷格（1879）这个荣誉：弗雷格的“也许是有史以来最重要的逻辑著作”。…其中我们看到一种“公式语言”，即一种语言特征，一种用特殊符号书写的语言，“纯粹的思想”，即没有修辞修饰…由特定的符号构成，这些符号按照明确的规则进行操作。弗雷格的作品在《数学原理》（1910-1913）中被阿尔弗雷德·诺斯怀特黑德和伯特兰·罗素进一步简化和放大。</p>
+<p>悖论：同时，文献中出现了许多令人不安的悖论，特别是布阿里-富蒂悖论（1897年）、拉塞尔悖论（1902-03年）和理查德悖论。由此产生的考虑导致了Kurt G_del的论文（1931年），他特别引用了骗子悖论，它完全降低了递归的数字。</p>
+<p>有效可计算性：为了解决希尔伯特在1928年精确定义的EntscheidungsProblem问题，数学家首先着手定义“有效方法”或“有效计算”或“有效可计算性”（即成功的计算）的含义。随后，出现了以下内容：阿隆佐·丘奇（Alonzo Church）、斯蒂芬·克莱恩（Stephen Kleene）和J.B.罗瑟（J.B.Rosser）的《λ-微积分》（λ-微积分）：根据雅克·赫伯兰（Jacques Herbrand）的建议（参见1934年G·戴尔普林斯顿（Princeton）的演讲）和克莱恩（Kleene）随后的简化，对“一般递归”（Entscheidu）进行了精细的定义。</p>
+<p>问题是无法解决的，埃米尔·波斯特把有效的可计算性定义为一个工人在不经意地遵循一系列指示的情况下，在一系列房间里左右移动，或者在那里标记或擦除一张纸，或者观察纸，并对下一条指示作出“是”或“否”的决定。ungsproblem是无法解决的，因为他使用了他的“A-[自动-]机器”——实际上几乎等同于波斯特的“公式”，J.Barkley Rosser对“有效方法”的定义，即“机器”。S.C.Kleene提出了“教会论文”的前身，他称之为“论文一”，几年后，Kleene将他的论文重命名为“教会论文”。并提出了”图灵论文”。</p>
+<h4 id="埃米尔（1936年）和阿兰·图灵（1936-1939）"><a href="#埃米尔（1936年）和阿兰·图灵（1936-1939）" class="headerlink" title="埃米尔（1936年）和阿兰·图灵（1936-1939）"></a>埃米尔（1936年）和阿兰·图灵（1936-1939）</h4><p>Emil Post（1936）将“计算机”（人类）的行为描述如下：</p>
+<blockquote>
+<p>“…涉及两个概念：一个符号空间的概念，在该空间中执行从问题到答案的工作，以及一组固定不变的方向。</p>
+</blockquote>
+<p>他的符号空间是：</p>
+<blockquote>
+<p>“双向无限的空间或盒子序列…问题解决者或工作人员将在这个符号空间中移动和工作，能够一次只在一个框中移动和工作……一个框只允许有两种可能的条件，即空的或没有标记的，并且其中只有一个标记，例如垂直笔画。</p>
+<p>“一个盒子被挑出来称为起点。…一个特定的问题是由有限数量的框（即输入框）以符号形式给出，并用笔画进行标记。同样地，答案[即输出]将以符号形式通过这样一个标记框的配置给出…</p>
+<p>“适用于一般问题的一组指导方针在应用于每个特定问题时会建立一个确定性过程。此过程仅在到达（c）型方向[即停止]时终止。更多信息请参见后转向机。</p>
+</blockquote>
+<p>阿兰·图灵的作品早于斯蒂比茨（1937年）；斯蒂比茨是否知道图灵的作品还不得而知。图灵的传记作者相信图灵使用一种类似打字机的模型是出于年轻人的兴趣：“艾伦小时候就梦想着发明打字机；图灵夫人有一台打字机，他很可能从问自己把打字机称为‘机械’是什么意思开始。”考虑到摩尔斯电码和电报的流行，蒂克克尔磁带机和电传打字机，我们可能猜测所有的影响。</p>
+<p>图灵他的计算模型现在被称为图灵机器，正如波斯特所做的那样，开始分析一台人类计算机，他将其简化为一组简单的基本运动和“精神状态”。但他继续向前一步，创建了一个机器作为计算数字的模型。</p>
+<blockquote>
+<p>计算通常是通过在纸上写一些符号来完成的。我们可以假设这篇论文像孩子的算术书一样被分成正方形……然后我假设计算是在一维的纸上进行的，也就是说，在被分成正方形的磁带上进行的。我还要假设，可以印刷的符号数量是有限的…</p>
+<p>计算机在任何时刻的行为都是由他所观察到的符号和他在那一时刻的“精神状态”决定的。我们可以假设有一个b与符号或正方形的数量绑定，计算机可以在一个时刻观察到。如果他想观察更多，他必须使用连续的观察。我们还将假设需要考虑的心理状态的数量是有限的…</p>
+<p>“让我们想象一下，计算机执行的操作被分割成‘简单操作’，这些操作非常简单，不容易想象它们被进一步分割。”</p>
+</blockquote>
+<p>图灵的约化得到以下结果：</p>
+<blockquote>
+<p>“因此，简单的操作必须包括：“</p>
+<p>（a）观察到的一个方块上符号的变化“</p>
+<p>（b）观察到的其中一个正方形变为之前观察到的其中一个正方形的L平方内的另一个正方形。</p>
+</blockquote>
+<p>“这可能是因为其中的一些变化必然会引起精神状态的变化。因此，最一般的单一操作必须视为以下操作之一：</p>
+<blockquote>
+<p>“（a）符号可能发生的变化（a）以及思想状态可能发生的变化。</p>
+<p>（b）观察到的正方形可能发生的变化（b），以及可能的精神状态变化。</p>
+</blockquote>
+<p>“我们现在可以建造一台机器来完成这台计算机的工作。”</p>
+<p>几年后，图灵用这种有力的表达扩展了他的分析（论文，定义）：</p>
+<blockquote>
+<p>如果一个函数的值可以通过某种纯粹的机械过程找到，那么它被称为“有效可计算的”。虽然很容易直观地理解这个概念，但还是需要有一些更明确的、数学上可表达的定义。我们可以从字面上理解这句话，通过一个纯粹的机械过程来理解，这个过程可以通过一台机器来实现。可以用某种正常形式对这些机器的结构进行数学描述。这些思想的发展导致了作者对可计算函数的定义，以及对可计算性的识别†与有效的可计算性。</p>
+<p>我们将使用表达式“可计算函数”来表示机器可计算的函数，并且我们让“有效可计算”指的是直观的概念，而不需要对这些定义中的任何一个进行特别的识别。”</p>
+</blockquote>
+<h4 id="Rosser（1939年）和S-C-克林（1943年）"><a href="#Rosser（1939年）和S-C-克林（1943年）" class="headerlink" title="Rosser（1939年）和S.C.克林（1943年）"></a>Rosser（1939年）和S.C.克林（1943年）</h4><p>J.Barkley Rosser以以下方式定义了“有效方法”：</p>
+<blockquote>
+<p>“有效方法”在这里是一种相当特殊的方法，它的每一步都是精确确定的，并且一定会以有限的步骤产生答案。有了这个特殊的含义，迄今为止已经给出了三种不同的精确定义。其中最简单的陈述（由于post和turing）基本上是说，如果一个人能制造出一台机器，在没有人为干预的情况下解决集合的任何问题，除了插入问题和（稍后）阅读答案，就存在解决某些问题的有效方法。这三个定义都是等价的，所以使用哪一个并不重要。此外，这三者都是等价的，这是证明任何一个的正确性的有力论据。”（罗瑟1939:225-226）</p>
+</blockquote>
+<p>Rosser的脚注5引用了Church和Kleene的著作及其对λ-可定义性的定义，特别是Church在他的初等数理论的一个无法解决的问题（1936）中对它的使用；Herbrand和G_del及其对递归的使用，特别是G_del在他著名的论文中对形式上不可决定的pri命题的使用。NCPIA Mathematica和相关系统I（1931）；以及Post（1936）和Turing（1936-37）在其计算机制模型中。</p>
+<p>史蒂芬C克莱恩把他现在著名的“论文一”定义为教会图灵论文。但他是在以下情况下做的（原文中的粗体字）：</p>
+<blockquote>
+<p>“12。算法理论…在建立一个完整的算法理论时，我们要做的是描述一个过程，该过程对于独立变量的每一组值都是可执行的，该过程必然终止，并且以这样的方式，从结果中我们可以看到一个明确的答案，“是”或“否”，对于问题，“谓词值是真的吗？”（克莱恩1943:273）</p>
+</blockquote>
+<h4 id="1950年以后的历史"><a href="#1950年以后的历史" class="headerlink" title="1950年以后的历史"></a>1950年以后的历史</h4><p>许多努力都是为了进一步完善“算法”的定义，由于围绕数学（特别是丘奇-图灵理论）和思想哲学（特别是关于人工智能的争论）的问题，活动正在进行中。有关更多信息，请参见算法特征化。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>您的支持是我最大的动力！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="王成飞 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="王成飞 Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/26/机器学习/" rel="next" title="机器学习">
+                <i class="fa fa-chevron-left"></i> 机器学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/28/有限状态机/" rel="prev" title="有限状态机">
+                有限状态机 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4" alt="王成飞">
+            
+              <p class="site-author-name" itemprop="name">王成飞</p>
+              <div class="site-description motion-element" itemprop="description">实践后去沉淀，用探索的思维迎接未知领域和挑战。</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">68</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/jidebingchuan" title="GitHub &rarr; https://github.com/jidebingchuan" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:wcf_first@163.com" title="E-Mail &rarr; mailto:wcf_first@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#缘起"><span class="nav-number">1.</span> <span class="nav-text">缘起</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非正式定义"><span class="nav-number">2.</span> <span class="nav-text">非正式定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#形式化"><span class="nav-number">3.</span> <span class="nav-text">形式化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#表示算法"><span class="nav-number">3.1.</span> <span class="nav-text">表示算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计"><span class="nav-number">4.</span> <span class="nav-text">设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">5.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机算法"><span class="nav-number">6.</span> <span class="nav-text">计算机算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子"><span class="nav-number">7.</span> <span class="nav-text">例子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法示例"><span class="nav-number">7.1.</span> <span class="nav-text">算法示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欧几里得算法"><span class="nav-number">7.2.</span> <span class="nav-text">欧几里得算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#欧几里得算法的计算机语言"><span class="nav-number">7.2.1.</span> <span class="nav-text">欧几里得算法的计算机语言</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欧几里得算法的一个差程序"><span class="nav-number">7.3.</span> <span class="nav-text">欧几里得算法的一个差程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欧几里得算法的一个好程序"><span class="nav-number">7.4.</span> <span class="nav-text">欧几里得算法的一个好程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#检查欧几里得算法"><span class="nav-number">7.5.</span> <span class="nav-text">检查欧几里得算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欧几里得算法的测量与改进"><span class="nav-number">7.6.</span> <span class="nav-text">欧几里得算法的测量与改进</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法分析"><span class="nav-number">8.</span> <span class="nav-text">算法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#形式与经验"><span class="nav-number">8.1.</span> <span class="nav-text">形式与经验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#执行效率"><span class="nav-number">8.2.</span> <span class="nav-text">执行效率</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分类"><span class="nav-number">9.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#按实现类型"><span class="nav-number">9.1.</span> <span class="nav-text">按实现类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#按设计范式"><span class="nav-number">9.2.</span> <span class="nav-text">按设计范式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优化问题"><span class="nav-number">9.3.</span> <span class="nav-text">优化问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#按研究领域"><span class="nav-number">9.4.</span> <span class="nav-text">按研究领域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#按复杂性"><span class="nav-number">9.5.</span> <span class="nav-text">按复杂性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连续算法"><span class="nav-number">10.</span> <span class="nav-text">连续算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#法律问题"><span class="nav-number">11.</span> <span class="nav-text">法律问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法的发展"><span class="nav-number">12.</span> <span class="nav-text">算法的发展</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#古代近东"><span class="nav-number">12.1.</span> <span class="nav-text">古代近东</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#离散和可分辨符号"><span class="nav-number">12.2.</span> <span class="nav-text">离散和可分辨符号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#作为数字“占位符”的符号处理：代数"><span class="nav-number">12.3.</span> <span class="nav-text">作为数字“占位符”的符号处理：代数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具有离散状态的机械装置"><span class="nav-number">12.4.</span> <span class="nav-text">具有离散状态的机械装置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19世纪到20世纪中叶的数学"><span class="nav-number">12.5.</span> <span class="nav-text">19世纪到20世纪中叶的数学</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#埃米尔（1936年）和阿兰·图灵（1936-1939）"><span class="nav-number">12.6.</span> <span class="nav-text">埃米尔（1936年）和阿兰·图灵（1936-1939）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Rosser（1939年）和S-C-克林（1943年）"><span class="nav-number">12.7.</span> <span class="nav-text">Rosser（1939年）和S.C.克林（1943年）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1950年以后的历史"><span class="nav-number">12.8.</span> <span class="nav-text">1950年以后的历史</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王成飞</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

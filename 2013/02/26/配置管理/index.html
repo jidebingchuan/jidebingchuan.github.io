@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="缘起最近开展系统配置管理相关的项目，但配置管理的概念仍比较模糊，做一个梳理，对配置管理的概念，相关软件的对比，企业级的使用情况做一个了解。 定义看了中文诸多对配置管理的解释和说明，比较片面，领域很窄，通过对维基百科英文版的“configuration management”的学习，将个人理解解释如下： 配置管理（configuration management简称CM）是详细记录和更新企业硬件和软">
+<meta name="keywords" content="配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="配置管理">
+<meta property="og:url" content="http://wangchengfei.info/2013/02/26/配置管理/index.html">
+<meta property="og:site_name" content="王成飞博客">
+<meta property="og:description" content="缘起最近开展系统配置管理相关的项目，但配置管理的概念仍比较模糊，做一个梳理，对配置管理的概念，相关软件的对比，企业级的使用情况做一个了解。 定义看了中文诸多对配置管理的解释和说明，比较片面，领域很窄，通过对维基百科英文版的“configuration management”的学习，将个人理解解释如下： 配置管理（configuration management简称CM）是详细记录和更新企业硬件和软">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-04T09:05:54.167Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="配置管理">
+<meta name="twitter:description" content="缘起最近开展系统配置管理相关的项目，但配置管理的概念仍比较模糊，做一个梳理，对配置管理的概念，相关软件的对比，企业级的使用情况做一个了解。 定义看了中文诸多对配置管理的解释和说明，比较片面，领域很窄，通过对维基百科英文版的“configuration management”的学习，将个人理解解释如下： 配置管理（configuration management简称CM）是详细记录和更新企业硬件和软">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="王成飞博客" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://wangchengfei.info/2013/02/26/配置管理/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>配置管理 | 王成飞博客</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?77735b5a26e8f4057c64badd972d97be";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王成飞博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一切皆值得思考</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archives"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2013/02/26/配置管理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王成飞">
+      <meta itemprop="description" content="实践后去沉淀，用探索的思维迎接未知领域和挑战。">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王成飞博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">配置管理
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2013-02-26 15:19:12" itemprop="dateCreated datePublished" datetime="2013-02-26T15:19:12+08:00">2013-02-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-04 17:05:54" itemprop="dateModified" datetime="2019-04-04T17:05:54+08:00">2019-04-04</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><p>最近开展系统配置管理相关的项目，但配置管理的概念仍比较模糊，做一个梳理，对配置管理的概念，相关软件的对比，企业级的使用情况做一个了解。</p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>看了中文诸多对配置管理的解释和说明，比较片面，领域很窄，通过对维基百科英文版的“configuration management”的学习，将个人理解解释如下：</p>
+<p>配置管理（configuration management简称CM）是详细记录和更新企业硬件和软件的信息，是一个需求、设计、运营对产品性能、功能和物理属性信息建设并持续维护的过程。配置管理过程广泛应用于军事工程组织管理复杂的系统，比如武器、运载工具、信息系统。军事外，也用于信息技术服务管理。</p>
+<h3 id="配置管理介绍"><a href="#配置管理介绍" class="headerlink" title="配置管理介绍"></a>配置管理介绍</h3><p>配置管理用于系统的整个生命周期，提供可控和可视化的性能、功能和物理属性维护。配置管理验证系统预期性能，确认并归档足够的数据支撑整个工程的生命周期。配置管理促进系统信息和系统修改有序的管理，目的是增加系统的修正能力，提升性能、可靠性和可维护性，修正缺陷；除此之外，消减成本，降低风险和负债。最小的实现配置管理能降低成本。缺少配置管理，或无效的实现会非常昂贵，有时会带来灾难性的后果，比如服务器挂了或者员工挂了。</p>
+<p>配置管理强调功能的关联，比如各个组成部分、子系统、有效控制系统变更的系统。系统修改经过系统的思考减少不利的影响。系统修改使用标准的、系统的方法经过提案、评估、实现，这样就能保证系统的一致性。配置管理确认系统预先设计的修改并且归档影响配置的项目。一个完整的配置管理程序提供存储、追踪、更新所有组件、子系统和基础系统的信息。</p>
+<p>一个制定的配置管理程序保证了项目文档和实际的项目是一致、精确的。很多情况下，没有配置管理，文档只是存在，但和实际项目并不一致。由于不一致的原因，在修改项目的时候，工程师、外包人员、管理员经常被迫去编写反应实际项目情况的文档。这个反工程的过程浪费了项目的相关人员时间和其它可以通过配置管理节约和消除的资源。</p>
+<h3 id="配置管理的历史"><a href="#配置管理的历史" class="headerlink" title="配置管理的历史"></a>配置管理的历史</h3><p>配置管理是美国空军在五十年代为美国国防部硬件项目管理开发的一项正式的管理方法，现在已经广泛的应用于各行各业。配置管理过程作为一项技术管理原则是在二十世纪六十年代，那时美国国防部发展了一系列军方标准，成为“480系列”，随后发行于七十年代。1991年，“480系列”统一为一个标准，称为MIL–STD–973，后来为响应军方减少军方标准的目标而赞成标准开发组织的工业技术标准被MIL–HDBK–61取代。这标志着涉及各行各业被广泛接受的ANSI–EIA–649–1998标准开始了。现在被组织和机构广泛接受的配置管理原则包括：系统工程、集成支撑系统（systems engineering）、能力成熟模型集成（integrated logistrics support）、ISO 9000、PRINCE2（project management methodology）、COBIT（Control Objectives for Information and Related Technology）、信息技术基础设施库（Information Technology Infrastructure Library）、产品生命周期管理（product lifecycle management）、应用生命周期管理（Application Lifecycle Management）。上述方法和模型重新定义了传统配置管理的方法用于技术管理。一些人认为配置管理类似于一些库管理程序活动，摆脱变更控制或控制管理而作为一个分离、独立的原则。</p>
+<h3 id="配置管理概览"><a href="#配置管理概览" class="headerlink" title="配置管理概览"></a>配置管理概览</h3><p>配置管理是通过系统的处理变更维护系统完整性的实践。配置管理实现了管理、变更评估、变更状态追踪需要的策略、过程、技术和工具，系统变更时维护系统的配置清单、支持文档。配置管理程序和计划提供技术和管理的方向，保证成功的开发和支持复杂系统所需的开发和实现过程、方法、服务、工具、进程和资源。开发过程中，配置管理允许程序管理跟踪生命周期中的变更、操作和维护。对于需求和设计来说，变更不可避免，而且变更必须批准并归档，创建准确的系统状态记录。理论上配置管理过程适用于系统的整个生命周期。</p>
+<p>在MIL–HDBK–61和ANSI–EIA–649中，硬件和软件项目的配置管理过程有5个重要的原则。这些原则作为策略或者规范建立基线，执行一个标准的变更管理过程。</p>
+<p>配置计划和管理：一份正式的文档和计划指导配置管理程序包括项目：个人、员工、资源、培训需求、管理会议指导，包括过程和工具的定义、基线流程、配置控制和配置状态报告、命名大会、审计和review、供应商和承包商的配置管理需求。</p>
+<p>配置标识：包括设置和维护基线，在此定义了系统或子系统的架构、组件和任何时间点的开发。这是任何信息系统变更识别、归档、跟踪的基础部分，之后会通过设计、开发、测试和发布的追踪。配置标识逐渐建立和维护当前系统的配置状态，贯穿整个生命周期直至报废。</p>
+<p>配置控制：包括评估的所有变更请求和变更提议，之后的赞同和驳回。是对系统的设计、硬件、固件、软件和文档更改的控制过程。</p>
+<p>配置状态报告：包括记录和报告配置项目的过程和基线设计和产品的所有差别。如有可疑问题可以通过验证基线和批准的变更迅速决定。</p>
+<p>配置审计：一次独立的浏览硬件和软件配置，目的是评估系统和基线的性能要求、商业需求和合适的军方标准、功能。在确定架构基线之前，配置审计核实系统和子系统配置文档遵从功能和物理性能特性。</p>
+<h3 id="软件配置管理"><a href="#软件配置管理" class="headerlink" title="软件配置管理"></a>软件配置管理</h3><p>传统的软件配置管理（SCM）过程被从业者看成解决软件工程变更最好的解决方案。在不同的时间点确认软件功能和物理属性，系统的控制确认的属性变更，目的是在软件开发的生命周期内维护软件的完整性和可追溯。</p>
+<p>软件配置管理进一步定义了变更追踪的定义，确认最终发布的软件准确完成计划的能力。软件配置管理定义了四个过程，而这四个过程对于一个完整的软件配置管理实现是必不可少的。他们是：</p>
+<p>配置标识：是一个定义项目配置每个方面属性的识别过程。一个配置项目是一个有最终用户的产品。这些属性记录在配置文档和基线中。基线中的属性变更时启动配置变更控制过程。</p>
+<p>配置变更控制：是一系列批准变更后改变配置项属性并重新形成基线的过程。</p>
+<p>配置状态报告：是记录和报告基线相关文档的配置项在各个时间状态。</p>
+<p>配置审计：是确认系统功能和物理配置的审计。发生在发布或者系统更改的时候。功能配置审计确保功能和性能属性的每个配置项都得以实现，一个物理配置审计确保一个配置项的安装和详细设计文档中保持一致。</p>
+<p>这些短语和定义从一个标准到另一个标准，但本质是一样的。</p>
+<h3 id="信息安全"><a href="#信息安全" class="headerlink" title="信息安全"></a>信息安全</h3><p>信息安全定义为通过对硬件、软件、固件、文档、测试、测试文档在信息系统生命周期中的安全和保障管理。配置管理在信息安全中是安全配置管理（Secure Configuration Management）依赖的基础设施性能、功能、物理属性、产品和环境，决定合适的安全特性和保障常用于评估一个系统的配置状态。比如，一个外网的防火墙配置和内网的防火墙配置是不同的。</p>
+<p>运维系统</p>
+<p>配置管理过去是通过维护一个高水准服务视图理解复杂资产状态并降低成本。目的是防止由于资产过期运行破坏计划中的运营或服务质量。在军队中，这中类型的事情归类为“任务就绪”，去定义哪种任务的资产是就绪的。经典案例是，一架挂有炸弹的飞机可能需要地面或者导弹的支持作为防御。</p>
+<h3 id="操作系统配置管理"><a href="#操作系统配置管理" class="headerlink" title="操作系统配置管理"></a>操作系统配置管理</h3><p>配置管理能用于维护操作系统的配置文件。类似的系统包括CFEngine、Bcfg2、Puppet和Chef。</p>
+<h3 id="预防维护"><a href="#预防维护" class="headerlink" title="预防维护"></a>预防维护</h3><p>明白“现状”的情况，比如资产和他的主要组成部分状态是做预防维护、修理、返修、企业资产管理的关键要素。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>通过配置管理的历史，了解其特殊背景和在软件工程中的应用领域、使用要素和原则。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>您的支持是我最大的动力！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="王成飞 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="王成飞 Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/配置/" rel="tag"># 配置</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2012/04/22/人生中的每个第一次都值得纪念/" rel="next" title="人生中的每个第一次都值得纪念">
+                <i class="fa fa-chevron-left"></i> 人生中的每个第一次都值得纪念
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/08/01/SNMP/" rel="prev" title="SNMP">
+                SNMP <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4" alt="王成飞">
+            
+              <p class="site-author-name" itemprop="name">王成飞</p>
+              <div class="site-description motion-element" itemprop="description">实践后去沉淀，用探索的思维迎接未知领域和挑战。</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">68</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/jidebingchuan" title="GitHub &rarr; https://github.com/jidebingchuan" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:wcf_first@163.com" title="E-Mail &rarr; mailto:wcf_first@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#缘起"><span class="nav-number">1.</span> <span class="nav-text">缘起</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置管理介绍"><span class="nav-number">3.</span> <span class="nav-text">配置管理介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置管理的历史"><span class="nav-number">4.</span> <span class="nav-text">配置管理的历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置管理概览"><span class="nav-number">5.</span> <span class="nav-text">配置管理概览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件配置管理"><span class="nav-number">6.</span> <span class="nav-text">软件配置管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信息安全"><span class="nav-number">7.</span> <span class="nav-text">信息安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统配置管理"><span class="nav-number">8.</span> <span class="nav-text">操作系统配置管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预防维护"><span class="nav-number">9.</span> <span class="nav-text">预防维护</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">10.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王成飞</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
