@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="选书工作了之后，对学术界进展关注比较少，对计算机领域的变化缺少整体认识，在做技术的选型时就会有技术盲区。 看看学校的新课本，了解下整个领域的新进展就很有必要，例如第三版就增加了人工智能等内容，第四版增加了社交媒体、社会和道德问题，而且基础教材都通俗易懂。 网上也看过很多趋势预判，热点技术之类的文章，缺少历史的延续性，很多都是老技术的整合包装，当然《技术的本质》里也说，新技术就是对老技术的升级、组装">
+<meta name="keywords" content="读后感">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《计算机科学导论》重温领域知识和技术变迁">
+<meta property="og:url" content="http://wangchengfei.info/2021/01/21/《计算机科学导论》重温领域知识和技术变迁/index.html">
+<meta property="og:site_name" content="王成飞博客">
+<meta property="og:description" content="选书工作了之后，对学术界进展关注比较少，对计算机领域的变化缺少整体认识，在做技术的选型时就会有技术盲区。 看看学校的新课本，了解下整个领域的新进展就很有必要，例如第三版就增加了人工智能等内容，第四版增加了社交媒体、社会和道德问题，而且基础教材都通俗易懂。 网上也看过很多趋势预判，热点技术之类的文章，缺少历史的延续性，很多都是老技术的整合包装，当然《技术的本质》里也说，新技术就是对老技术的升级、组装">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://wangchengfei.info/images/OSIandTCP.png">
+<meta property="og:updated_time" content="2021-01-25T01:53:54.289Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《计算机科学导论》重温领域知识和技术变迁">
+<meta name="twitter:description" content="选书工作了之后，对学术界进展关注比较少，对计算机领域的变化缺少整体认识，在做技术的选型时就会有技术盲区。 看看学校的新课本，了解下整个领域的新进展就很有必要，例如第三版就增加了人工智能等内容，第四版增加了社交媒体、社会和道德问题，而且基础教材都通俗易懂。 网上也看过很多趋势预判，热点技术之类的文章，缺少历史的延续性，很多都是老技术的整合包装，当然《技术的本质》里也说，新技术就是对老技术的升级、组装">
+<meta name="twitter:image" content="http://wangchengfei.info/images/OSIandTCP.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="王成飞博客" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://wangchengfei.info/2021/01/21/《计算机科学导论》重温领域知识和技术变迁/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>《计算机科学导论》重温领域知识和技术变迁 | 王成飞博客</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?77735b5a26e8f4057c64badd972d97be";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王成飞博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一切皆值得思考</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archives"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2021/01/21/《计算机科学导论》重温领域知识和技术变迁/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王成飞">
+      <meta itemprop="description" content="实践后去沉淀，用探索的思维迎接未知领域和挑战。">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王成飞博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">《计算机科学导论》重温领域知识和技术变迁
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2021-01-21 19:53:42" itemprop="dateCreated datePublished" datetime="2021-01-21T19:53:42+08:00">2021-01-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2021-01-25 09:53:54" itemprop="dateModified" datetime="2021-01-25T09:53:54+08:00">2021-01-25</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="选书"><a href="#选书" class="headerlink" title="选书"></a>选书</h3><p>工作了之后，对学术界进展关注比较少，对计算机领域的变化缺少整体认识，在做技术的选型时就会有技术盲区。</p>
+<p>看看学校的新课本，了解下整个领域的新进展就很有必要，例如第三版就增加了人工智能等内容，第四版增加了社交媒体、社会和道德问题，而且基础教材都通俗易懂。</p>
+<p>网上也看过很多趋势预判，热点技术之类的文章，缺少历史的延续性，很多都是老技术的整合包装，当然《技术的本质》里也说，新技术就是对老技术的升级、组装或嵌套。</p>
+<p>就像李彦宏说的那样，很多技术都是新瓶装旧酒，那么选一本基础且全面的书读一读，不但提升了全部领域的认识，减少盲区，而且在技术的获取上比读网上专家的预判也要高效准确的多。</p>
+<h3 id="读书"><a href="#读书" class="headerlink" title="读书"></a>读书</h3><h4 id="图灵机"><a href="#图灵机" class="headerlink" title="图灵机"></a>图灵机</h4><p>如果说人类做到了什么，那么他肯定提前想到了，并且想通了。</p>
+<p>从英国巴贝奇的差分机开始，人类就有很多发明来解决计算问题，就像耕地时用人、牛、用骡子、用拖拉机一样；计算机也经历了从人计算、简单机械计算、复杂机械计算、通用机械计算、通用电子计算等历程。</p>
+<p>而图灵，准确点应该是邱奇-图灵猜想，从脑子里把通用计算模型跑通了，它是一个思想实验，却打开了通用计算的大门。</p>
+<h4 id="数子系统"><a href="#数子系统" class="headerlink" title="数子系统"></a>数子系统</h4><p>我认为数字是对世界比较高级的一种抽象，而数字的设计也是多种多样，对常见的有基于位置的数字和非基于位置的数字。</p>
+<p>基于位置的数字设计，数字和位置相关，不同的位置表示的数量不同，例如我们常用的10进制，1在个位就是1，在十位就是10，在百位就是100。</p>
+<p>基于位置的数字设计又叫基数法，进制是用有限的符号表示无限数字的方法，可使用的符号数量称为基数或底数，例如十进制就是0-9，八进制就是0-7，十六进制是0-F，而二进制是0-1。</p>
+<p>非基于位置的数字设计，例如古罗马数字，共有7个符号，Ⅰ（1）、Ⅴ（5）、Ⅹ（10）、Ⅼ（50）、Ⅽ（100）、Ⅾ（500）和Ⅿ（1000），左边有小于右边的代表减，每个符号就代表固定的数量和位置无关，Ⅰ代表1，ⅠⅠ代表2，ⅠⅠⅠ代表3，Ⅳ代表4，V代表5，VI代表6，VII代表7，VIII代表8，IX代表9，X代表10；ⅯⅭⅮⅩⅩⅩⅦ代表1437。</p>
+<p>不同基数系统的转化规则，整数部分用除基数取余法，小数部分用乘基取整法。</p>
+<h4 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h4><p>无符号整数的存储是最基础的部分，对实数的处理就要对数的大小和精度做折中处理，要存的数又大精度又高就是矛盾的，所以就有了浮点数和双精度浮点数，可以存储的小数位数是不同的。</p>
+<p>存储文本时，早期英文就是ASCII码，每个字节（8位或8bit）存储一个字符；刚开始是没有考虑非英语国家使用的！后来就有了UNICODE编码，用多个字节表示，这样就可以存下全世界的文字并在不同的系统中使用。</p>
+<p>图片的存储分为位图模式和矢量图模式，位图模式是每个像素有一个RGB的三原色值，又叫真彩色，可以表示几万种色值，但是通常人眼是很难区分的，所以为了压缩使用了索引色，将相似的颜色用一个色值表示，这样就减少了色值空间，可以用用更少的存储，常见的就是JPEG（联合图像专家组，真彩色）和gips（索引色格式，常用来压缩）。</p>
+<p>位图在经过拉伸后会有锯齿，变的模糊；后来就有了矢量图格式，矢量图本质是一堆数学公式，当图片拉伸时根据公式重新绘制，这样就可以高保真，常用在工程图纸、流程图等场景。</p>
+<p>视频的存储其实是很多图片（帧），而视频内每秒的N帧图像一般是很相似的，这样就有了压缩的空间，将视频中相似的图片分组为I帧、P帧和B帧，I帧是全信息的图片内容，P帧和B帧则为过度帧和补充帧，常用的格式是MPEG（动态图片专家组）。</p>
+<p>音频的存储则是将模拟信号采样量化为数字信号，然后将数字信号进行采样，将采样后的数字数据进行存储，常用的格式为mp3（MPEG layer 3）。</p>
+<h4 id="数据运算"><a href="#数据运算" class="headerlink" title="数据运算"></a>数据运算</h4><p>计算机底层的操作都是二进制，故最基础的操作还是基于位的运算，例如左右移、整数运算和浮点数运算。</p>
+<h4 id="计算机组成"><a href="#计算机组成" class="headerlink" title="计算机组成"></a>计算机组成</h4><p>这章主要还是围绕冯·诺依曼的体系结构介绍CPU（ALU、Cache、控制单元）；内存（空间、寻址、缓存层次结构）；输入输出（存储设备和非存储设备）；子系统连接的方式中，对不同传输速率下的设备连接折中设计，一种是独立地址，一种是内存地址映射。</p>
+<p>不同的处理器支持的指令集不同，可分为精简指令及（RISC，reduce instruction set computer），此类指令集少，对于cpu设计简单，对于上层应用则需要封装实现更多的功能；复杂指令集（CISC，complex instruction set computer），在此指令集中包含了复杂指令，故在CISC指令集中进行程序设计要容易得多。</p>
+<h4 id="计算机网络和因特网"><a href="#计算机网络和因特网" class="headerlink" title="计算机网络和因特网"></a>计算机网络和因特网</h4><p>基本每本网络的书都会先讲网络的概念、分层协议、TCP/IP协议簇，其实我更想知道在网络规模的发展中，每个技术方案选择背后的因素，例如为何是4层，不是7层或更少，这部分能补充就更好了。</p>
+<p><img src="/images/OSIandTCP.png" alt="bloom-img.png"></p>
+<h4 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h4><p>对二进制的操作其实是很枯燥的，就像计算核爆方程一样，大量的人做类似的一件事情且枯燥无味，如果这个简单操作能有单独的工具完成封装实现，提供给其他上层应用，就有了复用，极大的提升了效率。</p>
+<p>所有通用计算机中复用最多的就是操作系统，没有用户会直接控制二进制开关来写代码。</p>
+<p>操作系统封装了所有的二进制操作，对计算机体系结构不同部分的封装就有了内存管理、进程管理（为啥不叫CPU管理）、文件管理、用户界面（面向用户）。</p>
+<p>操作系统对任务的调度方式不同，拆分为批处理、分时、并行、分布式（这个网络操作系统和我理解的基于单一体系结构的操作系统维度不同，其实这样写感觉有点乱）、实时。</p>
+<h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4><p>有了操作系统对硬件的封装，我们就可以使用开发语言开发很多算法，算法就是一种逐步解决问题或完成任务的方法。</p>
+<p>算法的三大结构：顺序、判断、循环。</p>
+<p>算法的表示常用的有UML和伪代码。</p>
+<p>算法明确的定义：良好定义（有目的）、明确步骤（可复现）、产生结果（能解决问题）、有限时间内（有机会看到结果）。</p>
+<p>基本的算法：数学上的加减乘除、最大和最小、排序和查找。</p>
+<h4 id="程序设计语言"><a href="#程序设计语言" class="headerlink" title="程序设计语言"></a>程序设计语言</h4><p>语言的演进：机器语言（二进制指令）、汇编语言（助记符语言）、高级语言（更接近自然语言且可以在不同的系统运行）。</p>
+<p>高级语言的执行之前可能有几个步骤转化为机器语言（机器只认机器语言），编译和解释。</p>
+<p>程序设计的模式有：过程式模式（FORTRAN、Pascal、C、Ada）、面向对象模式（C++、Java）、函数式模式（LISP、Schema）和声明式模式（Prolog）。</p>
+<p>语言中的共同概念有标识符、数据类型、变量、字面值、常量、输入和输出（hello world必备）、表达式（开始上手必备）、语句（上手必备）和子程序（程序设计必备）。</p>
+<h4 id="软件工程"><a href="#软件工程" class="headerlink" title="软件工程"></a>软件工程</h4><p>每个软件都有生命周期：开发-》使用-》修改-》终止。</p>
+<p>软件分析的两种模式：面向过程和面向对象。</p>
+<p>软件设计中两种模式：面向过程设计和面向对象设计。</p>
+<p>语言的选择：面向过程C，面向对象C++和Java等。</p>
+<p>软件质量分为：可操作性、可维护性、可迁移性。</p>
+<ul>
+<li>可操作性：准确性、高效性、可靠性、安全、及时、适用性</li>
+<li>可维护性：可变性、可修正性、适应性、可测试性</li>
+<li>可迁移性：重用性、互用性、可移植性</li>
+</ul>
+<p>测试阶段：白盒测试（玻璃盒测试，可用路径测试和控制结构测试）和黑盒测试（功能测试、界面测试）。</p>
+<p>软件工程中三大文档：用户文档（咋用的）、系统文档（咋维护的）、技术文档（咋升级的）。</p>
+<h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4><p>从1到多，1就是基础数据类型，整形、浮点型、字符型。</p>
+<p>多就是数组和记录，数组是同类型的基础数据类型，记录是多种基础数据类型，数组是记录的特例。</p>
+<p>链表是数组和记录的实现形式。</p>
+<h4 id="抽象数据类型"><a href="#抽象数据类型" class="headerlink" title="抽象数据类型"></a>抽象数据类型</h4><p>有很多数据之后就有了处理的顺序，就有了查找优化的结构。</p>
+<p>处理顺序方面的抽象数据类型是栈和队列，解决先处理谁的问题。</p>
+<p>广义线性表和树是解决怎么查找的问题。</p>
+<h4 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h4><p>文件存取方法分为两种随机存取和顺序存取，我们常用的磁盘为随机存取，可以根据地址寻址后读写；常用的磁带是顺序存取，只能一个接一个的，从头到尾的读取或存储。</p>
+<p>随机存取中可以使用索引文件提升文件查找速度，例如unix系统中的inode数据等。</p>
+<p>unix系统文件设计的结构未树状结构，使用目录时分为绝对路径和相对路径（使用相对路径时，在不同环境中会埋下问题哦）。</p>
+<h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><p>数据库是一个组织内被应用程序使用的逻辑一致的相关数据的集合。</p>
+<p>演化之前是很多相关的文件，但是文件会有各类的约束缺失和数据重复，导致数据混乱，故用数据库进行一类数据的管理；进而减少冗余、避免不一致、提升使用效率、数据更加完整、机密性也更强。</p>
+<p>数据库管理系统的构成：硬件、软件、数据和用户。</p>
+<p>数据库体系结构：内层、概念层、外层。</p>
+<p>数据库常用模型：层次模型、网状模型和关系模型；点前主流的还是关系模型。</p>
+<p>关系数据库常用操作：结构化查询语句、插入、删除、更新、选择、投影、连接、并、交、差、语句的组合。</p>
+<p>数据库设计：第一步是找用户面谈确认需求，第二步建立一个实体关系模型（ERM）。</p>
+<p>规范化：给定的一组具有更加坚固结构的关系，常见的有1NF、2NF、3NF、BCNF（Boyce-Codd范式）、4NF、PJNF（Projection/Joint）和5NF。</p>
+<p>其他数据库模型：分布式数据库和面向对象数据库。</p>
+<h4 id="数据压缩"><a href="#数据压缩" class="headerlink" title="数据压缩"></a>数据压缩</h4><p>数据压缩又分为无所压缩和有损压缩，无损压缩又可用：游程长度编码、赫夫曼编码、LZ编码；无损压缩图片有JPEG、视频有MPEG、声音有MP3（MPEG Layer 3）。</p>
+<h4 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h4><p>安全的目标：机密性、完整性、可用性。</p>
+<p>常见的攻击类型：机密性上有嗅探和流量分析，完整性上有篡改、假冒、重放、抵赖，可用性上有拒绝服务。</p>
+<p>安全实施的两个方向：密码术和隐写术。</p>
+<p>密码术分为：对称加密和非对称加密（RSA）。</p>
+<p>完整性上实施有：散列函数（MD4、MD5、SHA1）。</p>
+<p>安全出入口实施常用防火墙：四层设备、七层设备或软件。</p>
+<h4 id="计算理论"><a href="#计算理论" class="headerlink" title="计算理论"></a>计算理论</h4><p>使用递增、递减、循环实现的复杂程序功能介绍，我们看到的复杂逻辑，拆解到计算机底层都是指令。</p>
+<p>图灵机的组成：磁带（无限长）、读/写头、控制器（有限状态机）。</p>
+<p>丘奇-图灵论题：如果存在一个能完成一个符号操纵任务的算法，那么也存在一台完成这个任务的图灵机。</p>
+<p>哥德尔数：在计算机科学理论中，一个无符号数能被分配给任何用特定语言编写的程序，通常称为哥德尔数。</p>
+<p>停机问题：我们能编写一个程序来测试任何可以用哥德尔数表示的程序是否会终止吗？（我们能够确定一个不确定的问题吗，我觉得显然不能）</p>
+<p>停机问题不可解，证明一个问题能否解决等同于证明停机问题能否解决。</p>
+<p>可解问题时间复杂度一般用大O法表示。</p>
+<p>多项式问题：如果复杂度为O(log n)、O(n)、O(n平方)、O(n的k次方)，则为多项式问题。</p>
+<p>非多项式问题：例如O(10的n次方)、O(n的阶乘)。</p>
+<h4 id="人工智能"><a href="#人工智能" class="headerlink" title="人工智能"></a>人工智能</h4><p>人工智能是对程序系统的研究，该程序系统在一定程度上能模仿人类的活动，如感知、思考、学习和反应。</p>
+<p>智能体是一个能智能的感知环境、从环境中学习并与环境进行交互的系统。</p>
+<p>智能体可分为软件智能体（搜索引擎）和物理智能体（机器人）。</p>
+<p>编程语言：LISP和PROLOG，性能较低，一般会用C或C++重写。</p>
+<p>知识表示：语义网、框架、谓词逻辑、基于规则的系统。</p>
+<p>专家系统：一般由抽取知识、抽取事实组成。</p>
+<p>专家系统体系：用户、用户界面、推理机、知识库、事实库。</p>
+<p>感知能力：当前较成熟的有图像处理和语言处理。</p>
+<p>图像处理步骤：边缘探测、分段、查找深度、查找方向、对象识别、应用。</p>
+<p>语言理解：语音识别、语法分析（文法和词法分析）、语义分析、语用分析、意图理解。</p>
+<p>搜索的方向：蛮力搜索、深度优先、启发式搜索。</p>
+<p>神经元：胞体、轴突、树突。</p>
+<h4 id="社交媒体"><a href="#社交媒体" class="headerlink" title="社交媒体"></a>社交媒体</h4><p>主要介绍了facebook和twitter的使用，不知道为啥又这一章，略过。</p>
+<h4 id="社会和道德问题"><a href="#社会和道德问题" class="headerlink" title="社会和道德问题"></a>社会和道德问题</h4><p>道德的第一个原则是我们应该避免去做那些违反普遍道德的行为（己所不欲、勿施于人）。</p>
+<p>道德的第二个原则是如果一个行为能够带来好的结果，那么这个行为是道德的（与他人有益）。</p>
+<p>道德的第三个原则是如果一个行为被社会大部分人接受，那么这个行为是道德的（底线思维呢）。</p>
+<p>常见知识产权：商标、商业机密、专利、版权。</p>
+<p>计算机犯罪：入侵攻击（病毒、蠕虫、特洛伊木马、拒绝服务攻击）、动机（政治、黑客、恐怖主义间谍、经济利益或仇恨）。</p>
+<p>攻击保护：物理保护、使用受保护的软件、安装防病毒软件。</p>
+<p>黑客：之前是指拥有很多知识，可以改进系统、提升系统性能的人；现在指未经授权访问他人计算机获取机密信息的人。</p>
+<h3 id="用书"><a href="#用书" class="headerlink" title="用书"></a>用书</h3><ul>
+<li>理论方面可以重新学习加强认识，补充近些年计算机领域发展的相关知识。</li>
+<li>业务方面可以提升广度，在技术选型中可以结合当前的进展更加全面。</li>
+<li>知识结构方面可以梳理完善，完整的领域知识树有助于差缺补漏。</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>您的支持是我最大的动力！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="王成飞 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="王成飞 Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/读后感/" rel="tag"># 读后感</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/01/19/《邓小平时代》了解中国道路/" rel="next" title="《邓小平时代》了解中国道路">
+                <i class="fa fa-chevron-left"></i> 《邓小平时代》了解中国道路
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4" alt="王成飞">
+            
+              <p class="site-author-name" itemprop="name">王成飞</p>
+              <div class="site-description motion-element" itemprop="description">实践后去沉淀，用探索的思维迎接未知领域和挑战。</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">70</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/jidebingchuan" title="GitHub &rarr; https://github.com/jidebingchuan" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:wcf_first@163.com" title="E-Mail &rarr; mailto:wcf_first@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#选书"><span class="nav-number">1.</span> <span class="nav-text">选书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读书"><span class="nav-number">2.</span> <span class="nav-text">读书</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#图灵机"><span class="nav-number">2.1.</span> <span class="nav-text">图灵机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数子系统"><span class="nav-number">2.2.</span> <span class="nav-text">数子系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据存储"><span class="nav-number">2.3.</span> <span class="nav-text">数据存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据运算"><span class="nav-number">2.4.</span> <span class="nav-text">数据运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机组成"><span class="nav-number">2.5.</span> <span class="nav-text">计算机组成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机网络和因特网"><span class="nav-number">2.6.</span> <span class="nav-text">计算机网络和因特网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作系统"><span class="nav-number">2.7.</span> <span class="nav-text">操作系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法"><span class="nav-number">2.8.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#程序设计语言"><span class="nav-number">2.9.</span> <span class="nav-text">程序设计语言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#软件工程"><span class="nav-number">2.10.</span> <span class="nav-text">软件工程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据结构"><span class="nav-number">2.11.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象数据类型"><span class="nav-number">2.12.</span> <span class="nav-text">抽象数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件结构"><span class="nav-number">2.13.</span> <span class="nav-text">文件结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库"><span class="nav-number">2.14.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据压缩"><span class="nav-number">2.15.</span> <span class="nav-text">数据压缩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全"><span class="nav-number">2.16.</span> <span class="nav-text">安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算理论"><span class="nav-number">2.17.</span> <span class="nav-text">计算理论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#人工智能"><span class="nav-number">2.18.</span> <span class="nav-text">人工智能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#社交媒体"><span class="nav-number">2.19.</span> <span class="nav-text">社交媒体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#社会和道德问题"><span class="nav-number">2.20.</span> <span class="nav-text">社会和道德问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用书"><span class="nav-number">3.</span> <span class="nav-text">用书</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王成飞</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
