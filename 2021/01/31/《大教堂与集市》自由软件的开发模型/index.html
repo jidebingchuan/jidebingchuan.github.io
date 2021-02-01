@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="选书开源世界的影响和发展已经成为不可忽视的领导力量，故有必要重温下开源里最著名的《大教堂和集市》。 看完这本书，看了一个TED上Linus的访谈，在一个TED以梦想为主题的会议上，他直言不喜欢仰望星空，而更喜欢脚踏实地的填坑解决问题，自己不善交往，是一个“Nerd”；喜欢独立工作，开发Linux和Git，正是满足自己独立工作的需求。 对比特斯拉和爱迪生，Linus更加喜欢爱迪生这句“天才就是1%的">
+<meta name="keywords" content="读后感">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《大教堂与集市》自由软件的开发模型">
+<meta property="og:url" content="http://wangchengfei.info/2021/01/31/《大教堂与集市》自由软件的开发模型/index.html">
+<meta property="og:site_name" content="王成飞博客">
+<meta property="og:description" content="选书开源世界的影响和发展已经成为不可忽视的领导力量，故有必要重温下开源里最著名的《大教堂和集市》。 看完这本书，看了一个TED上Linus的访谈，在一个TED以梦想为主题的会议上，他直言不喜欢仰望星空，而更喜欢脚踏实地的填坑解决问题，自己不善交往，是一个“Nerd”；喜欢独立工作，开发Linux和Git，正是满足自己独立工作的需求。 对比特斯拉和爱迪生，Linus更加喜欢爱迪生这句“天才就是1%的">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2021-02-01T10:31:34.708Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《大教堂与集市》自由软件的开发模型">
+<meta name="twitter:description" content="选书开源世界的影响和发展已经成为不可忽视的领导力量，故有必要重温下开源里最著名的《大教堂和集市》。 看完这本书，看了一个TED上Linus的访谈，在一个TED以梦想为主题的会议上，他直言不喜欢仰望星空，而更喜欢脚踏实地的填坑解决问题，自己不善交往，是一个“Nerd”；喜欢独立工作，开发Linux和Git，正是满足自己独立工作的需求。 对比特斯拉和爱迪生，Linus更加喜欢爱迪生这句“天才就是1%的">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="王成飞博客" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://wangchengfei.info/2021/01/31/《大教堂与集市》自由软件的开发模型/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>《大教堂与集市》自由软件的开发模型 | 王成飞博客</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?77735b5a26e8f4057c64badd972d97be";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王成飞博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一切皆值得思考</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archives"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2021/01/31/《大教堂与集市》自由软件的开发模型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王成飞">
+      <meta itemprop="description" content="实践后去沉淀，用探索的思维迎接未知领域和挑战。">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王成飞博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">《大教堂与集市》自由软件的开发模型
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2021-01-31 20:32:38" itemprop="dateCreated datePublished" datetime="2021-01-31T20:32:38+08:00">2021-01-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2021-02-01 18:31:34" itemprop="dateModified" datetime="2021-02-01T18:31:34+08:00">2021-02-01</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="选书"><a href="#选书" class="headerlink" title="选书"></a>选书</h3><p>开源世界的影响和发展已经成为不可忽视的领导力量，故有必要重温下开源里最著名的《大教堂和集市》。</p>
+<p>看完这本书，看了一个TED上Linus的访谈，在一个TED以梦想为主题的会议上，他直言不喜欢仰望星空，而更喜欢脚踏实地的填坑解决问题，自己不善交往，是一个“Nerd”；喜欢独立工作，开发Linux和Git，正是满足自己独立工作的需求。</p>
+<p>对比特斯拉和爱迪生，Linus更加喜欢爱迪生这句“天才就是1%的灵感加99%的汗水。”；就是这样一个朴实无华、脚踏实地的人，改变了开源世界，影响了科技走向。</p>
+<p>很喜欢作者Raymond的名言：“足够多的眼睛，就可让所有问题浮现。”</p>
+<p>Raymond（ESR）的书《Unix编程艺术》也是一部研发同学经常买的程序设计书籍。</p>
+<p>人类世界的知识及系统已经在指数级的增长，面对《复杂》世界的系统的开发，如何让系统发展更快、更鲁棒，从这本“开源圣经”里的经典案例：linux及fetchmail的发展是可以找到一些自下而上的解决方案。</p>
+<p>知识界也在做开源，将来的知识自由也包括三个方面：知识持有的自由、知识接收的自由与知识传播的自由，例如自由期刊。</p>
+<h3 id="读书"><a href="#读书" class="headerlink" title="读书"></a>读书</h3><h4 id="大教堂与集市"><a href="#大教堂与集市" class="headerlink" title="大教堂与集市"></a>大教堂与集市</h4><p>Linux是颠覆性的，在发布后的2年，其稳定性和生态已赶超发展十多年的Unix系统，没有商业公司自上而下的大教堂开发模式；而是关注用户、尽早尽快的发布，像集市一样生长，结果却取得了惊人的效果，这背后是什么样的机遇或者原则支撑了Linux的快速发展，有没有模式可以复制，Raymond正是基于这样的疑问开始升级自己的开源之路。</p>
+<h4 id="邮件问题"><a href="#邮件问题" class="headerlink" title="邮件问题"></a>邮件问题</h4><p>早期的邮件客户端是很不成熟的，当服务端收到邮件后，没有成熟的客户端进行下载提醒，而当时几个类似的客户端软件也不是很完整，于是作者就从解决自己的邮件问题开始接手开源软件。</p>
+<p>这个问题带给Raymond几个启示：</p>
+<ul>
+<li>软件的每一项出色工作都始于开发人员的个人追求。</li>
+<li>好的程序员会写什么，优秀的程序员知道要重写（和重用）什么。</li>
+<li>“计划扔掉一个；无论如何你都会扔掉一个的。”（弗里德.布洛克 《人月神话》第11章）</li>
+<li>如果你态度正确，就会发现有趣的问题。</li>
+<li>对某个程序失去兴趣时，你对该程序最后的职责是将其移交给有能力的继任人。</li>
+</ul>
+<h4 id="拥有用户的重要性"><a href="#拥有用户的重要性" class="headerlink" title="拥有用户的重要性"></a>拥有用户的重要性</h4><ul>
+<li>将你的用户视为共同开发者是你快速进行代码改进和有效调试的最简单方法。</li>
+</ul>
+<h4 id="提前发布、经常发布"><a href="#提前发布、经常发布" class="headerlink" title="提前发布、经常发布"></a>提前发布、经常发布</h4><p>早期频繁发布是Linux开发模型的关键部分。大多数开发人员过去都认为这对大型项目而言是不明智的选择，因为从定义上讲，早期版本几乎是错误的版本，并且你不想消耗用户的耐心。</p>
+<ul>
+<li>提前发布、经常发布。并倾听你的客户。</li>
+</ul>
+<p>Linus的创新并不在于发布包含大量用户反馈的快速更新版本（这种东西在很长一段时间内都是Unix的传统），而是将其扩展到与复杂程度相称的强度。在早期（大约1991年），他每天不止一次地发布新内核！他培养了自己的共同开发者基础，并且利用互联网比其他任何人都更努力地进行协作，这很奏效。</p>
+<ul>
+<li>有了足够多的Beta测试人员和合作开发人员，几乎每个问题都能快速定位，并且解决方案对于开发者来说显而易见。</li>
+</ul>
+<h4 id="足够多的眼睛，就可让所有问题浮现"><a href="#足够多的眼睛，就可让所有问题浮现" class="headerlink" title="足够多的眼睛，就可让所有问题浮现"></a>足够多的眼睛，就可让所有问题浮现</h4><p>传统软件开发组织要解决的基本问题是布鲁克定律：“在一个较晚的项目中添加更多的程序员会使它变得更晚。”更普遍地，布鲁克斯定律预测，项目的复杂性和通信成本会随着项目的平方而增加。开发人员的数量，而完成的工作仅呈线性增长。</p>
+<p>布鲁克斯定律是建立在以下经验之上的：错误往往会强烈聚集在不同人编写的代码之间的接口上，并且项目中的通信/协调开销会随着人与人之间接口数量的增加而增加。因此，问题随着开发者之间的通信路径的数量而缩放，该比例随着开发者数量的平方缩放（更确切地说，根据公式N *（N-1）/ 2，其中N是开发者的数量）。</p>
+<h4 id="什么样的玫瑰不是玫瑰？"><a href="#什么样的玫瑰不是玫瑰？" class="headerlink" title="什么样的玫瑰不是玫瑰？"></a>什么样的玫瑰不是玫瑰？</h4><p>在研究了Linus的行为并形成了成功的理论之后，Raymond做出了一个有意识的决定，在Raymond的新项目上对该理论进行测试。</p>
+<ul>
+<li>智能数据结构和哑代码比其他方法要好得多。</li>
+<li>如果将Beta测试人员当作最有价值的资源来对待，他们将成为你最有价值的资源来做出回应。</li>
+</ul>
+<p>Raymond对fetchmail客户端使用Linus方法落地：</p>
+<ol>
+<li>经常发布（几乎从来不比每隔十天发布；在紧张的发展时期，每天一次）。</li>
+<li>通过增加与fetchmail有关的所有与我联系的人，我增加了Beta版列表。</li>
+<li>每当我发布时，我都会发送到Beta列表中，以鼓励人们参与。</li>
+<li>而且我听了我的Beta测试人员的意见，就他们的设计决策向他们轮询。</li>
+</ol>
+<h4 id="Popclient成为Fetchmail"><a href="#Popclient成为Fetchmail" class="headerlink" title="Popclient成为Fetchmail"></a>Popclient成为Fetchmail</h4><p>该项目真正的转折点是当Harry Hochheiser向Raymond发送了他的临时代码以将邮件转发到客户端计算机的SMTP端口时。我几乎立刻意识到，此功能的可靠实现会使所有其他邮件传递模式过时。</p>
+<ul>
+<li>拥有好主意的第二件事就是识别用户的好主意。有时后者更重要。</li>
+<li>通常，最引人注目的创新解决方案来自意识到你对问题的理解是错误的。</li>
+<li>（设计上的）完美不是在没有其他要添加的东西时实现的，而是在没有其他要去除的时候实现的。</li>
+</ul>
+<h4 id="Fetchmail的成长"><a href="#Fetchmail的成长" class="headerlink" title="Fetchmail的成长"></a>Fetchmail的成长</h4><p>Andy Tanenbaum最初的想法是为IBM PC构建一个简单的本机Unix，用作教学工具（他称为Minix）。Linus Torvalds将Minix的概念推到了Andrew可能无法想象的范围之内，并且这个概念变得很棒。以同样的方式（尽管规模较小），我接受了卡尔·哈里斯（Carl Harris）和哈里·霍赫海瑟（Harry Hochheiser）的一些想法，并将其推向顶峰。在我们认为天才的方式中，我们俩都不是“原创”。大多数科学，工程和软件开发不是由天才完成的《黑客神话》。</p>
+<ul>
+<li>任何工具都应该以预期的方式使用，但是真正出色的工具使你用到从未曾想到的用途。</li>
+<li>在编写任何形式的网关软件时，请尽力减少对数据流的干扰- 除非接收者强迫你这么做，否则切勿丢弃信息！</li>
+</ul>
+<h4 id="Fetchmail的教训"><a href="#Fetchmail的教训" class="headerlink" title="Fetchmail的教训"></a>Fetchmail的教训</h4><ul>
+<li>当你的语言离“图灵机完全”还差得 很远的时候，语法糖可以成为您的朋友。</li>
+<li>一个安全系统的安全性取决于它保守的秘密的安全性。</li>
+</ul>
+<h4 id="使用集市模式的前提"><a href="#使用集市模式的前提" class="headerlink" title="使用集市模式的前提"></a>使用集市模式的前提</h4><p>当开始社区建设时，您需要展现的是一个<em>合理的承诺</em>。您的程序不必运行得特别好。它可能是原始的，有缺陷的，错误的，不完整的，并且记录不充分。它必须做的是（a）运行，并且（b）说服潜在的联合开发人员，它可以在可预见的将来演变成真正整洁的东西。</p>
+<p>我认为协调员能够发起出色的设计并不是至关重要的，但是协调员能够从他人那里认识好的设计思想绝对至关重要。</p>
+<p>Linus是一个好人，让人们喜欢他并想要帮助他，这并非巧合。Raymond是一个精力充沛的外向型人，喜欢在人群中工作，这并非偶然。要使集市模型发挥作用，如果你对人有一点技巧，那么它将大有帮助。</p>
+<h4 id="开源软件的社会环境"><a href="#开源软件的社会环境" class="headerlink" title="开源软件的社会环境"></a>开源软件的社会环境</h4><p>最好的hack最初是针对作者日常问题的个人解决方案，并开始传播，因为该问题对于大多数用户来说都是典型的。</p>
+<ul>
+<li>要解决一个有趣的问题，请先找到你感兴趣的问题。</li>
+</ul>
+<p>Linux是第一个有意识并成功地尝试利用整个世界作为其人才库的项目。Raymond认为Linux的孕育期与万维网的诞生恰逢其时，Linux在1993年至1994年离开了婴儿期，这是一个偶然的巧合。Linus是第一个学习如何通过普及互联网建立规则的人。</p>
+<ul>
+<li>只要开发协调员的沟通与Internet一样好，并且知道如何领导而不强迫，那么许多负责人要比一个负责人更好。</li>
+</ul>
+<h4 id="论管理与马奇诺防线"><a href="#论管理与马奇诺防线" class="headerlink" title="论管理与马奇诺防线"></a>论管理与马奇诺防线</h4><p>Raymond认识的一位件开发经理认为她很擅长这项工作，她说软件项目管理具有五个功能：</p>
+<ol>
+<li>明确目标，并保持每个人都方向一致</li>
+<li>监控并确保关键的细节没有被忽略</li>
+<li>引导人做无聊的而且是单调乏味的工作</li>
+<li>要发挥人的最佳生产力</li>
+<li>为了维持项目需要调动资源</li>
+</ol>
+<p>所有这些目的明确的目标；在开源模式及其周围的环境下显得毫无意义。我们将按相反的方向进行处理。</p>
+<p>Raymond的朋友报告说，大量的资源编排基本上是防御性的。一旦有了人，机器和办公空间，就必须捍卫它们，以防同行经理争夺相同的资源，也要抵御上级企图分配有限池的最有效使用。</p>
+<p>开源社区的例子再次使这个问题变得更加尖锐，因为我们乐于做我们所做的事情。我们的创造力一直在以惊人的速度赢得技术，市场份额和思想份额方面的成功。我们不仅证明我们可以做更好的软件，而且证明快乐是一种资产。</p>
+<p>恐惧和厌恶自己的工作过程，本身就应被视为软件过程失败的标志。欢乐，幽默和嬉戏确实是财富。这并不是主要是因为我在上面关于“快乐的大群”的写照，Linux吉祥物是一只可爱的新企鹅也不是开玩笑。</p>
+<h4 id="Netscape拥抱集市"><a href="#Netscape拥抱集市" class="headerlink" title="Netscape拥抱集市"></a>Netscape拥抱集市</h4><p>开源理念影响Netscape， Netscape宣布使用集市模式。</p>
+<h3 id="用书"><a href="#用书" class="headerlink" title="用书"></a>用书</h3><p>大教堂和集市，充分对比了自底向上和自顶向下，对Linux的成功模式进行了分析。</p>
+<ul>
+<li>要解决自己的问题，才会有兴趣。</li>
+<li>要找到自己感兴趣的问题，才能对解决问题感兴趣。</li>
+<li>快速发布、经常发布。</li>
+<li>把合作者看成用户，把用户看成合作者。</li>
+<li>经常合作，并听取用户的建议。</li>
+<li>完美的设计不是无可添加，而是无可删除（精简之美）。</li>
+<li>否定一个方案，因为第一次的认识深度和完整度都无法不升级为另一个方案。</li>
+<li>当你不感兴趣的时候，梳理好并交给有能力的继任人。</li>
+</ul>
+<p>想起了华为的轮值制度，达利欧的原则，每个人的认知是有限的，我们只能追求并接近事实，却无法完全认识事实。</p>
+<p>在工作中提升每个人的认知和软技能，形成big brain，我深信没有完美的个人，可以打造完美的团队。</p>
+<h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><p><a href="https://zh.wikipedia.org/wiki/%E5%9F%83%E9%87%8C%E5%85%8B%C2%B7%E9%9B%B7%E8%92%99" target="_blank" rel="noopener">埃里克·斯蒂芬·雷蒙</a></p>
+<p><a href="http://www.catb.org/esr/writings/homesteading/cathedral-bazaar/" target="_blank" rel="noopener">《大教堂与集市》英文原版</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>您的支持是我最大的动力！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="王成飞 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="王成飞 Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/读后感/" rel="tag"># 读后感</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/01/21/《计算机科学导论》重温领域知识和技术变迁/" rel="next" title="《计算机科学导论》重温领域知识和技术变迁">
+                <i class="fa fa-chevron-left"></i> 《计算机科学导论》重温领域知识和技术变迁
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4" alt="王成飞">
+            
+              <p class="site-author-name" itemprop="name">王成飞</p>
+              <div class="site-description motion-element" itemprop="description">实践后去沉淀，用探索的思维迎接未知领域和挑战。</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">71</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/jidebingchuan" title="GitHub &rarr; https://github.com/jidebingchuan" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:wcf_first@163.com" title="E-Mail &rarr; mailto:wcf_first@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#选书"><span class="nav-number">1.</span> <span class="nav-text">选书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读书"><span class="nav-number">2.</span> <span class="nav-text">读书</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#大教堂与集市"><span class="nav-number">2.1.</span> <span class="nav-text">大教堂与集市</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#邮件问题"><span class="nav-number">2.2.</span> <span class="nav-text">邮件问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拥有用户的重要性"><span class="nav-number">2.3.</span> <span class="nav-text">拥有用户的重要性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提前发布、经常发布"><span class="nav-number">2.4.</span> <span class="nav-text">提前发布、经常发布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#足够多的眼睛，就可让所有问题浮现"><span class="nav-number">2.5.</span> <span class="nav-text">足够多的眼睛，就可让所有问题浮现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么样的玫瑰不是玫瑰？"><span class="nav-number">2.6.</span> <span class="nav-text">什么样的玫瑰不是玫瑰？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Popclient成为Fetchmail"><span class="nav-number">2.7.</span> <span class="nav-text">Popclient成为Fetchmail</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fetchmail的成长"><span class="nav-number">2.8.</span> <span class="nav-text">Fetchmail的成长</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fetchmail的教训"><span class="nav-number">2.9.</span> <span class="nav-text">Fetchmail的教训</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用集市模式的前提"><span class="nav-number">2.10.</span> <span class="nav-text">使用集市模式的前提</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开源软件的社会环境"><span class="nav-number">2.11.</span> <span class="nav-text">开源软件的社会环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#论管理与马奇诺防线"><span class="nav-number">2.12.</span> <span class="nav-text">论管理与马奇诺防线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Netscape拥抱集市"><span class="nav-number">2.13.</span> <span class="nav-text">Netscape拥抱集市</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用书"><span class="nav-number">3.</span> <span class="nav-text">用书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附录"><span class="nav-number">4.</span> <span class="nav-text">附录</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王成飞</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
