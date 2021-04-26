@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="选书2019年接触过一段go，一些docker、k18s等容器组件也都用go实现开发，云服务发展普及后，虚拟化、微服务、数据库、消息等中间件越来越多的用go语言实现，可以说已经形成一个比较明显的趋势。 从行业的岗位数量来看，go语言的岗位也是越来越多的，从BAT、TMD等公司的核心服务看，之后重构的方向是两个，商业化相关的还是Java为主，中台、中间件、核心服务越来越多的迁移到go语言上。 从后续">
+<meta name="keywords" content="读后感">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Go程序设计语言》走进云原生">
+<meta property="og:url" content="http://wangchengfei.info/2021/04/25/《Go程序设计语言》走进云原生/index.html">
+<meta property="og:site_name" content="王成飞博客">
+<meta property="og:description" content="选书2019年接触过一段go，一些docker、k18s等容器组件也都用go实现开发，云服务发展普及后，虚拟化、微服务、数据库、消息等中间件越来越多的用go语言实现，可以说已经形成一个比较明显的趋势。 从行业的岗位数量来看，go语言的岗位也是越来越多的，从BAT、TMD等公司的核心服务看，之后重构的方向是两个，商业化相关的还是Java为主，中台、中间件、核心服务越来越多的迁移到go语言上。 从后续">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2021-04-26T05:53:20.672Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《Go程序设计语言》走进云原生">
+<meta name="twitter:description" content="选书2019年接触过一段go，一些docker、k18s等容器组件也都用go实现开发，云服务发展普及后，虚拟化、微服务、数据库、消息等中间件越来越多的用go语言实现，可以说已经形成一个比较明显的趋势。 从行业的岗位数量来看，go语言的岗位也是越来越多的，从BAT、TMD等公司的核心服务看，之后重构的方向是两个，商业化相关的还是Java为主，中台、中间件、核心服务越来越多的迁移到go语言上。 从后续">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="王成飞博客" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://wangchengfei.info/2021/04/25/《Go程序设计语言》走进云原生/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>《Go程序设计语言》走进云原生 | 王成飞博客</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?77735b5a26e8f4057c64badd972d97be";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王成飞博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一切皆值得思考</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archives"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangchengfei.info/2021/04/25/《Go程序设计语言》走进云原生/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王成飞">
+      <meta itemprop="description" content="实践后去沉淀，用探索的思维迎接未知领域和挑战。">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王成飞博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">《Go程序设计语言》走进云原生
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2021-04-25 13:46:08" itemprop="dateCreated datePublished" datetime="2021-04-25T13:46:08+08:00">2021-04-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2021-04-26 13:53:20" itemprop="dateModified" datetime="2021-04-26T13:53:20+08:00">2021-04-26</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="选书"><a href="#选书" class="headerlink" title="选书"></a>选书</h3><p>2019年接触过一段go，一些docker、k18s等容器组件也都用go实现开发，云服务发展普及后，虚拟化、微服务、数据库、消息等中间件越来越多的用go语言实现，可以说已经形成一个比较明显的趋势。</p>
+<p>从行业的岗位数量来看，go语言的岗位也是越来越多的，从BAT、TMD等公司的核心服务看，之后重构的方向是两个，商业化相关的还是Java为主，中台、中间件、核心服务越来越多的迁移到go语言上。</p>
+<p>从后续个人职业发展的技术栈和市场看，go语言的掌握是必要和有益的。</p>
+<p>这本书的厚度适中、介绍了go比较核心的一些语言特性，协程、通道、锁、接口、反射、unsafe和cgo等；书评还不错，翻译中有比较明显的错别字，例如把崩溃翻译成了奔溃，整体来说还算易读。</p>
+<h3 id="读书"><a href="#读书" class="headerlink" title="读书"></a>读书</h3><h4 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world"></a>hello world</h4><p>`</p>
+<p>package main</p>
+<p>import (</p>
+<p>​    “fmt”</p>
+<p>​    “os”</p>
+<p>)</p>
+<p>func main(){</p>
+<p>​    fmt.Println(“Hello, 世界”)</p>
+<p>}</p>
+<p>`</p>
+<p>hello的特点：</p>
+<ul>
+<li>经常用到打印后换行的功能需要拼接PHP_EOL，go的思路是将常用场景的功能封装到系统函数里，可以说语言的设计思路是将常用的场景封装为函数。</li>
+<li>函数的逻辑行不需要分号结束，这点和c不一样，更像python的风格。</li>
+<li>系统包的使用是按需导入，这点和python一样，减少包大小，提升后续链接、编译、维护等环节效率。</li>
+</ul>
+<h4 id="程序结构"><a href="#程序结构" class="headerlink" title="程序结构"></a>程序结构</h4><p>计算机程序的核心目的是计算数据，故所有的程序结构都是数据的声明、计算逻辑的封装、外加逻辑的调度三个部分。</p>
+<p>名称命名规则：以字母或下划线开头，后面可以跟任意数量的字符、数字或下划线。</p>
+<p>声明分为四个类型：变量、常量、类型和函数。</p>
+<p>文件结构：</p>
+<ul>
+<li>每一个文件都以package声明开头，表名文件属于哪个包。</li>
+<li>import声明，导入依赖的包。</li>
+<li>包级别的类型、变量、常量、函数的声明，不区分顺序。</li>
+</ul>
+<p>变量：</p>
+<ul>
+<li>​    var name type = expression</li>
+<li>类型和表达式可以省略一个，不能都省略，大小写敏感</li>
+<li>短变量声明由表达式的类型决定，name := expression</li>
+<li>指针是一个变量的地址</li>
+<li>使用new函数创建某类型数据，p := new(int)</li>
+<li>变量的生命周期分为函数、包、程序三个级别的</li>
+<li>支持简单赋值 x = 1， 支持多重赋值 x, y = y, x</li>
+<li>隐式赋值，例如形参赋值，return赋值等</li>
+<li>类型声明，type color int</li>
+</ul>
+<p>包和文件</p>
+<ul>
+<li>go中的包和其他语言的库或模块类似</li>
+<li>每个包都是独立的命名空间</li>
+<li>若包的函数首字母为大写则可导出（其他包可用）</li>
+<li>go通过导入路径来标识包</li>
+<li>导入的包可以用短名字绑定，简化使用</li>
+<li>作用域是声明在程序文本中出现的区域，是个编译时属性</li>
+<li>生命周期是是变量在程序执行期间能被程序的其他部分所引用的起止时间，是运行时属性</li>
+</ul>
+<h5 id="基础数据类型"><a href="#基础数据类型" class="headerlink" title="基础数据类型"></a>基础数据类型</h5><p>整形</p>
+<ul>
+<li>int8 int16 int32 int64 有符号</li>
+<li>uint8 uint16 uint32 uint64 无符号</li>
+<li>rune 是int32类型的同义词，为什么有这个同义词？常常指Unicode码点</li>
+<li>uintptr大小不明确，主要存放指针，用于底层编程</li>
+<li>超出表示范围会溢出，高位无提示丢弃，故计算时需要校验是否溢出</li>
+</ul>
+<p>浮点数</p>
+<ul>
+<li>浮点数转整形会舍弃小数部分、趋零截尾（整数向下取整，负数向上取整）</li>
+<li>float32 float64 两种浮点类型</li>
+</ul>
+<p>复数</p>
+<ul>
+<li>complex64 complex128两种复数，分别由float32和float64构成</li>
+</ul>
+<p>字符串</p>
+<ul>
+<li>是一个不可变字节序列，可包含任意数据，包括0值字节</li>
+<li>len返回字节数</li>
+<li>s[i:j]产生一个新串，左闭右开</li>
+<li>源文件总是用utf-8编码，故字符串会按utf-8解读</li>
+<li>utf-8以字节为单位对Unicode码点做变长编码</li>
+<li>bytes strings strconv unicode四个常用字符串操作函数</li>
+<li>bytes 用于操作字节</li>
+<li>strings 搜索 替换 比较 切分 连接等</li>
+<li>strconv 转换布尔值 整数 浮点数与之对应的字符串形式</li>
+<li>unicode判别符号特性，如：isDigit IsLetter IsLower</li>
+</ul>
+<p>常量</p>
+<ul>
+<li>const name = value</li>
+<li>const (a = value b = value)</li>
+<li>常量生成器iota</li>
+</ul>
+<h5 id="复合数据类型"><a href="#复合数据类型" class="headerlink" title="复合数据类型"></a>复合数据类型</h5><p>数组</p>
+<ul>
+<li>具有固定长度的，具有零个或多个相同数据类型元素的序列</li>
+<li>var a [3]int</li>
+<li>fmt.Println(a[0])</li>
+<li>slice是一个拥有相同类型元素的变长序列，var runes []rune</li>
+<li>append追加元素到slice后面</li>
+</ul>
+<p>map</p>
+<ul>
+<li>是一个拥有键值对元素的无序集合</li>
+<li>ages := make(map[string]int)</li>
+</ul>
+<p>结构体</p>
+<ul>
+<li>是将零个或者多个任意类型的命名变量组合在一起的聚合数据类型</li>
+<li>type Employee struct {Id int Name string …}</li>
+<li>通过字面量赋值 p := Point{1,2}</li>
+</ul>
+<p>json</p>
+<ul>
+<li>json是一种发送和接收格式化信息的标准</li>
+<li>json.Marshal(datalist)生成json字符串</li>
+<li>json.Unmarshal(data, $title)解析支持数据裁剪</li>
+</ul>
+<p>文本和html</p>
+<ul>
+<li>类似于smarty的模板渲染能力</li>
+<li>可用于格式化输出</li>
+</ul>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><ul>
+<li>包含连续的执行语句，可在代码中通过函数名来执行这组语句</li>
+<li>func funcname(parameter-list)(result-list){body}</li>
+<li>和php不同，支持多返回值</li>
+<li>使用err返回错误信息，使用nil标识有无错误</li>
+<li>文件结束标识io.EOF</li>
+<li>支持匿名函数，例如用在map计算</li>
+<li>变长函数被调用的时候可以有可变的参数个数，用…来声明</li>
+<li>引用空指针、访问越界，在运行时检测到就会宕机</li>
+<li>可以用recover()进行恢复</li>
+</ul>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><ul>
+<li>方法声明和函数不同点在于绑定到某个数据上</li>
+<li>func (p Point)  Distance(q Point)float64{}</li>
+<li>p成为方法的接收者</li>
+<li>p.Distance(q)</li>
+<li>nil是一个合法的方法接收者</li>
+</ul>
+<p>封装</p>
+<ul>
+<li>go中封装的单元是包而不是类型</li>
+<li>结构体数据对包内的所有代码都是可见的</li>
+<li>首字母大写的标识是可以从包中导出的，而首字母没有大写的则不导出</li>
+<li>不可导出的有点：避免意外的修改导致函数处理问题，改变api可以不考虑包外使用兼容性，避免修改对象内的变量</li>
+</ul>
+<h4 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h4><ul>
+<li>接口是对其他类型行为的概括与抽象</li>
+<li>go语言接口是隐式实现</li>
+<li>接口既约定</li>
+<li>可以把一种类型替换为满足同一接口的另一种类型的特性称为可取代性</li>
+<li>接口支持组合接口形成新接口</li>
+<li>调用nil接口的任何方法都会导致崩溃</li>
+<li>error是一个接口类型，包含一个返回错误消息的方法</li>
+<li>类型断言是一个作用在接口值上的操作</li>
+<li>子类型多态和特设多态</li>
+</ul>
+<h4 id="goroutine和通道"><a href="#goroutine和通道" class="headerlink" title="goroutine和通道"></a>goroutine和通道</h4><ul>
+<li>每一个并发执行的活动成为goroutine</li>
+<li>通信顺序进程，CSP是一种并发的模式</li>
+<li>通道是并发执行体之间的连接</li>
+<li>通道主要有发送和接收两个操作，统称为通信</li>
+<li>无缓冲通道和缓冲通道（类似队列）</li>
+<li>一个的输出是另一个的输入，称之为管道（通道和管道的区别）</li>
+<li>约束发送或者接收的单向通道</li>
+<li>select可以作用在多个通道上，实现多路复用</li>
+</ul>
+<h4 id="共享变量"><a href="#共享变量" class="headerlink" title="共享变量"></a>共享变量</h4><ul>
+<li>若一个函数在并发调用时仍然能正确工作，那么这个函数是并发安全的（并发不安全的原因是非顺序执行）</li>
+<li>并发问题，死锁、活锁、资源耗尽</li>
+<li>互斥锁：sync.Mutex（导致顺序执行，影响效率）</li>
+<li>读写互斥锁：sync.RWMutext，解决读并发效率问题</li>
+<li>延迟初始化：sync.Once</li>
+<li>竞态检查器：-race 参数</li>
+<li>并发非阻塞缓存：函数记忆（memoizing）</li>
+</ul>
+<h5 id="goroutine与线程区别"><a href="#goroutine与线程区别" class="headerlink" title="goroutine与线程区别"></a>goroutine与线程区别</h5><ul>
+<li>goroutine是动态栈分配，最小2kb，最大为1G，而线程为2M。</li>
+<li>goroutine将线程的系统调度，改为自己实现调度器，减少内核态切换开销</li>
+<li>GOMAXPROCS最大线程数，设置为1则变为单线程执行</li>
+</ul>
+<h4 id="包和工具"><a href="#包和工具" class="headerlink" title="包和工具"></a>包和工具</h4><ul>
+<li>import导入包</li>
+<li>package声明包</li>
+<li>空导入 import _ “image/png”，避免导入未使用编译错误</li>
+</ul>
+<h5 id="go工具"><a href="#go工具" class="headerlink" title="go工具"></a>go工具</h5><ul>
+<li>工作空间组织：src bin pkg</li>
+<li>包下载：go get</li>
+<li>包构建：go build</li>
+<li>包文档：go doc time</li>
+<li>包检查：go list -json hash</li>
+</ul>
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><ul>
+<li>go test跑*_test.go 单测函数</li>
+<li>go test -bench=. 性能测试</li>
+<li>go test -cpuprofile=cpu.out cpu性能分析-cpu</li>
+<li>go test -blockprofile=block.out 性能分析-io</li>
+<li>go test -memprofile=mem.out 性能分析-内存</li>
+</ul>
+<h4 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h4><ul>
+<li>可更新变量在运行时查看值、类型和调用方法及对其操作的机制成为反射</li>
+<li>reflect.Value reflect.Type</li>
+</ul>
+<h4 id="低级编程"><a href="#低级编程" class="headerlink" title="低级编程"></a>低级编程</h4><ul>
+<li>查看内存使用及分布：unsafe.Sizeof Alignof Offsetof</li>
+<li>深度相等：reflect.DeepEqual</li>
+<li>cgo调用c代码</li>
+<li>FFI调用c代码</li>
+<li>SWIG调用c++代码</li>
+</ul>
+<h3 id="用书"><a href="#用书" class="headerlink" title="用书"></a>用书</h3><h5 id="目前业务"><a href="#目前业务" class="headerlink" title="目前业务"></a>目前业务</h5><ul>
+<li>业务性能优化，部分顺序执行的逻辑可以并行处理，提升接口性能。</li>
+<li>消息通知，可以收敛接口和消息队列，异步处理通知，减少消息中间件。</li>
+<li>运维部署，减少多文件的维护和软链创建，可以提升部署效率。</li>
+</ul>
+<h5 id="技术学习"><a href="#技术学习" class="headerlink" title="技术学习"></a>技术学习</h5><ul>
+<li>更好的了解云原生的技术实现和发展。</li>
+</ul>
+<h5 id="职业发展"><a href="#职业发展" class="headerlink" title="职业发展"></a>职业发展</h5><ul>
+<li>可以熟悉、掌握更多的开发、运维的系统及中间件。</li>
+<li>在岗位的选择上有更多的选择机会。</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>您的支持是我最大的动力！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="王成飞 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="王成飞 Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/读后感/" rel="tag"># 读后感</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/04/19/《科学管理原理》积极性和激励之后的管理升级/" rel="next" title="《科学管理原理》积极性和激励之后的管理升级">
+                <i class="fa fa-chevron-left"></i> 《科学管理原理》积极性和激励之后的管理升级
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars2.githubusercontent.com/u/2375335?s=460&v=4" alt="王成飞">
+            
+              <p class="site-author-name" itemprop="name">王成飞</p>
+              <div class="site-description motion-element" itemprop="description">实践后去沉淀，用探索的思维迎接未知领域和挑战。</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">78</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/jidebingchuan" title="GitHub &rarr; https://github.com/jidebingchuan" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:wcf_first@163.com" title="E-Mail &rarr; mailto:wcf_first@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#选书"><span class="nav-number">1.</span> <span class="nav-text">选书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读书"><span class="nav-number">2.</span> <span class="nav-text">读书</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hello-world"><span class="nav-number">2.1.</span> <span class="nav-text">hello world</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#程序结构"><span class="nav-number">2.2.</span> <span class="nav-text">程序结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基础数据类型"><span class="nav-number">2.2.1.</span> <span class="nav-text">基础数据类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#复合数据类型"><span class="nav-number">2.2.2.</span> <span class="nav-text">复合数据类型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数"><span class="nav-number">2.3.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法"><span class="nav-number">2.4.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口"><span class="nav-number">2.5.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#goroutine和通道"><span class="nav-number">2.6.</span> <span class="nav-text">goroutine和通道</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#共享变量"><span class="nav-number">2.7.</span> <span class="nav-text">共享变量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#goroutine与线程区别"><span class="nav-number">2.7.1.</span> <span class="nav-text">goroutine与线程区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#包和工具"><span class="nav-number">2.8.</span> <span class="nav-text">包和工具</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#go工具"><span class="nav-number">2.8.1.</span> <span class="nav-text">go工具</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试"><span class="nav-number">2.9.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反射"><span class="nav-number">2.10.</span> <span class="nav-text">反射</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#低级编程"><span class="nav-number">2.11.</span> <span class="nav-text">低级编程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用书"><span class="nav-number">3.</span> <span class="nav-text">用书</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#目前业务"><span class="nav-number">3.0.1.</span> <span class="nav-text">目前业务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#技术学习"><span class="nav-number">3.0.2.</span> <span class="nav-text">技术学习</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#职业发展"><span class="nav-number">3.0.3.</span> <span class="nav-text">职业发展</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王成飞</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
