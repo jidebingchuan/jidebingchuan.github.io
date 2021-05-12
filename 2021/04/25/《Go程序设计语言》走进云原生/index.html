@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="王成飞博客">
 <meta property="og:description" content="选书2019年接触过一段go，一些docker、k18s等容器组件也都用go实现开发，云服务发展普及后，虚拟化、微服务、数据库、消息等中间件越来越多的用go语言实现，可以说已经形成一个比较明显的趋势。 从行业的岗位数量来看，go语言的岗位也是越来越多的，从BAT、TMD等公司的核心服务看，之后重构的方向是两个，商业化相关的还是Java为主，中台、中间件、核心服务越来越多的迁移到go语言上。 从后续">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2021-04-26T05:53:20.672Z">
+<meta property="og:updated_time" content="2021-04-28T00:42:50.290Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《Go程序设计语言》走进云原生">
 <meta name="twitter:description" content="选书2019年接触过一段go，一些docker、k18s等容器组件也都用go实现开发，云服务发展普及后，虚拟化、微服务、数据库、消息等中间件越来越多的用go语言实现，可以说已经形成一个比较明显的趋势。 从行业的岗位数量来看，go语言的岗位也是越来越多的，从BAT、TMD等公司的核心服务看，之后重构的方向是两个，商业化相关的还是Java为主，中台、中间件、核心服务越来越多的迁移到go语言上。 从后续">
@@ -398,7 +398,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2021-04-26 13:53:20" itemprop="dateModified" datetime="2021-04-26T13:53:20+08:00">2021-04-26</time>
+                <time title="Modified: 2021-04-28 08:42:50" itemprop="dateModified" datetime="2021-04-28T08:42:50+08:00">2021-04-28</time>
               
             
           </span>
@@ -436,16 +436,14 @@
 <p>从行业的岗位数量来看，go语言的岗位也是越来越多的，从BAT、TMD等公司的核心服务看，之后重构的方向是两个，商业化相关的还是Java为主，中台、中间件、核心服务越来越多的迁移到go语言上。</p>
 <p>从后续个人职业发展的技术栈和市场看，go语言的掌握是必要和有益的。</p>
 <p>这本书的厚度适中、介绍了go比较核心的一些语言特性，协程、通道、锁、接口、反射、unsafe和cgo等；书评还不错，翻译中有比较明显的错别字，例如把崩溃翻译成了奔溃，整体来说还算易读。</p>
-<h3 id="读书"><a href="#读书" class="headerlink" title="读书"></a>读书</h3><h4 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world"></a>hello world</h4><p>`</p>
-<p>package main</p>
-<p>import (</p>
-<p>​    “fmt”</p>
-<p>​    “os”</p>
-<p>)</p>
-<p>func main(){</p>
-<p>​    fmt.Println(“Hello, 世界”)</p>
-<p>}</p>
-<p>`</p>
+<h3 id="读书"><a href="#读书" class="headerlink" title="读书"></a>读书</h3><h4 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world"></a>hello world</h4><p><code>package main</code></p>
+<p><code>import (</code></p>
+<p>​    <code>&quot;fmt&quot;</code></p>
+<p>​    <code>&quot;os&quot;</code></p>
+<p><code>)</code></p>
+<p><code>func main(){</code></p>
+<p>​    <code>fmt.Println(&quot;Hello, 世界&quot;)</code></p>
+<p><code>}</code></p>
 <p>hello的特点：</p>
 <ul>
 <li>经常用到打印后换行的功能需要拼接PHP_EOL，go的思路是将常用场景的功能封装到系统函数里，可以说语言的设计思路是将常用的场景封装为函数。</li>
@@ -483,7 +481,7 @@
 <li>作用域是声明在程序文本中出现的区域，是个编译时属性</li>
 <li>生命周期是是变量在程序执行期间能被程序的其他部分所引用的起止时间，是运行时属性</li>
 </ul>
-<h5 id="基础数据类型"><a href="#基础数据类型" class="headerlink" title="基础数据类型"></a>基础数据类型</h5><p>整形</p>
+<h4 id="基础数据类型"><a href="#基础数据类型" class="headerlink" title="基础数据类型"></a>基础数据类型</h4><p>整形</p>
 <ul>
 <li>int8 int16 int32 int64 有符号</li>
 <li>uint8 uint16 uint32 uint64 无符号</li>
@@ -519,7 +517,7 @@
 <li>const (a = value b = value)</li>
 <li>常量生成器iota</li>
 </ul>
-<h5 id="复合数据类型"><a href="#复合数据类型" class="headerlink" title="复合数据类型"></a>复合数据类型</h5><p>数组</p>
+<h4 id="复合数据类型"><a href="#复合数据类型" class="headerlink" title="复合数据类型"></a>复合数据类型</h4><p>数组</p>
 <ul>
 <li>具有固定长度的，具有零个或多个相同数据类型元素的序列</li>
 <li>var a [3]int</li>
@@ -614,7 +612,7 @@
 <li>package声明包</li>
 <li>空导入 import _ “image/png”，避免导入未使用编译错误</li>
 </ul>
-<h5 id="go工具"><a href="#go工具" class="headerlink" title="go工具"></a>go工具</h5><ul>
+<h4 id="go工具"><a href="#go工具" class="headerlink" title="go工具"></a>go工具</h4><ul>
 <li>工作空间组织：src bin pkg</li>
 <li>包下载：go get</li>
 <li>包构建：go build</li>
@@ -1012,7 +1010,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#选书"><span class="nav-number">1.</span> <span class="nav-text">选书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读书"><span class="nav-number">2.</span> <span class="nav-text">读书</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hello-world"><span class="nav-number">2.1.</span> <span class="nav-text">hello world</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#程序结构"><span class="nav-number">2.2.</span> <span class="nav-text">程序结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基础数据类型"><span class="nav-number">2.2.1.</span> <span class="nav-text">基础数据类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#复合数据类型"><span class="nav-number">2.2.2.</span> <span class="nav-text">复合数据类型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数"><span class="nav-number">2.3.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法"><span class="nav-number">2.4.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口"><span class="nav-number">2.5.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#goroutine和通道"><span class="nav-number">2.6.</span> <span class="nav-text">goroutine和通道</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#共享变量"><span class="nav-number">2.7.</span> <span class="nav-text">共享变量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#goroutine与线程区别"><span class="nav-number">2.7.1.</span> <span class="nav-text">goroutine与线程区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#包和工具"><span class="nav-number">2.8.</span> <span class="nav-text">包和工具</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#go工具"><span class="nav-number">2.8.1.</span> <span class="nav-text">go工具</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试"><span class="nav-number">2.9.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反射"><span class="nav-number">2.10.</span> <span class="nav-text">反射</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#低级编程"><span class="nav-number">2.11.</span> <span class="nav-text">低级编程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用书"><span class="nav-number">3.</span> <span class="nav-text">用书</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#目前业务"><span class="nav-number">3.0.1.</span> <span class="nav-text">目前业务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#技术学习"><span class="nav-number">3.0.2.</span> <span class="nav-text">技术学习</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#职业发展"><span class="nav-number">3.0.3.</span> <span class="nav-text">职业发展</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#选书"><span class="nav-number">1.</span> <span class="nav-text">选书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读书"><span class="nav-number">2.</span> <span class="nav-text">读书</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hello-world"><span class="nav-number">2.1.</span> <span class="nav-text">hello world</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#程序结构"><span class="nav-number">2.2.</span> <span class="nav-text">程序结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基础数据类型"><span class="nav-number">2.3.</span> <span class="nav-text">基础数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复合数据类型"><span class="nav-number">2.4.</span> <span class="nav-text">复合数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数"><span class="nav-number">2.5.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法"><span class="nav-number">2.6.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口"><span class="nav-number">2.7.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#goroutine和通道"><span class="nav-number">2.8.</span> <span class="nav-text">goroutine和通道</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#共享变量"><span class="nav-number">2.9.</span> <span class="nav-text">共享变量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#goroutine与线程区别"><span class="nav-number">2.9.1.</span> <span class="nav-text">goroutine与线程区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#包和工具"><span class="nav-number">2.10.</span> <span class="nav-text">包和工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#go工具"><span class="nav-number">2.11.</span> <span class="nav-text">go工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试"><span class="nav-number">2.12.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反射"><span class="nav-number">2.13.</span> <span class="nav-text">反射</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#低级编程"><span class="nav-number">2.14.</span> <span class="nav-text">低级编程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用书"><span class="nav-number">3.</span> <span class="nav-text">用书</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#目前业务"><span class="nav-number">3.0.1.</span> <span class="nav-text">目前业务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#技术学习"><span class="nav-number">3.0.2.</span> <span class="nav-text">技术学习</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#职业发展"><span class="nav-number">3.0.3.</span> <span class="nav-text">职业发展</span></a></li></ol></li></ol></div>
             
 
           </div>
